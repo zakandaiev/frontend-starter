@@ -37,25 +37,25 @@
 			height: 1.5em;
 			color: #fff;
 			background-color: #fff;
-			mask-image: url("/img/icons/info.svg");
+			mask-image: url("../img/icons/info.svg");
 			mask-repeat: no-repeat;
 			mask-position: center;
 			mask-size: contain;
 		}
 		&.success {
 			background-color: $color-success;
-			&::before {mask-image: url("/img/icons/check.svg");}
+			&::before {mask-image: url("../img/icons/check.svg");}
 		}
 		&.info {
 			background-color: $color-info;
 		}
 		&.warning {
 			background-color: $color-warning;
-			&::before {mask-image: url("/img/icons/exclamation.svg");}
+			&::before {mask-image: url("../img/icons/exclamation.svg");}
 		}
 		&.error {
 			background-color: $color-error;
-			&::before {mask-image: url("/img/icons/close-circle.svg");}
+			&::before {mask-image: url("../img/icons/close-circle.svg");}
 		}
 		// animations
 		animation-name: toast_appear;
