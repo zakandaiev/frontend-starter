@@ -1,0 +1,163 @@
+/* ==========  Flexbox  ========== */
+.d-flex {
+	display: flex;
+}
+.flex-wrap {
+	flex-wrap: wrap;
+}
+.flex-column {
+	flex-direction: column;
+}
+.justify-content-start {
+	justify-content: flex-start;
+}
+.justify-content-center {
+	justify-content: center;
+}
+.justify-content-end {
+	justify-content: flex-end;
+}
+.justify-content-between {
+	justify-content: space-between;
+}
+.justify-content-around {
+	justify-content: space-around;
+}
+.justify-content-evenly {
+	justify-content: space-evenly;
+}
+.align-items-start {
+	align-items: flex-start;
+}
+.align-items-center {
+	align-items: center;
+}
+.align-items-end {
+	align-items: flex-end;
+}
+.align-self-start {
+	align-self: flex-start;
+}
+.align-self-center {
+	align-self: center;
+}
+.align-self-end {
+	align-self: flex-end;
+}
+
+/* ==========  Margins/Paddings  ========== */
+.m-none {
+	margin: 0;
+}
+.p-none {
+	padding: 0;
+}
+$indent-step: 0.5;
+@for $i from 1 through 6 {
+	.m-t-#{$i} {
+		margin-top: #{$i * $indent-step}em;
+	}
+	.p-t-#{$i} {
+		padding-top: #{$i * $indent-step}em;
+	}
+	.m-r-#{$i} {
+		margin-right: #{$i * $indent-step}em;
+	}
+	.p-r-#{$i} {
+		padding-right: #{$i * $indent-step}em;
+	}
+	.m-b-#{$i} {
+		margin-bottom: #{$i * $indent-step}em;
+	}
+	.p-b-#{$i} {
+		padding-bottom: #{$i * $indent-step}em;
+	}
+	.m-l-#{$i} {
+		margin-left: #{$i * $indent-step}em;
+	}
+	.p-l-#{$i} {
+		padding-left: #{$i * $indent-step}em;
+	}
+}
+
+/* ==========  Text  ========== */
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.font-normal {
+	font-weight: $font-normal;
+}
+.font-bold {
+	font-weight: $font-bold;
+}
+.text-upper {
+	text-transform: uppercase;
+}
+.text-lower {
+	text-transform: lowercase;
+}
+.text-capitalize {
+	text-transform: capitalize;
+}
+
+/* ==========  Decorations  ========== */
+.bordered {
+	text-decoration: none;
+	border-bottom: 1px dotted $color-primary;
+	transition: $transition;
+	&:hover {
+		text-decoration: none;
+		border-bottom-color: transparent;
+	}
+}
+.border-radius {
+	border-radius: $brs;
+}
+
+/* ==========  Tables  ========== */
+.table-fixed {
+	table-layout: fixed;
+}
+
+/* ==========  Visibility  ========== */
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+/* ==========  Primary colors  ========== */
+.color-primary {
+	color: $color-primary;
+}
+.background-primary {
+	background-color: $color-primary;
+}
+
+/* ==========  Cursors  ========== */
+.cursor-pointer {
+	cursor: pointer;
+}
+.cursor-default {
+	cursor: default;
+}
+
+/* ==========  Position  ========== */
+.position-static {
+	position: static;
+}
+.position-relative {
+	position: relative;
+}
+.position-sticky {
+	position: sticky;
+	top: 0;
+	height: auto;
+	max-height: 100vh;
+	overflow-y: auto;
+}

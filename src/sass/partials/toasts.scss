@@ -1,0 +1,68 @@
+.toasts {
+	position: fixed;
+	z-index: 100;
+	width: 25em;
+	bottom: 1em;
+	right: 1em;
+	display: flex;
+	flex-direction: column;
+	&__item {
+		display: block;
+		width: 100%;
+		border-radius: $brs;
+		padding: 1em 1em 1em 3.5em;
+		box-shadow: 0 0 0.3em #999;
+		background-color: #303030;
+		color: #fff;
+		opacity: 0.9;
+		cursor: pointer;
+		overflow: hidden;
+		position: relative;
+		transition: $transition;
+		&:not(:last-child) {
+			margin-bottom: 0.6em;
+		}
+		&:hover {
+			opacity: 1;
+			box-shadow: 0 0 0.3em #000;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 1em;
+			width: 1.5em;
+			height: 1.5em;
+			color: #fff;
+			background-color: #fff;
+			mask-image: url("/img/icons/info.svg");
+			mask-repeat: no-repeat;
+			mask-position: center;
+			mask-size: contain;
+		}
+		&.success {
+			background-color: $color-success;
+			&::before {mask-image: url("/img/icons/check.svg");}
+		}
+		&.info {
+			background-color: $color-info;
+		}
+		&.warning {
+			background-color: $color-warning;
+			&::before {mask-image: url("/img/icons/exclamation.svg");}
+		}
+		&.error {
+			background-color: $color-error;
+			&::before {mask-image: url("/img/icons/close-circle.svg");}
+		}
+		// animations
+		animation-name: toast_appear;
+		animation-duration: 0.5s;
+		animation-fill-mode: both;
+		&.disappear {
+			animation-name: toast_disappear;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 calc(-1 * $row_gap / 2);
+	&.fill > .col {
+		flex: 1 0 auto;
+		&.fill {
+			flex: 2 0 auto;
+		}
+	}
+}
+
+.col,
+[class^="col-"] {
+	width: 100%;
+	padding: 0 calc($row_gap / 2);
+}
+
+@each $bp, $val in $breakpoints {
+	@media (min-width: $val) {
+		// COLS - GENERAL CLASS FOR .row
+		@for $i from 1 through 12 {
+			.row.cols-#{$bp}-#{$i} > .col {
+				width: calc(100% / $i);
+			}
+		}
+		// COLS - SINGLE CLASS FOR .col
+		@for $i from 1 through 12 {
+			.col-#{$bp}-#{$i} {
+				width: calc(100% / 12) * $i;
+			}
+		}
+		// OFFSETS
+		@for $i from 1 through 12 {
+			.offset-#{$bp}-#{$i} {
+				margin-left: calc(100% / 12) * $i;
+			}
+		}
+	}
+}
+
+// ROW GAP
+.row.row-gap {
+	margin-bottom: -#{$row_gap};
+}
+.row.row-gap > .col,
+.row.row-gap > [class^="col-"] {
+	margin-bottom: #{$row_gap};
+}
+@each $bp, $val in $breakpoints_reverse {
+	@media (max-width: $val) {
+		.row.row-gap-#{$bp} {
+			margin-bottom: -#{$row_gap};
+		}
+		.row.row-gap-#{$bp} > .col,
+		.row.row-gap-#{$bp} > [class^="col-"] {
+			margin-bottom: #{$row_gap};
+		}
+	}
+}

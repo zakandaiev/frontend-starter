@@ -1,0 +1,45 @@
+{
+	"name": "frontend-starter",
+	"version": "1.0.0",
+	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
+	"keywords": ["frontend", "starter", "boilerplate", "kit", "gulp", "html", "css", "sass", "scss", "javascript", "js", "es6", "optimized", "autoprefixer", "babel", "browsersync", "webp", "404", "grid", "htaccess", "robots.txt", "sitemap.xml", "favicon"],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zakandaiev/frontend-starter"
+	},
+	"main": "index.js",
+	"scripts": {
+		"dev": "gulp",
+		"prod": "gulp --prod"
+	},
+	"browserslist": ["last 10 versions", "not dead"],
+	"babel": {"presets": ["@babel/preset-env"]},
+	"author": "github.com/zakandaiev",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"browser-sync": "^2.27.7",
+		"del": "^6.0.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-file-include": "^2.3.0",
+		"gulp-group-css-media-queries": "^1.2.2",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-load-plugins": "^2.0.7",
+		"gulp-newer": "^1.4.0",
+		"gulp-sass": "^5.0.0",
+		"gulp-ttf2woff2": "^4.0.1",
+		"gulp-uglify": "^3.0.2",
+		"gulp-webp": "^4.0.1",
+		"gulp-webp-css": "^1.1.0",
+		"gulp-webp-html": "^1.0.2",
+		"sass": "^1.44.0"
+	},
+	"dependencies": {
+		"reseter.css": "^2.0.0"
+	}
+}

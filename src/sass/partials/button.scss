@@ -1,0 +1,50 @@
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.btn {
+	@extend %reset-btn;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	max-width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	border: $border $color-primary;
+	padding: 0.8em 1.6em;
+	font-size: inherit;
+	line-height: 1;
+	border-radius: $brs;
+	color: $color-primary;
+	background-color: transparent;
+	transition: $transition;
+	&:hover, &:active {
+		background-color: $color-primary;
+		color: $color-body;
+	}
+	&.fit {
+		width: 100%;
+	}
+	&.icon {
+		min-width: initial;
+		padding: 0.8em;
+		img, svg, i {
+			width: 1em;
+			height: 1em;
+		}
+	}
+	&.primary {
+		background-color: $color-primary;
+		color: $color-body;
+		&:hover, &:active {
+			background-color: lighten($color-primary, 5%);
+		}
+	}
+	&.disabled, &:disabled {
+		background-color: darken($color-primary, 5%);
+		color: $color-text-light;
+		pointer-events: none;
+		cursor: default;
+	}
+}
