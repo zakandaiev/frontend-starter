@@ -3,7 +3,7 @@
 
 // INTERACTIVE ELEMENTS
 const loader = '<div class="loader"><span></span><span></span><span></span><span></span></div>';
-const image_placeholder = '/img/no_image.jpg';
+const image_placeholder = './img/no_image.jpg';
 
 // FUNCTIONS
 function SmoothScrollTo(element) {
