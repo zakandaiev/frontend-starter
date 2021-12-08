@@ -24,9 +24,6 @@ FrontEnd Starter is all-inclusive boilerplate for easy building sites using task
 * Browsersync server & watcher
 * HTML, CSS, JS, Image auto minifier
 * reseter.css
-* Auto generating .woff2 from .ttf fonts
-* Auto generating .webp from images
-* Auto generating code for .webp support in HTML & CSS files
 * .htaccess, robots.txt, sitemap.xml, favicon
 * Predefined styles
 * Easy grid system

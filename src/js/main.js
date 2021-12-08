@@ -54,10 +54,6 @@ window.onload = () => {
 	images.forEach(image => {
 		if(image.complete && typeof image.naturalWidth != "undefined" && image.naturalWidth <= 0) {
 			image.src = image_placeholder;
-			const image_webp = image.previousElementSibling;
-			if(image_webp && image_webp.srcset.includes(".webp")) {
-				image_webp.remove();
-			}
 		}
 	});
 

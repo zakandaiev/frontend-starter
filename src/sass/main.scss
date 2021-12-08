@@ -179,6 +179,9 @@ hr {
 		display: block;
 		width: 100%;
 		margin: 0 0 2em 0;
+		*:last-child {
+			margin-bottom: 0;
+		}
 	}
 	&__footer {
 		display: block;
