@@ -1,4 +1,8 @@
 function makeAlert(type, text, time = 5000) {
+	if(!text.length) {
+		return false;
+	}
+
 	let container = document.querySelector(".toasts");
 	if(!container) {
 		container = document.createElement("div");
@@ -18,6 +22,8 @@ function makeAlert(type, text, time = 5000) {
 	toast.addEventListener("click", () => closeAlert(container, toast));
 
 	setTimeout(() => closeAlert(container, toast), time);
+
+	return true;
 }
 
 function closeAlert(container, toast) {

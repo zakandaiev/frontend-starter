@@ -13,7 +13,7 @@ input[type="button"],
 	text-overflow: ellipsis;
 	border: $border $color-primary;
 	padding: 0.8em 1.6em;
-	font-size: inherit;
+	font: inherit;
 	line-height: 1;
 	border-radius: $brs;
 	color: $color-primary;

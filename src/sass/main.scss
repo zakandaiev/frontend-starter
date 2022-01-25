@@ -36,7 +36,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: inherit;
+	font: inherit;
 	font-weight: $font-bold;
 	line-height: 1.2;
 	margin: 0 0 1em 0;
@@ -101,26 +101,26 @@ table {
 		font-weight: $font-bold;
 		color: $color-heading;
 	}
-	thead th {
+	thead th,
+	thead td {
 		border-bottom: 2px solid darken($color-box, 7%);
 	}
-	td {
+	tbody th,
+	tbody td {
 		border-top: 1px solid darken($color-box, 7%);
 		border-bottom: 1px solid darken($color-box, 7%);
 	}
+	tbody tr:nth-child(2n + 1) th,
 	tbody tr:nth-child(2n + 1) td {
 		background-color: $color-box;
 		input {
 			background-color: $color-body;
 		}
 	}
+	tfoot th,
 	tfoot td {
 		border-top: 2px solid darken($color-box, 7%);
 		border-bottom: none;
-	}
-	.head {
-		font-weight: $font-bold;
-		color: $color-heading;
 	}
 }
 

@@ -1,5 +1,6 @@
 const server = () => {
 	$.browserSync.init({
+		// proxy: "starter.local",
 		server: {
 			baseDir: $.path.root
 		},

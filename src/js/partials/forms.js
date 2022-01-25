@@ -15,9 +15,7 @@ forms.forEach(form => {
 		.then(response => response.json())
 		.then(data => {
 			if(data.success === 1) {
-				if(data.message.length) {
-					makeAlert("success", data.message);
-				}
+				makeAlert("success", data.message);
 				if(form.hasAttribute("data-redirect")) {
 					const redirect = form.getAttribute("data-redirect");
 					if(redirect === "this") {

@@ -1,6 +1,6 @@
 {
 	"name": "frontend-starter",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
 	"keywords": [
 		"frontend",
@@ -47,8 +47,8 @@
 	"author": "github.com/zakandaiev",
 	"license": "MIT",
 	"devDependencies": {
-		"@babel/core": "^7.16.0",
-		"@babel/preset-env": "^7.16.4",
+		"@babel/core": "^7.16.12",
+		"@babel/preset-env": "^7.16.11",
 		"browser-sync": "^2.27.7",
 		"del": "^6.0.0",
 		"gulp": "^4.0.2",
@@ -61,9 +61,9 @@
 		"gulp-imagemin": "^7.1.0",
 		"gulp-load-plugins": "^2.0.7",
 		"gulp-newer": "^1.4.0",
-		"gulp-sass": "^5.0.0",
+		"gulp-sass": "^5.1.0",
 		"gulp-uglify": "^3.0.2",
-		"sass": "^1.44.0"
+		"sass": "^1.49.0"
 	},
 	"dependencies": {
 		"reseter.css": "^2.0.0"

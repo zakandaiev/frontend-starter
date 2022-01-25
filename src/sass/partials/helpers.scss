@@ -105,6 +105,12 @@ $indent-step: 0.5;
 .text-capitalize {
 	text-transform: capitalize;
 }
+.text-normal {
+	font-style: italic;
+}
+.text-italic {
+	font-style: italic;
+}
 
 /* ==========  Decorations  ========== */
 .bordered {

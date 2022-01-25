@@ -3,7 +3,7 @@
 
 // INTERACTIVE ELEMENTS
 const loader = '<div class="loader"><span></span><span></span><span></span><span></span></div>';
-const image_placeholder = './img/no_image.jpg';
+const image_placeholder = '/img/no_image.jpg';
 
 // FUNCTIONS
 function SmoothScrollTo(element) {
@@ -23,15 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// SMOOTH SCROLL
 	anchors.forEach(anchor => {
+		if(anchor.hasAttribute("target") && anchor.getAttribute("target") === "_blank") {
+			anchor.setAttribute("rel", "noopener noreferrer");
+		}
 		anchor.addEventListener("click", event => {
 			const anchor_href = event.currentTarget.getAttribute("href");
-			if(anchor_href.charAt(0) == "#") {
-				event.preventDefault();
-				if(anchor_href.length > 1) { // if #hash is not empty
-					const scroll_to_node = document.querySelector(event.currentTarget.hash);
-					if(scroll_to_node) {
-						SmoothScrollTo(scroll_to_node);
-					}
+			if(anchor_href.charAt(0) === "#" || (anchor_href.charAt(0) === "/" && anchor_href.charAt(1) === "#")) {
+				const scroll_to_node = document.querySelector(event.currentTarget.hash);
+				if(scroll_to_node) {
+					event.preventDefault();
+					SmoothScrollTo(scroll_to_node);
 				}
 			}
 		});
@@ -48,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	@@include("partials/forms.js")
 });
 
-// HANDLE BROKEN IMAGES
 window.onload = () => {
+	// HANDLE BROKEN IMAGES
 	const images = document.querySelectorAll("img");
 	images.forEach(image => {
 		if(image.complete && typeof image.naturalWidth != "undefined" && image.naturalWidth <= 0) {
