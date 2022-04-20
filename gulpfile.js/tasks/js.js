@@ -3,7 +3,7 @@ const js = () => {
 	.pipe($.plugins.fileInclude())
 	.pipe($.plugins.babel())
 	.pipe($.plugins.uglify())
-	.pipe($.gulp.dest($.path.js.dest, {sourcemaps: $.settings.isDev}))
+	.pipe($.gulp.dest($.path.js.dist, {sourcemaps: $.settings.isDev}))
 	.pipe($.browserSync.stream());
 }
 

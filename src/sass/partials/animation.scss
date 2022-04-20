@@ -32,26 +32,3 @@
 		opacity: 0.25;
 	}
 }
-
-@keyframes toast_appear {
-	0% {
-		transform: translateX(120%) scale(0.9) skewX(-10deg);
-	}
-	80% {
-		transform: translateX(0) scale(0.9) skewX(-10deg);
-	}
-	100% {
-		transform: translateX(0) scale(1.0) skewX(0);
-	}
-}
-@keyframes toast_disappear {
-	0% {
-		transform: translateX(0) scale(1.0) skewX(0);
-	}
-	20% {
-		transform: translateX(0) scale(0.9) skewX(10deg);
-	}
-	100% {
-		transform: translateX(120%) scale(0.9) skewX(10deg);
-	}
-}

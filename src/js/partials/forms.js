@@ -1,88 +1,86 @@
-forms.forEach(form => {
-	form.insertAdjacentHTML("beforeend", loader);
+document.querySelectorAll('form').forEach(form => {
+	form.insertAdjacentHTML('beforeend', ELEM.loader);
 
 	formBehavior(form);
 
-	form.addEventListener("submit", event => {
+	form.addEventListener('submit', event => {
 		event.preventDefault();
 		
 		disableForm(form);
 
 		let formData = new FormData(form);
-		// formData.set("csrf_token", csrf_token);
 
-		fetch(form.action, {method: "POST", body: formData})
+		fetch(form.action, {method: 'POST', body: formData})
 		.then(response => response.json())
 		.then(data => {
-			if(data.success === 1) {
-				makeAlert("success", data.message);
-				if(form.hasAttribute("data-redirect")) {
-					const redirect = form.getAttribute("data-redirect");
-					if(redirect === "this") {
+			if(data.status === 'success') {
+				if(form.hasAttribute('data-redirect')) {
+					const redirect = form.getAttribute('data-redirect');
+					if(redirect === 'this') {
 						document.location.reload();
 					} else {
 						window.location.href = redirect;
 					}
 				}
-				if(form.hasAttribute("data-reset")) {
+				if(form.hasAttribute('data-reset')) {
 					form.reset();
 				}
-			} else {
-				makeAlert("error", data.message);
 			}
-			enableForm(form);
+
+			makeAlert(data.status, data.message);
 		})
 		.catch(error => {
-			makeAlert("error", error);
-			enableForm(form);
+			makeAlert('error', error);
 		});
+
+		enableForm(form);
 	});
 });
 
 function formBehavior(form) {
-	const controls = form.querySelectorAll("[data-form-behavior]");
+	const controls = form.querySelectorAll('[data-behavior]');
 
 	function hideItems(control) {
-		let hide = control.getAttribute("data-hide");
-		if(control.getAttribute("type") === "checkbox" && !control.checked) {
+		let hide = control.getAttribute('data-hide');
+		if(control.getAttribute('type') === 'checkbox' && !control.checked) {
 			if(hide) {
-				hide += "," + control.getAttribute("data-show");
+				hide += ',' + control.getAttribute('data-show');
 			} else {
-				hide = control.getAttribute("data-show");
+				hide = control.getAttribute('data-show');
 			}
 		}
-		if(control.getAttribute("type") === "radio" && !control.checked) {
+		if(control.getAttribute('type') === 'radio' && !control.checked) {
 			hide = null;
 		}
 		if(hide) {
-			hide.split(",").forEach(to_hide => {
-				const item = form.querySelector("[name='"+to_hide+"']");
+			hide.split(',').forEach(to_hide => {
+				const item = form.querySelector('[name="' + to_hide + '"]');
 				const parent = item.parentElement;
-				if(parent.classList.contains("form-control")) {
-					parent.classList.add("hidden");
+				if(parent.classList.contains('form-control')) {
+					parent.classList.add('hidden');
 				} else {
-					item.classList.add("hidden");
+					item.classList.add('hidden');
 				}
 			});
 		}
 	}
 
 	function showItems(control) {
-		let show = control.getAttribute("data-show");
-		if(control.getAttribute("type") === "checkbox" && !control.checked) {
+		let show = control.getAttribute('data-show');
+		if(control.getAttribute('type') === 'checkbox' && !control.checked) {
 			show = null;
 		}
-		if(control.getAttribute("type") === "radio" && !control.checked) {
+		if(control.getAttribute('type') === 'radio' && !control.checked) {
 			show = null;
 		}
 		if(show) {
-			show.split(",").forEach(to_show => {
-				const item = form.querySelector("[name='"+to_show+"']");
+			show.split(',').forEach(to_show => {
+				const item = form.querySelector('[name="' + to_show + '"]');
 				const parent = item.parentElement;
-				if(parent.classList.contains("form-control")) {
-					parent.classList.remove("hidden");
+				if(parent.classList.contains('form-control')) {
+					parent.classList.remove('hidden');
 				} else {
-					item.classList.remove("hidden");
+					item.classList.remove('hidden');
 				}
 			});
 		}
@@ -90,13 +88,13 @@ function formBehavior(form) {
 	
 	controls.forEach(control => {
 		// on form init
-		if(control.getAttribute("data-form-behavior") === "visibility") {
+		if(control.getAttribute('data-behavior') === 'visibility') {
 			hideItems(control);
 			showItems(control);
 		}
 		// on form change
-		control.addEventListener("change", event => {
-			if(control.getAttribute("data-form-behavior") === "visibility") {
+		control.addEventListener('change', event => {
+			if(control.getAttribute('data-behavior') === 'visibility') {
 				hideItems(control);
 				showItems(control);
 			}
@@ -105,10 +103,10 @@ function formBehavior(form) {
 }
 
 function disableForm(form) {
-	form.classList.add("submit");
+	form.classList.add('submit');
 	form.querySelector('[type="submit"]').disabled = true;
 }
 function enableForm(form) {
-	form.classList.remove("submit");
+	form.classList.remove('submit');
 	form.querySelector('[type="submit"]').disabled = false;
 }

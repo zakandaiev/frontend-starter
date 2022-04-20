@@ -1,3 +1,22 @@
+$row_gap: 2em;
+
+$breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+);
+
+$breakpoints_reverse: (
+	xs: 575px,
+	sm: 767px,
+	md: 991px,
+	lg: 1199px,
+	xl: 1399px
+);
+
 .row {
 	display: flex;
 	flex-wrap: wrap;
@@ -43,10 +62,12 @@
 .row.row-gap {
 	margin-bottom: -#{$row_gap};
 }
+
 .row.row-gap > .col,
 .row.row-gap > [class^="col-"] {
 	margin-bottom: #{$row_gap};
 }
+
 @each $bp, $val in $breakpoints_reverse {
 	@media (max-width: $val) {
 		.row.row-gap-#{$bp} {

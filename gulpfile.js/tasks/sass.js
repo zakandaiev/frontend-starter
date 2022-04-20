@@ -6,7 +6,7 @@ const sass = () => {
 	.pipe($.plugins.autoprefixer())
 	.pipe($.plugins.groupCssMediaQueries())
 	.pipe($.plugins.cleanCss($.settings.cleanCss))
-	.pipe($.gulp.dest($.path.sass.dest, {sourcemaps: $.settings.isDev}))
+	.pipe($.gulp.dest($.path.sass.dist, {sourcemaps: $.settings.isDev}))
 	.pipe($.browserSync.stream());
 }
 

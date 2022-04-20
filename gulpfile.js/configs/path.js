@@ -1,44 +1,44 @@
 const pathSrc = "./src";
-const pathDest = "./dest";
+const pathDist = "./dist";
 
 module.exports = {
-	root: pathDest,
+	root: pathDist,
 
-	clear: pathDest,
+	clear: pathDist,
 
 	html: {
 		src: pathSrc + "/html/*.html",
 		watch: pathSrc + "/html/**/*.html",
-		dest: pathDest
+		dist: pathDist
 	},
 
 	sass: {
 		src: pathSrc + "/sass/*.{sass,scss}",
 		watch: pathSrc + "/sass/**/*.{sass,scss}",
-		dest: pathDest + "/css"
+		dist: pathDist + "/css"
 	},
 
 	js: {
 		src: pathSrc + "/js/*.js",
 		watch: pathSrc + "/js/**/*.js",
-		dest: pathDest + "/js"
+		dist: pathDist + "/js"
 	},
 
 	img: {
 		src: pathSrc + "/img/**/*.*",
 		watch: pathSrc + "/img/**/*.*",
-		dest: pathDest + "/img"
+		dist: pathDist + "/img"
 	},
 
 	fonts: {
 		src: pathSrc + "/fonts/*.{woff2,ttf}",
 		watch: pathSrc + "/fonts/*.{woff2,ttf}",
-		dest: pathDest + "/fonts"
+		dist: pathDist + "/fonts"
 	},
 
 	rootFiles: {
 		src: pathSrc + "/root-files/**/*.*",
 		watch: pathSrc + "/root-files/**/*.*",
-		dest: pathDest
+		dist: pathDist
 	}
 };
