@@ -1,0 +1,43 @@
+:root {
+	--font: "Open Sans", sans-serif;
+	--font-thin: 200;
+	--font-normal: 400;
+	--font-bold: 600;
+
+	--color-primary: #006DB3;
+	--color-secondary: #da4648;
+
+	--color-success: #28a745;
+	--color-info: #3b7ddd;
+	--color-warning: #ffc107;
+	--color-error: #dc3545;
+
+	--color-body: #FFFFFF;
+	--color-box: #F8F8FA;
+
+	--color-heading: #000000;
+	--color-text: #000000;
+	--color-text-muted: #C4C4C4;
+	--color-link: var(--color-primary);
+	--color-border: #E2E2E2;
+
+	--border: 2px solid;
+	--border-2: 4px solid;
+
+	--radius: 0.3rem;
+
+	--transition: .3s;
+	--transition-all: all var(--transition);
+}
+
+%reset-btn {
+	outline: none;
+	border: none;
+	background: none;
+	box-shadow: none;
+	user-select: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}

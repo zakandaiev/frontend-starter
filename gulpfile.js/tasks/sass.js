@@ -1,12 +1,12 @@
 const gulpSass = require("gulp-sass")(require("sass"));
 
 const sass = () => {
-	return $.gulp.src($.path.sass.src, {sourcemaps: $.settings.isDev})
-	.pipe(gulpSass.sync($.settings.sass).on("error", gulpSass.logError))
-	.pipe($.plugins.autoprefixer())
-	.pipe($.plugins.groupCssMediaQueries())
-	.pipe($.plugins.cleanCss($.settings.cleanCss))
-	.pipe($.gulp.dest($.path.sass.dist, {sourcemaps: $.settings.isDev}))
+	return $.gulp.src($.path.sass.src, {sourcemaps: $.setting.isDev})
+	.pipe(gulpSass.sync($.setting.sass).on("error", gulpSass.logError))
+	.pipe($.plugin.autoprefixer())
+	.pipe($.plugin.groupCssMediaQueries())
+	.pipe($.plugin.cleanCss($.setting.cleanCss))
+	.pipe($.gulp.dest($.path.sass.dist, {sourcemaps: $.setting.isDev}))
 	.pipe($.browserSync.stream());
 }
 

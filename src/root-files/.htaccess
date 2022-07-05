@@ -1,95 +1,100 @@
 AddDefaultCharset UTF-8
 
+############################# REWRITE AND REDIRECTION #############################
 RewriteEngine on
 RewriteBase /
 
-# Errors
-ErrorDocument 400 /404.html
-ErrorDocument 403 /404.html
-ErrorDocument 404 /404.html
-ErrorDocument 405 /404.html
-ErrorDocument 408 /404.html
-ErrorDocument 500 /404.html
-ErrorDocument 502 /404.html
-ErrorDocument 504 /404.html
+## Force non-www
+#RewriteCond %{HTTP_HOST} ^www\.
+#RewriteCond %{HTTPS}s ^on(s)|off
+#RewriteCond http%1://%{HTTP_HOST} ^(https?://)(www\.)?(.+)$
+#RewriteRule ^ %1%3%{REQUEST_URI} [L,R=301]
 
-# Forse SSL
-#RewriteCond %{SERVER_PORT} !^443$
-#RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+## Force HTTPS
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
-# Redirect from www
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+## Remove Trailing Slash
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} (.+)/$
+#RewriteRule ^ %1 [L,R=301]
 
-# Deny access to files starts with .
-<FilesMatch "^\.">
+############################# SECURITY #############################
+## Deny Access to Hidden Files and Directories
+RedirectMatch 404 /\..*$
+
+## Deny Access to Backup and Source Files
+<FilesMatch "(\.(bak|bin|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+	## Apache 2.2
 	Order allow,deny
 	Deny from all
+	Satisfy All
+
+	## Apache 2.4
+	# Require all denied
 </FilesMatch>
 
-# Deny access to directories
-Options -Indexes
-IndexIgnore *
+## Disable Directory Browsing
+Options All -Indexes
 
-# Cache content
-<ifModule mod_expires.c>
-	ExpiresActive On
-	ExpiresDefault "access plus 5 seconds"
-
-	# Cache Images
-	ExpiresByType image/x-icon "access plus 2592000 seconds"
-	ExpiresByType image/jpeg "access plus 2592000 seconds"
-	ExpiresByType image/jpg "access plus 2592000 seconds"
-	ExpiresByType image/png "access plus 2592000 seconds"
-	ExpiresByType image/gif "access plus 2592000 seconds"
-	ExpiresByType image/svg+xml "access plus 2592000 seconds"
-	ExpiresByType image/webp "access plus 2592000 seconds"
-
-	# Cache Fonts
-	ExpiresByType application/x-font "access plus 2592000 seconds"
-	ExpiresByType application/x-font-truetype "access plus 2592000 seconds"
-	ExpiresByType application/x-font-ttf "access plus 2592000 seconds"
-	ExpiresByType application/x-font-woff "access plus 2592000 seconds"
-	ExpiresByType application/x-font-woff2 "access plus 2592000 seconds"
-	ExpiresByType font/ttf "access plus 2592000 seconds"
-	ExpiresByType font/woff "access plus 2592000 seconds"
-	ExpiresByType font/woff2 "access plus 2592000 seconds"
-
-	# Cache other content types (CSS, JS)
-	ExpiresByType text/css "access plus 2592000 seconds"
-	ExpiresByType text/javascript "access plus 2592000 seconds"
-	ExpiresByType application/javascript "access plus 2592000 seconds"
-	ExpiresByType application/x-javascript "access plus 2592000 seconds"
-</ifModule>
-
-<ifModule mod_deflate.c>
-	AddOutputFilterByType DEFLATE text/html
-	AddOutputFilterByType DEFLATE text/css
-	AddOutputFilterByType DEFLATE text/javascript
-	AddOutputFilterByType DEFLATE text/xml
-	AddOutputFilterByType DEFLATE text/plain
-	AddOutputFilterByType DEFLATE image/x-icon
-	AddOutputFilterByType DEFLATE image/svg+xml svg svgz
-	AddOutputFilterByType DEFLATE application/javascript
-	AddOutputFilterByType DEFLATE application/x-javascript
-	AddOutputFilterByType DEFLATE application/xml
-	AddOutputFilterByType DEFLATE application/xhtml+xml
-	AddOutputFilterByType DEFLATE application/x-font
-	AddOutputFilterByType DEFLATE application/x-font-truetype
-	AddOutputFilterByType DEFLATE application/x-font-ttf
-	AddOutputFilterByType DEFLATE application/x-font-woff
-	AddOutputFilterByType DEFLATE application/x-font-woff2
-	AddOutputFilterByType DEFLATE font/ttf
-	AddOutputFilterByType DEFLATE font/woff
-	AddOutputFilterByType DEFLATE font/woff2
-</ifModule>
-
-# Set secutiry headers
+## Set secutiry headers
 <IfModule mod_headers.c>
 	Header set Referrer-Policy "same-origin"
 	Header set X-Frame-Options "SAMEORIGIN"
 	Header set X-XSS-Protection "1; mode=block"
 	Header set X-Content-Type-Options "nosniff"
 	Header set Content-Security-Policy "frame-ancestors 'self'"
-	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+	Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+############################# PERFORMANCE #############################
+## Compress Text Files
+<IfModule mod_deflate.c>
+	<IfModule mod_setenvif.c>
+		<IfModule mod_headers.c>
+			SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+			RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+		</IfModule>
+	</IfModule>
+
+	<IfModule mod_filter.c>
+		AddOutputFilterByType DEFLATE
+			application/javascript \
+			application/json \
+			application/rss+xml \
+			application/vnd.ms-fontobject \
+			application/x-font-ttf \
+			application/x-web-app-manifest+json \
+			application/xhtml+xml \
+			application/xml \
+			font/opentype \
+			image/svg+xml \
+			image/x-icon \
+			text/css \
+			text/html \
+			text/plain \
+			text/x-component \
+			text/xml
+	</IfModule>
+</IfModule>
+
+## Set Expires Headers
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresDefault "access plus 1 month"
+	ExpiresByType application/json "access plus 0 seconds"
+	ExpiresByType application/xml "access plus 0 seconds"
+	ExpiresByType text/xml "access plus 0 seconds"
+	ExpiresByType text/html "access plus 0 seconds"
+	ExpiresByType application/x-web-app-manifest+json "access plus 0 seconds"
+	ExpiresByType text/cache-manifest "access plus 0 seconds"
+	ExpiresByType application/rss+xml "access plus 1 hour"
+</IfModule>
+
+############################# MISCELLANEOUS #############################
+## Allow Cross-Domain Fonts
+<IfModule mod_headers.c>
+	<FilesMatch "\.(eot|otf|ttc|ttf|woff|woff2)$">
+		Header set Access-Control-Allow-Origin "*"
+	</FilesMatch>
 </IfModule>

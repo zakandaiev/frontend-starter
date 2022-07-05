@@ -1,8 +1,9 @@
-# FrontEnd Starter
-FrontEnd Starter is all-inclusive boilerplate for easy building sites using task manager Gulp 4
-* Examples on [https://zakandaiev.github.io/frontend-starter](https://zakandaiev.github.io/frontend-starter)
+<img width=150 align="right" src="https://raw.githubusercontent.com/zakandaiev/frontend-starter/main/src/root-files/favicon.svg" alt="HTML Logo">
 
-# How to use
+# FrontEnd Starter
+Is all-inclusive boilerplate for easy building sites using task manager Gulp 4
+
+## How to use
 1. Download/Clone [FrontEnd Starter from GitHub](https://github.com/zakandaiev/frontend-starter)
 2. Install Node Modules using `npm i`
 3. Explore `package.json` & `gulpfile.js` to learn how it works
@@ -12,25 +13,22 @@ FrontEnd Starter is all-inclusive boilerplate for easy building sites using task
 	* `npm run prod` or `gulp --prod` task to start Prod mode
 6. Enjoy ;)
 
-# Features
+## Features
 * Well thought-out structure
 * Dev & Prod modes
-* Gulp 4
+* Gulp 4 task manager
 * HTML5 and CSS3 ready
 * SASS/SCSS preprocessor
 * File include engine
 * Autoprefixer
 * Babel
 * Browsersync server & watcher
-* HTML, CSS, JS, Image auto minifier
+* HTML, CSS, JS, images auto minifier
 * reseter.css
 * .htaccess, robots.txt, sitemap.xml, favicon
-* Predefined styles
-* Easy grid system
-* Helper classes
-* Cross-browser compatibility
+* SEO friendly
 * 404 page
 * And more...
 
-# Homepage
+## Homepage
 [https://zakandaiev.github.io/frontend-starter](https://zakandaiev.github.io/frontend-starter)

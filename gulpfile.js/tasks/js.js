@@ -1,9 +1,9 @@
 const js = () => {
-	return $.gulp.src($.path.js.src, {sourcemaps: $.settings.isDev})
-	.pipe($.plugins.fileInclude())
-	.pipe($.plugins.babel())
-	.pipe($.plugins.uglify())
-	.pipe($.gulp.dest($.path.js.dist, {sourcemaps: $.settings.isDev}))
+	return $.gulp.src($.path.js.src, {sourcemaps: $.setting.isDev})
+	.pipe($.plugin.fileInclude())
+	.pipe($.plugin.babel())
+	.pipe($.plugin.uglify())
+	.pipe($.gulp.dest($.path.js.dist, {sourcemaps: $.setting.isDev}))
 	.pipe($.browserSync.stream());
 }
 

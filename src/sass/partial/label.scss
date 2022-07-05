@@ -1,0 +1,33 @@
+.label {
+	display: inline-block;
+	padding: 0.4em;
+	border-radius: 0.3em;
+	font-size: 0.6em;
+	font-weight: var(--font-bold);
+	line-height: 1;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	&_primary {
+		color: #fff;
+		background-color: var(--color-primary);
+	}
+	&_success {
+		color: #fff;
+		background-color: var(--color-success);
+	}
+	&_info {
+		color: #fff;
+		background-color: var(--color-info);
+	}
+	&_warning {
+		color: #fff;
+		background-color: var(--color-warning);
+	}
+	&_error {
+		color: #fff;
+		background-color: var(--color-error);
+	}
+}

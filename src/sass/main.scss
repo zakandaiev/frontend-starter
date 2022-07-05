@@ -2,16 +2,10 @@
 @import "reseter.css/css/reseter.min";
 
 /* ==========  Variables, Mixins, Fonts  ========== */
-@import "configs/vars";
-@import "configs/fonts";
+@import "config/vars";
+@import "config/font";
 
 /* ==========  Global  ========== */
-*, *::before, *::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
 html, body {
 	width: 100%;
 	min-height: 100vh;
@@ -22,14 +16,14 @@ html, body {
 body {
 	display: flex;
 	flex-direction: column;
-	font-family: $font;
-	font-size: 1.4rem;
-	font-weight: $font-normal;
-	line-height: 1.6;
 	position: relative;
 	overflow-x: hidden;
-	color: $color-text;
-	background-color: $color-body;
+	font-family: var(--font);
+	font-size: 1.4rem;
+	font-weight: var(--font-normal);
+	line-height: 1.6;
+	color: var(--color-text);
+	background-color: var(--color-body);
 	@media (max-width: 768px) {
 		line-height: 1.2;
 	}
@@ -37,10 +31,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font: inherit;
-	font-weight: $font-bold;
+	font-weight: var(--font-bold);
 	line-height: 1.2;
+	color: var(--color-heading);
 	margin: 0 0 1em 0;
-	color: $color-heading;
 }
 h1 {font-size: 2.8em;}
 h2 {font-size: 2.2em;}
@@ -55,11 +49,17 @@ p {
 
 a {
 	text-decoration: none;
-	color: $color-link;
+	color: var(--color-link);
+	border-bottom: 1px dotted var(--color-primary);
+	transition: var(--transition-all);
+	&:hover {
+		text-decoration: none;
+		border-bottom-color: transparent;
+	}
 }
 
 b, strong {
-	font-weight: $font-bold;
+	font-weight: var(--font-bold);
 }
 
 img, svg, picture {
@@ -69,23 +69,23 @@ img, svg, picture {
 svg {
 	display: inline;
 	height: 1em;
-	vertical-align: top;
 }
 
 blockquote {
-	margin: 0;
-	border-left: $border-3x $color-text-light;
+	display: block;
+	width: 100%;
 	margin: 0 0 1em 0;
 	padding: 0.5em 0 0.5em 1.5em;
 	font-style: italic;
+	border-left: var(--border-2) var(--color-text-muted);
 }
 
 ul, ol {
 	margin: 0 0 1em 0;
 	padding-left: 1.3em;
-}
-ul li::marker {
-	color: $color-text-light;
+	li::marker {
+		color: var(--color-text-muted);
+	}
 }
 
 table {
@@ -98,29 +98,8 @@ table {
 		padding: 0.75em;
 	}
 	th {
-		font-weight: $font-bold;
-		color: $color-heading;
-	}
-	thead th,
-	thead td {
-		border-bottom: 2px solid darken($color-box, 7%);
-	}
-	tbody th,
-	tbody td {
-		border-top: 1px solid darken($color-box, 7%);
-		border-bottom: 1px solid darken($color-box, 7%);
-	}
-	tbody tr:nth-child(2n + 1) th,
-	tbody tr:nth-child(2n + 1) td {
-		background-color: $color-box;
-		input {
-			background-color: $color-body;
-		}
-	}
-	tfoot th,
-	tfoot td {
-		border-top: 2px solid darken($color-box, 7%);
-		border-bottom: none;
+		font-weight: var(--font-bold);
+		color: var(--color-heading);
 	}
 }
 
@@ -128,8 +107,6 @@ table {
 	display: block;
 	width: 100%;
 	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 figure {
@@ -150,17 +127,18 @@ hr {
 	margin: 1em 0;
 }
 
+::placeholder {
+	color: var(--color-text-muted);
+}
+
 /* ==========  Custom  ========== */
 .container {
 	display: block;
 	width: 100%;
 	max-width: 100em;
 	margin: 0 auto;
-	padding: 0 4em;
+	padding: 0 2em;
 	position: relative;
-	@media (max-width: 575px) {
-		padding: 0 2em;
-	}
 }
 
 .page-content {
@@ -189,126 +167,22 @@ hr {
 		margin: 2em 0 0 0;
 	}
 	&_offset {
-		padding: 4em 0;
+		padding: 2em 0;
 	}
 	&_offset-top {
-		padding-top: 4em;
+		padding-top: 2em;
 	}
 	&_offset-bottom {
-		padding-bottom: 4em;
+		padding-bottom: 2em;
 	}
 	&_primary {
-		background-color: $color-primary;
+		background-color: var(--color-primary);
 		* {color: #fff}
 	}
 }
 
-.loader {
-	display: inline-block;
-	width: 5.5em;
-	height: 2em;
-	position: relative;
-	span {
-		position: absolute;
-		width: 1em;
-		height: 1em;
-		border-radius: 50%;
-		background-color: $color-primary;
-		animation: loader_anim 1s infinite ease-in-out;
-		&:nth-child(1) {
-			left: 0;
-		}
-		&:nth-child(2) {
-			left: 1.5em;
-			animation-delay: 0.1s;
-		}
-		&:nth-child(3) {
-			left: 3em;
-			animation-delay: 0.2s;
-		}
-		&:nth-child(4) {
-			left: 4.5em;
-			animation-delay: 0.3s;
-		}
-	}
-}
-.btn .loader {
-	width: 3.5em;
-	height: 1em;
-	span {
-		width: 0.5em;
-		height: 0.5em;
-		background-color: #fff;
-		animation-name: loader_anim_btn;
-		&:nth-child(1) {
-			left: 0;
-		}
-		&:nth-child(2) {
-			left: 1em;
-		}
-		&:nth-child(3) {
-			left: 2em;
-		}
-		&:nth-child(4) {
-			left: 3em;
-		}
-	}
-}
+@import "partial/header";
+@import "partial/footer";
 
-.box {
-	display: block;
-	width: 100%;
-	padding: 2em;
-	border-radius: $brs;
-	background-color: $color-box;
-	position: relative;
-	&_primary {
-		background-color: $color-primary;
-		* {color: #fff}
-	}
-}
-
-.label {
-	display: inline-block;
-	padding: 0.4em;
-	border-radius: 0.3rem;
-	font-size: 0.7em;
-	font-weight: $font-bold;
-	line-height: 1;
-	text-align: center;
-	vertical-align: middle;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	&.primary {
-		color: #fff;
-		background-color: $color-primary;
-	}
-	&.success {
-		color: #fff;
-		background-color: $color-success;
-	}
-	&.info {
-		color: #fff;
-		background-color: $color-info;
-	}
-	&.warning {
-		color: #fff;
-		background-color: $color-warning;
-	}
-	&.error {
-		color: #fff;
-		background-color: $color-error;
-	}
-}
-
-@import "partials/animation";
-@import "partials/button";
-@import "partials/form";
-@import "partials/grid";
-@import "partials/toasts";
-
-@import "partials/header";
-@import "partials/footer";
-
-@import "partials/helpers";
+@import "partial/label";
+@import "partial/helper";
