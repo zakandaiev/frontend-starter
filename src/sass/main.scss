@@ -35,6 +35,9 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	color: var(--color-heading);
 	margin: 0 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 h1 {font-size: 2.8em;}
 h2 {font-size: 2.2em;}
@@ -45,13 +48,16 @@ h6 {font-size: 1em;}
 
 p {
 	margin: 0 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 a {
 	text-decoration: none;
 	color: var(--color-link);
 	border-bottom: 1px dotted var(--color-primary);
-	transition: var(--transition-all);
+	transition: var(--transition);
 	&:hover {
 		text-decoration: none;
 		border-bottom-color: transparent;
@@ -75,6 +81,9 @@ blockquote {
 	display: block;
 	width: 100%;
 	margin: 0 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 	padding: 0.5em 0 0.5em 1.5em;
 	font-style: italic;
 	border-left: var(--border-2) var(--color-text-muted);
@@ -82,7 +91,10 @@ blockquote {
 
 ul, ol {
 	margin: 0 0 1em 0;
-	padding-left: 1.3em;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	padding-left: 1.4em;
 	li::marker {
 		color: var(--color-text-muted);
 	}
@@ -93,6 +105,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin: 0 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 	text-align: left;
 	th, td {
 		padding: 0.75em;
@@ -111,12 +126,18 @@ table {
 
 figure {
 	margin: 0 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 iframe {
 	display: block;
 	width: 100%;
 	margin: 0 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 	border: none;
 	box-shadow: none;
 }
@@ -156,7 +177,6 @@ hr {
 	&__content {
 		display: block;
 		width: 100%;
-		margin: 0 0 2em 0;
 		*:last-child {
 			margin-bottom: 0;
 		}

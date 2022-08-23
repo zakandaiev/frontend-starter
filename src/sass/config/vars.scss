@@ -26,8 +26,8 @@
 
 	--radius: 0.3rem;
 
-	--transition: .3s;
-	--transition-all: all var(--transition);
+	--transition-time: 0.3s;
+	--transition: all var(--transition-time);
 }
 
 %reset-btn {

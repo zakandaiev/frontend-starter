@@ -1,1 +1,1 @@
-"use strict";const BASE_URL=window.location.protocol+"//"+window.location.host;document.addEventListener("DOMContentLoaded",()=>{console.log("%cMade by Zakandaiev","background:#da4648;color:#fff;padding:10px;font-weight:bold;")});
+"use strict";const BASE_URL=window.location.protocol+"//"+window.location.host;document.addEventListener("DOMContentLoaded",(()=>{console.log("%cMade by Zakandaiev","background:#da4648;color:#fff;padding:10px;font-weight:bold;")}));

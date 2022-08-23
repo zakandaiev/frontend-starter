@@ -122,7 +122,7 @@ $indent-step: 0.5;
 .text-bordered {
 	text-decoration: none;
 	border-bottom: 1px dotted var(--color-primary);
-	transition: var(--transition-all);
+	transition: var(--transition);
 	&:hover {
 		text-decoration: none;
 		border-bottom-color: transparent;
@@ -138,6 +138,9 @@ $indent-step: 0.5;
 }
 
 /* ==========  Visibility  ========== */
+.d-none {
+	display: none;
+}
 .hidden {
 	display: none;
 	visibility: hidden;
