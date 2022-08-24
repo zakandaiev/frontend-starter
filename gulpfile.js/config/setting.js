@@ -38,6 +38,7 @@ module.exports = {
 		includePaths: ['node_modules']
 	},
 	autoprefixer: {
+		cascade: !isProd,
 		grid: false
 	},
 	cleanCss: {

@@ -11,15 +11,15 @@ global.$ = {
 }
 
 // Tasks
-const clear = require('./tasks/clear.js');
-const server = require('./tasks/server.js');
+const clear = require('./task/clear.js');
+const server = require('./task/server.js');
 
-const html = require('./tasks/html.js');
-const sass = require('./tasks/sass.js');
-const js = require('./tasks/js.js');
-const img = require('./tasks/img.js');
-const font = require('./tasks/font.js');
-const rootFiles = require('./tasks/rootFiles.js');
+const html = require('./task/html.js');
+const sass = require('./task/sass.js');
+const js = require('./task/js.js');
+const img = require('./task/img.js');
+const font = require('./task/font.js');
+const rootFiles = require('./task/rootFiles.js');
 
 // Watcher
 const watch = () => {

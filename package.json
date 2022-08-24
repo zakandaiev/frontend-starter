@@ -1,6 +1,6 @@
 {
 	"name": "frontend-starter",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
 	"keywords": [
 		"frontend",
