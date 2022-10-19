@@ -10,7 +10,7 @@ global.$ = {
 	setting: require('./config/setting.js')
 }
 
-// Tasks
+// TASKS
 const clear = require('./task/clear.js');
 const server = require('./task/server.js');
 
@@ -21,17 +21,17 @@ const img = require('./task/img.js');
 const font = require('./task/font.js');
 const rootFiles = require('./task/rootFiles.js');
 
-// Watcher
+// WATCHER
 const watch = () => {
 	$.gulp.watch($.path.html.watch, html).on('change', $.browserSync.reload);
-	$.gulp.watch($.path.sass.watch, sass).on('change', $.browserSync.reload);
+	$.gulp.watch($.path.sass.watch, sass);
 	$.gulp.watch($.path.js.watch, js).on('change', $.browserSync.reload);
 	$.gulp.watch($.path.img.watch, img).on('change', $.browserSync.reload);
 	$.gulp.watch($.path.font.watch, font).on('change', $.browserSync.reload);
 	$.gulp.watch($.path.rootFiles.watch, rootFiles).on('change', $.browserSync.reload);
 }
 
-// Build
+// BUILD
 const build = $.gulp.series(
 	clear,
 	$.gulp.parallel(html, sass, js, img, font, rootFiles)
@@ -41,7 +41,7 @@ const dev = $.gulp.series(
 	$.gulp.parallel(watch, server)
 );
 
-// Export tasks
+// EXPORT TASKS
 exports.clear = clear;
 exports.html = html;
 exports.sass = sass;
