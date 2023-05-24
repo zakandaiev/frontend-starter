@@ -1,7 +1,7 @@
 <img width=150 align="right" src="https://raw.githubusercontent.com/zakandaiev/frontend-starter/main/src/root-files/favicon.svg" alt="HTML Logo">
 
 # FrontEnd Starter
-Is all-inclusive boilerplate for easy building modern and optimized sites using task manager Gulp 4
+It is all-inclusive boilerplate for easy building modern and optimized sites using task manager Gulp 4
 
 ## How to use
 1. Download/Clone [FrontEnd Starter from GitHub](https://github.com/zakandaiev/frontend-starter)
