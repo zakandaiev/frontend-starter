@@ -15,19 +15,42 @@
 	--color-body: #fff;
 	--color-box: #f8f8fa;
 
-	--color-heading: #000000;
-	--color-text: #000000;
+	--color-heading: #000;
+	--color-text: #000;
 	--color-text-muted: #c4c4c4;
-	--color-link: var(--color-primary);
+	--color-link: var(--color-info);
 	--color-border: #e2e2e2;
 
-	--border: 2px solid;
-	--border-2: 4px solid;
+	--border-width: 2px;
+	--border-2-width: 4px;
+	--border: var(--border-width) solid var(--color-border);
+	--border-2: var(--border-width) solid var(--color-border);
 
-	--radius: 0.3rem;
+	--gap: 24px;
+
+	--radius: 4px;
+
+	--shadow: 0px 4px 15px rgba(22, 25, 31, 0.1);
+	--drop-shadow: drop-shadow(0px 4px 15px rgba(22, 25, 31, 0.1));
 
 	--transition-time: 0.3s;
 	--transition: all var(--transition-time);
+}
+
+body[data-theme="light"] {
+	color-scheme: light;
+}
+
+body[data-theme="dark"] {
+	--color-body: #3c3c4e;
+  --color-box: #343442;
+
+	--color-heading: #f4f9ff;
+	--color-text: #f4f9ff;
+	--color-text-muted: #efefef;
+	--color-border: #464656;
+
+	color-scheme: dark;
 }
 
 %reset-btn {

@@ -1,5 +1,3 @@
-$row_gap: 2em;
-
 $breakpoints: (
 	xs: 0,
 	sm: 576px,
@@ -20,62 +18,69 @@ $breakpoints_reverse: (
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 calc(-1 * $row_gap / 2);
+
+	// .row.fill
 	&.fill > .col {
 		flex: 1 0 auto;
-		&.fill {
-			flex: 2 0 auto;
+
+		&-auto {
+			flex: initial;
 		}
 	}
 }
 
-.col,
-[class^="col-"] {
-	width: 100%;
-	padding: 0 calc($row_gap / 2);
+.col, [class^="col-"] {
+	display: block;
 }
 
 @each $bp, $val in $breakpoints {
 	@media (min-width: $val) {
-		// COLS - GENERAL CLASS FOR .row
+		// COLUMNS - GENERAL CLASS FOR .row
 		@for $i from 1 through 12 {
 			.row.cols-#{$bp}-#{$i} > .col {
 				width: calc(100% / $i);
 			}
 		}
-		// COLS - SINGLE CLASS FOR .col
+
+		// COLUMNS - SINGLE CLASS FOR .col
 		@for $i from 1 through 12 {
 			.col-#{$bp}-#{$i} {
 				width: calc(100% / 12) * $i;
 			}
 		}
+
 		// OFFSETS
 		@for $i from 1 through 12 {
 			.offset-#{$bp}-#{$i} {
 				margin-left: calc(100% / 12) * $i;
 			}
 		}
-	}
-}
 
-// ROW GAP
-.row.row-gap {
-	margin-bottom: -#{$row_gap};
-}
-
-.row.row-gap > .col,
-.row.row-gap > [class^="col-"] {
-	margin-bottom: #{$row_gap};
-}
-
-@each $bp, $val in $breakpoints_reverse {
-	@media (max-width: $val) {
-		.row.row-gap-#{$bp} {
-			margin-bottom: -#{$row_gap};
+		// GAPS - XY
+		.row.gap-#{$bp} {
+			margin: calc(-1 * var(--gap) / 2);
 		}
-		.row.row-gap-#{$bp} > .col,
-		.row.row-gap-#{$bp} > [class^="col-"] {
-			margin-bottom: #{$row_gap};
+		.row.gap-#{$bp} > .col,
+		.row.gap-#{$bp} > [class^="col-"] {
+			padding: calc(var(--gap) / 2);
+		}
+
+		// GAPS - X
+		.row.gap-#{$bp}-x {
+			margin: 0 calc(-1 * var(--gap) / 2);
+		}
+		.row.gap-#{$bp}-x > .col,
+		.row.gap-#{$bp}-x > [class^="col-"] {
+			padding: 0 calc(var(--gap) / 2);
+		}
+
+		// GAPS - Y
+		.row.gap-#{$bp}-y {
+			margin: calc(-1 * var(--gap) / 2) 0;
+		}
+		.row.gap-#{$bp}-y > .col,
+		.row.gap-#{$bp}-y > [class^="col-"] {
+			padding: calc(var(--gap) / 2) 0;
 		}
 	}
 }

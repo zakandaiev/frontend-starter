@@ -1,7 +1,10 @@
 .label {
 	display: inline-block;
+	max-width: 100%;
 	padding: 0.4em;
 	border-radius: 0.3em;
+	color: var(--color-text);
+	background-color: var(--color-border);
 	font-size: 0.75em;
 	font-weight: var(--font-bold);
 	line-height: 1;
@@ -10,26 +13,38 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+
+	// .label_primary
 	&_primary {
 		color: #fff;
 		background-color: var(--color-primary);
 	}
+
+	// .label_secondary
 	&_secondary {
 		color: #fff;
 		background-color: var(--color-secondary);
 	}
+
+	// .label_success
 	&_success {
 		color: #fff;
 		background-color: var(--color-success);
 	}
+
+	// .label_info
 	&_info {
 		color: #fff;
 		background-color: var(--color-info);
 	}
+
+	// .label_warning
 	&_warning {
 		color: #fff;
 		background-color: var(--color-warning);
 	}
+
+	// .label_error
 	&_error {
 		color: #fff;
 		background-color: var(--color-error);
