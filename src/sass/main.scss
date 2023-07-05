@@ -32,6 +32,12 @@ body {
 	line-height: 1.6;
 	color: var(--color-text);
 	background-color: var(--color-body);
+
+	&.disable-scroll {
+		overflow: hidden;
+		touch-action: none;
+		-ms-touch-action: none;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,7 +79,7 @@ img, svg, picture {
 	max-width: 100%;
 }
 
-svg:not([class]) {
+svg {
 	display: inline;
 	height: 1em;
 }
