@@ -35,22 +35,20 @@
 
 	--transition-time: 0.3s;
 	--transition: all var(--transition-time);
-}
 
-body[data-theme="light"] {
 	color-scheme: light;
-}
 
-body[data-theme="dark"] {
-	--color-body: #3c3c4e;
-  --color-box: #343442;
+	&[data-theme="dark"] {
+		--color-body: #3c3c4e;
+		--color-box: #343442;
 
-	--color-heading: #f4f9ff;
-	--color-text: #f4f9ff;
-	--color-text-muted: #efefef;
-	--color-border: #464656;
+		--color-heading: #f4f9ff;
+		--color-text: #f4f9ff;
+		--color-text-muted: #efefef;
+		--color-border: #464656;
 
-	color-scheme: dark;
+		color-scheme: dark;
+	}
 }
 
 %reset-btn {
