@@ -3,6 +3,9 @@
 # FrontEnd Starter
 It is all-inclusive boilerplate for easy building modern and optimized sites using task manager Gulp 4
 
+## Homepage
+[https://zakandaiev.github.io/frontend-starter](https://zakandaiev.github.io/frontend-starter)
+
 ## How to use
 1. Download/Clone [FrontEnd Starter from GitHub](https://github.com/zakandaiev/frontend-starter)
 2. Install Node Modules using `npm i`
@@ -29,6 +32,3 @@ It is all-inclusive boilerplate for easy building modern and optimized sites usi
 * SEO friendly
 * 404 page
 * And more...
-
-## Homepage
-[https://zakandaiev.github.io/frontend-starter](https://zakandaiev.github.io/frontend-starter)
