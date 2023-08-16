@@ -1,138 +1,181 @@
 @@include('partial/header.html', {"title": "FrontEnd Starter"})
 
-<section id="how-to-use" class="section section_offset">
+<section class="section section_offset">
 	<div class="container">
 		<h2 class="section__title">How to use</h2>
-		<ol>
-			<li>Download/Clone <a href="https://github.com/zakandaiev/frontend-starter" target="_blank">FrontEnd Starter from GitHub</a></li>
-			<li>Install Node Modules using <span class="label label_info">npm i</span></li>
-			<li>Explore <span class="label label_info">package.json</span> & <span class="label label_info">gulpfile.js</span> to learn how it works</li>
-			<li>Explore <span class="label label_info">src</span> folder to learn structure logic</li>
-			<li>
-				Use
-				<ul>
-					<li><span class="label label_info">npm run dev</span> or <span class="label label_info">gulp</span> task to start Dev mode</li>
-					<li><span class="label label_info">npm run prod</span> or <span class="label label_info">gulp --prod</span> task to start Prod mode</li>
-				</ul>
-			</li>
-			<li>Enjoy ;)</li>
-		</ol>
+		<div class="box">
+			<div class="box__body">
+				<ol>
+					<li>Download/Clone <a href="https://github.com/zakandaiev/frontend-starter" target="_blank">FrontEnd Starter from GitHub</a></li>
+					<li>Install Node Modules using <span class="label label_info">npm i</span></li>
+					<li>Explore <span class="label label_info">package.json</span> & <span class="label label_info">gulpfile.js</span> to learn how it works</li>
+					<li>Explore <span class="label label_info">src</span> folder to learn structure logic</li>
+					<li>
+						Use
+						<ul>
+							<li><span class="label label_info">npm run dev</span> or <span class="label label_info">gulp</span> task to start Dev mode</li>
+							<li><span class="label label_info">npm run prod</span> or <span class="label label_info">npm run build</span> or <span class="label label_info">gulp --prod</span> task to start Prod mode</li>
+						</ul>
+					</li>
+					<li>Enjoy yours development process ;)</li>
+				</ol>
+			</div>
+		</div>
 	</div>
 </section>
 
-<section id="features" class="section section_offset">
+<section class="section section_offset">
 	<div class="container">
 		<h2 class="section__title">Features</h2>
-		<ul>
-			<li>Well thought-out structure</li>
-			<li>Dev & Prod modes</li>
-			<li>Gulp 4 task manager</li>
-			<li>HTML5 and CSS3 ready</li>
-			<li>SASS/SCSS preprocessor</li>
-			<li>File include engine</li>
-			<li>Autoprefixer</li>
-			<li>Babel</li>
-			<li>Browsersync server & watcher</li>
-			<li>HTML, CSS, JS, images auto minifier</li>
-			<li>reseter.css</li>
-			<li>.htaccess, robots.txt, sitemap.xml, favicon</li>
-			<li>SEO friendly</li>
-			<li>404 page</li>
-			<li>And more...</li>
-		</ul>
+		<div class="box">
+			<div class="box__body">
+				<ul>
+					<li>Well thought-out structure</li>
+					<li>Dev & Prod modes</li>
+					<li>Gulp 4 task manager</li>
+					<li>HTML5 and CSS3 ready</li>
+					<li>SASS/SCSS preprocessor</li>
+					<li>File include engine</li>
+					<li>Autoprefixer</li>
+					<li>Babel</li>
+					<li>Browsersync server & watcher</li>
+					<li>HTML, CSS, JS, images auto minifier</li>
+					<li>reseter.css</li>
+					<li>.htaccess, robots.txt, sitemap.xml, favicon</li>
+					<li>SEO friendly</li>
+					<li>404 page</li>
+					<li>And more...</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </section>
 
-<section id="grid" class="section section_offset">
+<section class="section section_offset">
 	<div class="container">
 		<h2 class="section__title">Grid</h2>
-
-		<p class="m-t-8">Example #1: grow and auto width columns controlled with <span class="label">.fill</span> class</p>
-		<div class="row fill">
-			<div class="col">
-				<div class="box text-center">Grow column</div>
+		<div class="box">
+			<div class="box__header">
+				<h3 class="box__subtitle">Example #1: grow and auto width columns controlled with <span class="label label_info">.fill</span> class</h3>
 			</div>
-			<div class="col col-auto">
-				<div class="box text-center">Auto column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">Grow column</div>
-			</div>
-		</div>
-
-		<p class="m-t-8">Example #2: equal-width columns defined in <span class="label">.row</span> with <span class="label">.cols-{breakpoint}-{size}</span> syntax</p>
-		<div class="row cols-xs-2 cols-md-4">
-			<div class="col">
-				<div class="box text-center">1 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">2 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">3 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">4 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">5 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">6 column</div>
+			<div class="box__body">
+				<div class="row fill">
+					<div class="col">
+						<div class="bordered radius p-2 text-center">Grow column</div>
+					</div>
+					<div class="col col-auto">
+						<div class="bordered radius p-2 text-center">Auto column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">Grow column</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<p class="m-t-8">Example #3: control column width in each <span class="label">.col</span> with <span class="label">.col-{breakpoint}-{size}</span> syntax</p>
-		<div class="row">
-			<div class="col-xs-12 col-md-3">
-				<div class="box text-center">1 column</div>
+		<div class="box">
+			<div class="box__header">
+				<h3 class="box__subtitle">Example #2: equal-width columns defined in <span class="label label_info">.row</span> with <span class="label label_info">.cols-{breakpoint}-{size}</span> syntax</h3>
 			</div>
-			<div class="col-xs-12 col-md-6">
-				<div class="box text-center">2 column</div>
-			</div>
-			<div class="col-xs-12 col-md-3">
-				<div class="box text-center">3 column</div>
-			</div>
-			<div class="col-xs-12">
-				<div class="box text-center">4 column</div>
+			<div class="box__body">
+				<div class="row cols-xs-2 cols-md-4">
+					<div class="col">
+						<div class="bordered radius p-2 text-center">1 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">2 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">3 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">4 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">5 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">6 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">7 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">8 column</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<p class="m-t-8">Example #4: offset columns with <span class="label">.offset-{breakpoint}-{size}</span> syntax</p>
-		<div class="row">
-			<div class="col-xs-12 col-md-3">
-				<div class="box text-center">1 column</div>
+		<div class="box">
+			<div class="box__header">
+				<h3 class="box__subtitle">Example #3: control column width in each <span class="label label_info">.col</span> with <span class="label label_info">.col-{breakpoint}-{size}</span> synta</h3>
 			</div>
-			<div class="col-xs-12 col-md-3 offset-md-3">
-				<div class="box text-center">2 column</div>
-			</div>
-			<div class="col-xs-12 col-md-3 offset-md-3">
-				<div class="box text-center">3 column</div>
-			</div>
-			<div class="col-xs-12 col-md-3 offset-md-3">
-				<div class="box text-center">4 column</div>
+			<div class="box__body">
+				<div class="row">
+					<div class="col-xs-12 col-md-3">
+						<div class="bordered radius p-2 text-center">1 column</div>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<div class="bordered radius p-2 text-center">2 column</div>
+					</div>
+					<div class="col-xs-12 col-md-3">
+						<div class="bordered radius p-2 text-center">3 column</div>
+					</div>
+					<div class="col-xs-12">
+						<div class="bordered radius p-2 text-center">4 column</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<p class="m-t-8">Example #5: row gaps controlled with <span class="label">.gap-{breakpoint}</span> for XY axes, <span class="label">.gap-{breakpoint}-x</span> for X axis or <span class="label">.gap-{breakpoint}-y</span> for Y axis syntax defined in <span class="label">.row</span> class</p>
-		<div class="row fill gap-xs cols-xs-2 cols-md-4">
-			<div class="col">
-				<div class="box text-center">1 column</div>
+		<div class="box">
+			<div class="box__header">
+				<h3 class="box__subtitle">Example #4: offset columns with <span class="label label_info">.offset-{breakpoint}-{size}</span> syntax</h3>
 			</div>
-			<div class="col">
-				<div class="box text-center">2 column</div>
+			<div class="box__body">
+				<div class="row">
+					<div class="col-xs-12 col-md-3">
+						<div class="bordered radius p-2 text-center">1 column</div>
+					</div>
+					<div class="col-xs-12 col-md-3 offset-md-3">
+						<div class="bordered radius p-2 text-center">2 column</div>
+					</div>
+					<div class="col-xs-12 col-md-3 offset-md-3">
+						<div class="bordered radius p-2 text-center">3 column</div>
+					</div>
+					<div class="col-xs-12 col-md-3 offset-md-3">
+						<div class="bordered radius p-2 text-center">4 column</div>
+					</div>
+				</div>
 			</div>
-			<div class="col">
-				<div class="box text-center">3 column</div>
+		</div>
+
+		<div class="box">
+			<div class="box__header">
+				<h3 class="box__subtitle">Example #5: row gaps controlled with <span class="label label_info">.gap-{breakpoint}</span> for XY axes, <span class="label label_info">.gap-{breakpoint}-x</span> for X axis or <span class="label label_info">.gap-{breakpoint}-y</span> for Y axis syntax defined in <span class="label label_info">.row</span> class</h3>
 			</div>
-			<div class="col">
-				<div class="box text-center">4 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">5 column</div>
-			</div>
-			<div class="col">
-				<div class="box text-center">6 column</div>
+			<div class="box__body">
+				<div class="row fill gap-xs cols-xs-2 cols-md-4">
+					<div class="col">
+						<div class="bordered radius p-2 text-center">1 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">2 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">3 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">4 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">5 column</div>
+					</div>
+					<div class="col">
+						<div class="bordered radius p-2 text-center">6 column</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

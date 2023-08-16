@@ -5,19 +5,19 @@ RewriteEngine on
 RewriteBase /
 
 # Force non-www
-#RewriteCond %{HTTP_HOST} ^www\.
-#RewriteCond %{HTTPS}s ^on(s)|off
-#RewriteCond http%1://%{HTTP_HOST} ^(https?://)(www\.)?(.+)$
-#RewriteRule ^ %1%3%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.
+RewriteCond %{HTTPS}s ^on(s)|off
+RewriteCond http%1://%{HTTP_HOST} ^(https?://)(www\.)?(.+)$
+RewriteRule ^ %1%3%{REQUEST_URI} [L,R=301]
 
 # Force HTTPS
 #RewriteCond %{HTTPS} !on
 #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 # Remove Trailing Slash
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{REQUEST_URI} (.+)/$
-#RewriteRule ^ %1 [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
 
 # Router
 RewriteCond %{REQUEST_FILENAME} .php$ [OR]
@@ -27,7 +27,7 @@ RewriteRule ^(.*)$ index.php [L,QSA]
 
 ############################# SECURITY #############################
 # Deny Access to Hidden Files and Directories
-RedirectMatch 404 /\..*$
+#RedirectMatch 404 /\..*$
 
 # Deny Access to Backup and Source Files
 <FilesMatch "(\.(bin|bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
