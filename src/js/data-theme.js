@@ -4,7 +4,7 @@ const DATA_THEME = {
 	value_default: 'light',
   value_dark: 'dark',
 
-  getTheme: () => localStorage.getItem(DATA_THEME.storage_key) || document.documentElement.getAttribute(DATA_THEME.body_attribute_key),
+  getCurrentTheme: () => localStorage.getItem(DATA_THEME.storage_key) || document.documentElement.getAttribute(DATA_THEME.body_attribute_key),
 
   setTheme: (theme = null, storage = true) => {
     if (theme !== DATA_THEME.value_default && theme !== DATA_THEME.value_dark) {
@@ -21,7 +21,7 @@ const DATA_THEME = {
   },
 
   toggleTheme: () => {
-    let theme = DATA_THEME.getTheme();
+    let theme = DATA_THEME.getCurrentTheme();
 
     if (theme === DATA_THEME.value_default) {
       theme = DATA_THEME.value_dark;
@@ -36,7 +36,7 @@ const DATA_THEME = {
   }
 };
 
-const initial_theme = DATA_THEME.getTheme();
+const initial_theme = DATA_THEME.getCurrentTheme();
 if (initial_theme) {
   DATA_THEME.setTheme(initial_theme);
 }

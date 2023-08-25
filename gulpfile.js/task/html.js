@@ -4,6 +4,12 @@ const html = () => {
 	.pipe(
 		$.plugin.if(
 			$.setting.isProd,
+			$.plugin.versionNumber($.setting.versionNumber)
+		)
+	)
+	.pipe(
+		$.plugin.if(
+			$.setting.isProd,
 			$.plugin.htmlmin($.setting.htmlmin)
 		)
 	)

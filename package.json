@@ -1,6 +1,8 @@
 {
 	"name": "frontend-starter",
-	"version": "1.5.0",
+	"license": "MIT",
+	"version": "1.5.1",
+	"author": "github.com/zakandaiev",
 	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
 	"keywords": [
 		"frontend",
@@ -48,10 +50,8 @@
 			"./src/js/ingored.js"
 		]
 	},
-	"author": "github.com/zakandaiev",
-	"license": "MIT",
 	"devDependencies": {
-		"@babel/core": "^7.22.10",
+		"@babel/core": "^7.22.11",
 		"@babel/preset-env": "^7.22.10",
 		"browser-sync": "^2.29.3",
 		"del": "^6.1.1",
@@ -68,7 +68,8 @@
 		"gulp-newer": "^1.4.0",
 		"gulp-sass": "^5.1.0",
 		"gulp-terser": "^2.1.0",
-		"sass": "^1.65.1"
+		"gulp-version-number": "^0.2.4",
+		"sass": "^1.66.1"
 	},
 	"dependencies": {
 		"reseter.css": "^2.0.0"

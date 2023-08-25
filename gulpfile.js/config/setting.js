@@ -18,6 +18,13 @@ module.exports = {
 		minifyJS: true,
 		removeComments: true
 	},
+	versionNumber: {
+		'value': '%MDS%',
+		'append': {
+			'key': 'v',
+			'to': 'all'
+		}
+	},
 
 	// IMAGE
 	imagemin: {

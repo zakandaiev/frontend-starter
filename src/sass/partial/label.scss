@@ -7,7 +7,7 @@
 	padding: 0.45em;
 	border-radius: var(--radius);
 	color: var(--color-text);
-	background-color: var(--color-body);
+	background: var(--color-body);
 	font-size: 1.125rem;
 	font-weight: var(--font-bold);
 	line-height: 1;
@@ -42,72 +42,72 @@
 
 	// .label_cancel
 	&_cancel {
-		background-color: var(--color-border);
+		background: var(--color-border);
 	}
 
 	// .label_primary
 	&_primary {
 		color: #fff;
-		background-color: var(--color-primary);
+		background: var(--color-primary);
 
 		&.label_light {
 			color: var(--color-primary);
-			background-color: var(--color-primary-light);
+			background: var(--color-primary-light);
 		}
 	}
 
 	// .label_secondary
 	&_secondary {
 		color: #fff;
-		background-color: var(--color-secondary);
+		background: var(--color-secondary);
 
 		&.label_light {
 			color: var(--color-secondary);
-			background-color: var(--color-secondary-light);
+			background: var(--color-secondary-light);
 		}
 	}
 
 	// .label_success
 	&_success {
 		color: #fff;
-		background-color: var(--color-success);
+		background: var(--color-success);
 
 		&.label_light {
 			color: var(--color-success);
-			background-color: var(--color-success-light);
+			background: var(--color-success-light);
 		}
 	}
 
 	// .label_info
 	&_info {
 		color: #fff;
-		background-color: var(--color-info);
+		background: var(--color-info);
 
 		&.label_light {
 			color: var(--color-info);
-			background-color: var(--color-info-light);
+			background: var(--color-info-light);
 		}
 	}
 
 	// .label_warning
 	&_warning {
 		color: #fff;
-		background-color: var(--color-warning);
+		background: var(--color-warning);
 
 		&.label_light {
 			color: var(--color-warning);
-			background-color: var(--color-warning-light);
+			background: var(--color-warning-light);
 		}
 	}
 
 	// .label_error
 	&_error {
 		color: #fff;
-		background-color: var(--color-error);
+		background: var(--color-error);
 
 		&.label_light {
 			color: var(--color-error);
-			background-color: var(--color-error-light);
+			background: var(--color-error-light);
 		}
 	}
 }

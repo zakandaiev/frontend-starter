@@ -249,12 +249,20 @@ $indent-step: 0.5;
 	border-radius: var(--radius) !important;
 }
 
+.shadow {
+	box-shadow: var(--shadow) !important;
+}
+
 .rounded {
 	border-radius: 50% !important;
 }
 
 .bordered {
 	border: var(--border) !important;
+}
+
+.underline {
+	text-decoration: underline !important;
 }
 
 /* ==========  Table  ========== */
@@ -443,95 +451,95 @@ $indent-step: 1;
 }
 
 .background-primary {
-	background-color: var(--color-primary) !important;
+	background: var(--color-primary) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-primary-hover) !important;
+			background: var(--color-primary-hover) !important;
 		}
 	}
 }
 
 .background-secondary {
-	background-color: var(--color-secondary) !important;
+	background: var(--color-secondary) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-secondary-hover) !important;
+			background: var(--color-secondary-hover) !important;
 		}
 	}
 }
 
 .background-success {
-	background-color: var(--color-success) !important;
+	background: var(--color-success) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-success-hover) !important;
+			background: var(--color-success-hover) !important;
 		}
 	}
 }
 
 .background-info {
-	background-color: var(--color-info) !important;
+	background: var(--color-info) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-info-hover) !important;
+			background: var(--color-info-hover) !important;
 		}
 	}
 }
 
 .background-warning {
-	background-color: var(--color-warning) !important;
+	background: var(--color-warning) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-warning-hover) !important;
+			background: var(--color-warning-hover) !important;
 		}
 	}
 }
 
 .background-error {
-	background-color: var(--color-error) !important;
+	background: var(--color-error) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-error-hover) !important;
+			background: var(--color-error-hover) !important;
 		}
 	}
 }
 
 .background-border {
-	background-color: var(--color-border) !important;
+	background: var(--color-border) !important;
 
 	&_hover {
 		transition: var(--transition);
 
 		&:hover, &:focus, &:active {
-			background-color: var(--color-border-hover) !important;
+			background: var(--color-border-hover) !important;
 		}
 	}
 }
 
 .background-body {
-	background-color: var(--color-body) !important;
+	background: var(--color-body) !important;
 }
 
 .background-box {
-	background-color: var(--color-box) !important;
+	background: var(--color-box) !important;
 }
 
 /* ==========  Cursors  ========== */

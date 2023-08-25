@@ -89,14 +89,4 @@
 	text-decoration: none;
 	margin: 0;
 	padding: 0;
-
-	&:hover, &:focus, &:active {
-		appearance: none;
-		outline: none;
-		border: none;
-		background: none;
-		box-shadow: none;
-		user-select: none;
-		text-decoration: none;
-	}
 }
