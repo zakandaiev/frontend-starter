@@ -2,6 +2,7 @@
 	--font: "Open Sans", sans-serif;
 	--font-thin: 200;
 	--font-normal: 400;
+	--font-medium: 500;
 	--font-bold: 600;
 
 	--color-primary: #3b7ddd;
@@ -69,7 +70,6 @@
 		--color-border-hover: #384350;
 
 		--border: var(--border-width) solid var(--color-border);
-		--border-2: var(--border-width) solid var(--color-border);
 
 		--shadow: 0 0 14px 0 rgba(34, 46, 60, 0.05);
 		--drop-shadow: drop-shadow(0 0 14px 0 rgba(34, 46, 60, 0.05));

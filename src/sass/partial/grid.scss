@@ -23,13 +23,15 @@ $breakpoints_for_max_width: (
 	&.fill > .col {
 		flex: 1 0 auto;
 
+		// .row.fill > .col-auto
 		&-auto {
 			flex: initial;
 		}
 	}
 }
 
-.col, [class^="col-"] {
+.col,
+[class^="col-"] {
 	display: block;
 	flex: 0 0 auto;
 
@@ -41,28 +43,28 @@ $breakpoints_for_max_width: (
 
 @each $bp, $val in $breakpoints_for_min_width {
 	@media (min-width: $val) {
-		// COLUMN COUNT - GENERAL CLASS FOR .row
+		// COLUMN COUNT - general class for .row
 		@for $i from 1 through 12 {
 			.row.cols-#{$bp}-#{$i} > .col {
 				width: calc(100% / $i);
 			}
 		}
 
-		// COLUMN COUNT - SINGLE CLASS FOR .col
+		// COLUMN COUNT - single class for .col
 		@for $i from 1 through 12 {
 			.col-#{$bp}-#{$i} {
 				width: calc(100% / 12) * $i;
 			}
 		}
 
-		// OFFSET
+		// OFFSET - single class for .col
 		@for $i from 1 through 12 {
 			.offset-#{$bp}-#{$i} {
 				margin-left: calc(100% / 12) * $i;
 			}
 		}
 
-		// ORDER
+		// ORDER - single class for .col
 		@for $i from 1 through 12 {
 			.order-#{$bp}-#{$i} {
 				order: $i;
