@@ -93,7 +93,7 @@
 	// .box__actions
 	&__actions {
 		flex-shrink: 0;
-		@extend %reset-btn;
+		@include reset-btn;
 		position: absolute;
 		z-index: 10;
 		top: 50%;

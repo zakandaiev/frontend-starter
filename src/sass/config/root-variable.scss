@@ -56,37 +56,24 @@
 	--transition: all var(--transition-time);
 
 	color-scheme: light;
-
-	&[data-theme="dark"] {
-		--color-body: #19222c;
-		--color-box: #222e3c;
-
-		--color-heading: #fff;
-		--color-heading-inverse: #000;
-		--color-text: #bdc0c5;
-		--color-text-inverse: #495057;
-		--color-text-muted: #6c757d;
-		--color-border: #4e5863;
-		--color-border-hover: #384350;
-
-		--border: var(--border-width) solid var(--color-border);
-
-		--shadow: 0 0 14px 0 rgba(34, 46, 60, 0.05);
-		--drop-shadow: drop-shadow(0 0 14px 0 rgba(34, 46, 60, 0.05));
-
-		color-scheme: dark;
-	}
 }
 
-%reset-btn {
-	font: inherit;
-	appearance: none;
-	outline: none;
-	border: none;
-	background: none;
-	box-shadow: none;
-	user-select: none;
-	text-decoration: none;
-	margin: 0;
-	padding: 0;
+:root[data-theme="dark"] {
+	--color-body: #19222c;
+	--color-box: #222e3c;
+
+	--color-heading: #fff;
+	--color-heading-inverse: #000;
+	--color-text: #bdc0c5;
+	--color-text-inverse: #495057;
+	--color-text-muted: #6c757d;
+	--color-border: #4e5863;
+	--color-border-hover: #384350;
+
+	--border: var(--border-width) solid var(--color-border);
+
+	--shadow: 0 0 14px 0 rgba(34, 46, 60, 0.05);
+	--drop-shadow: drop-shadow(0 0 14px 0 rgba(34, 46, 60, 0.05));
+
+	color-scheme: dark;
 }

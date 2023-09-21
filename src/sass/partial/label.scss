@@ -11,9 +11,7 @@
 	font-size: 1.125rem;
 	font-weight: var(--font-bold);
 	line-height: 1;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	@include ellipsis;
 
 	// .label__close
 	&__close {

@@ -1,0 +1,46 @@
+$breakpoint: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+);
+
+$breakpoint_reverse: (
+	xs: 575px,
+	sm: 767px,
+	md: 991px,
+	lg: 1199px,
+	xl: 1399px
+);
+
+@mixin query($bp, $computer_first: false) {
+	@if $computer_first == true {
+		@if map-has-key($breakpoint_reverse, $bp) {
+			$bp_value: map-get($breakpoint_reverse, $bp);
+
+			@media (max-width: $bp_value) {
+				@content;
+			}
+		}
+
+		@else {
+			@warn 'Invalid breakpoint: #{$bp}';
+		}
+	}
+
+	@else {
+		@if map-has-key($breakpoint, $bp) {
+			$bp_value: map-get($breakpoint, $bp);
+
+			@media (min-width: $bp_value) {
+				@content;
+			}
+		}
+
+		@else {
+			@warn 'Invalid breakpoint: #{$bp}';
+		}
+	}
+}

@@ -1,8 +1,15 @@
 /* ==========  Third party  ========== */
 @import "reseter.css/css/reseter.min";
 
-/* ==========  Variables, Mixins, Fonts  ========== */
-@import "config/vars";
+/* ==========  Util  ========== */
+@import "util/font";
+@import "util/ellipsis";
+@import "util/media-query";
+@import "util/reset-btn";
+
+/* ==========  Config  ========== */
+@import "config/root-variable";
+@import "config/breakpoint";
 @import "config/font";
 
 /* ==========  Global  ========== */

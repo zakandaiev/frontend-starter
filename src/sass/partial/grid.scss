@@ -1,20 +1,3 @@
-$breakpoints_for_min_width: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px,
-	xxl: 1400px
-);
-
-$breakpoints_for_max_width: (
-	xs: 575px,
-	sm: 767px,
-	md: 991px,
-	lg: 1199px,
-	xl: 1399px
-);
-
 .row {
 	display: flex;
 	flex-wrap: wrap;
@@ -41,8 +24,9 @@ $breakpoints_for_max_width: (
 	}
 }
 
-@each $bp, $val in $breakpoints_for_min_width {
-	@media (min-width: $val) {
+@each $bp, $val in $breakpoint {
+	// @media (min-width: $val) {
+	@include query($bp) {
 		// COLUMN COUNT - general class for .row
 		@for $i from 1 through 12 {
 			.row.cols-#{$bp}-#{$i} > .col {
