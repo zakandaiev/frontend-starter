@@ -464,7 +464,7 @@ $indent-step: 1;
 	}
 }
 
-.background-border {
+.bg-border {
 	background: var(--color-border) !important;
 
 	&_hover {
@@ -476,11 +476,11 @@ $indent-step: 1;
 	}
 }
 
-.background-body {
+.bg-body {
 	background: var(--color-body) !important;
 }
 
-.background-box {
+.bg-box {
 	background: var(--color-box) !important;
 }
 
@@ -502,7 +502,7 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 		}
 	}
 
-	.background-#{$color} {
+	.bg-#{$color} {
 		background: var(--color-#{$color}) !important;
 
 		&_light {
@@ -529,22 +529,28 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 }
 
 /* ==========  Position  ========== */
-.p-initial {
+.position-initial {
 	position: initial !important;
 }
 
-.p-static {
+.position-static {
 	position: static !important;
 }
 
-.p-relative {
+.position-relative {
 	position: relative !important;
 }
 
-.p-sticky {
+.position-sticky {
 	position: sticky !important;
 	top: 0 !important;
 	height: auto !important;
 	max-height: 100dvh !important;
 	overflow-y: auto !important;
+
+	// .position-sticky_bottom
+	&_bottom {
+		top: auto !important;
+		bottom: 0 !important;
+	}
 }

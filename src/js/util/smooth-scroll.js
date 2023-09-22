@@ -1,37 +1,33 @@
-function smoothScroll(element) {
-	if(element) {
-		element.scrollIntoView({
-			behavior: 'smooth'
-		});
+function smoothScroll(element = null, behavior = 'smooth') {
+	if (element) {
+		element.scrollIntoView({ behavior });
+	}
+	else {
+		window.scrollTo({ top: 0, behavior });
 	}
 }
 
-function smoothScrollToTop() {
-	window.scrollTo({
-		top: 0,
-		behavior: 'smooth'
-	});
-}
-
 document.addEventListener('click', event => {
-	if(event.target.tagName !== 'A') {
+	if (event.target.tagName !== 'A') {
 		return false;
 	}
 	const anchor = event.target;
 	const anchor_href = anchor.getAttribute('href');
 
-	if(anchor_href === '#') {
+	if (anchor_href === '#') {
 		event.preventDefault();
-		smoothScrollToTop();
+
+		smoothScroll();
 	}
-	else if(anchor_href.charAt(0) === '#' || (anchor_href.charAt(0) === '/' && anchor_href.charAt(1) === '#')) {
-		if(!anchor.hash) {
+	else if (anchor_href.charAt(0) === '#' || (anchor_href.charAt(0) === '/' && anchor_href.charAt(1) === '#')) {
+		if (!anchor.hash) {
 			return false;
 		}
 
 		const target = document.querySelector(anchor.hash);
-		if(target) {
+		if (target) {
 			event.preventDefault();
+
 			smoothScroll(target);
 		}
 	}

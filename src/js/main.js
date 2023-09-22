@@ -8,14 +8,24 @@ const GET_PARAM = (key) => {
 @@include('partial/watermark.js')
 
 // UTILS
+@@include('util/cyr-to-lat.js')
+@@include('util/encoding.js')
 @@include('util/fade-out.js')
+@@include('util/geolocation.js')
+@@include('util/is-object.js')
+@@include('util/request.js')
+@@include('util/sleep.js')
 @@include('util/smooth-scroll.js')
-@@include('util/replace-broken-image.js')
+@@include('util/storage.js')
+@@include('util/vibrate.js')
 
 document.addEventListener('DOMContentLoaded', () => {
 	// PARTIALS
+	@@include('partial/data-copy.js')
 	@@include('partial/format-tel-link.js')
 	@@include('partial/external-link-norefer.js')
 	@@include('partial/protect-image.js')
 	@@include('partial/responsive-table.js')
 });
+
+@@include('partial/placeholder-image.js')
