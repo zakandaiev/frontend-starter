@@ -1,7 +1,7 @@
 const DATA_THEME = {
-	body_attribute_key: 'data-theme',
-	storage_key: 'data-theme',
-	value_default: 'light',
+  body_attribute_key: 'data-theme',
+  storage_key: 'data-theme',
+  value_default: 'light',
   value_dark: 'dark',
 
   getCurrentTheme: () => localStorage.getItem(DATA_THEME.storage_key) || document.documentElement.getAttribute(DATA_THEME.body_attribute_key),
@@ -59,15 +59,15 @@ document.addEventListener('click', event => {
   const theme_switcher = event.target.closest('[data-theme-set]');
   const theme_toggler = event.target.closest('[data-theme-toggle]');
 
-	if(!theme_switcher && !theme_toggler) {
-		return false;
-	}
+  if (!theme_switcher && !theme_toggler) {
+    return false;
+  }
 
-	event.preventDefault();
-
-  const theme = theme_switcher.getAttribute('data-theme-set');
+  event.preventDefault();
 
   if (theme_switcher) {
+    const theme = theme_switcher.getAttribute('data-theme-set');
+
     DATA_THEME.setTheme(theme);
   }
   else if (theme_toggler) {

@@ -55,6 +55,14 @@
 	--transition-time: 0.3s;
 	--transition: all var(--transition-time);
 
+	--zi-top: 1000;
+	--zi-tooltip: 200;
+	--zi-modal: 100;
+	--zi-header: 30;
+	--zi-default: 10;
+	--zi-below: -10;
+	--zi-bottom: -1000;
+
 	color-scheme: light;
 }
 

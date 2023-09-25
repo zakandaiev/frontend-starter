@@ -363,11 +363,11 @@ $indent-step: 0.5;
 $indent-step: 0.5;
 @for $i from 0 through 20 {
 	.w-#{$i * 10 * $indent-step} {
-		width: #{calc($i * $indent-step / 10) + '%'} !important;
+		width: #{calc($i * $indent-step * 10) + '%'} !important;
 	}
 
 	.h-#{$i * 10 * $indent-step} {
-		height: #{calc($i * $indent-step / 10) + '%'} !important;
+		height: #{calc($i * $indent-step * 10) + '%'} !important;
 	}
 }
 

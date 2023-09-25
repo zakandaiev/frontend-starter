@@ -16,7 +16,7 @@
 	// .label__close
 	&__close {
 		position: absolute;
-		z-index: 10;
+		z-index: var(--zi-default);
 		top: 0;
 		right: 0;
 		bottom: 0;

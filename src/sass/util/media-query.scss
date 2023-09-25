@@ -1,20 +1,3 @@
-$breakpoint: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px,
-	xxl: 1400px
-);
-
-$breakpoint_reverse: (
-	xs: 575px,
-	sm: 767px,
-	md: 991px,
-	lg: 1199px,
-	xl: 1399px
-);
-
 @mixin query($bp, $computer_first: false) {
 	@if $computer_first == true {
 		@if map-has-key($breakpoint_reverse, $bp) {
