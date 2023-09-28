@@ -10,7 +10,7 @@ const GET_PARAM = (key) => {
 // UTILS
 @@include('util/cyr-to-lat.js')
 @@include('util/encoding.js')
-@@include('util/fade-out.js')
+@@include('util/fade.js')
 @@include('util/geolocation.js')
 @@include('util/is-object.js')
 @@include('util/request.js')

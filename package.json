@@ -1,7 +1,7 @@
 {
 	"name": "frontend-starter",
 	"license": "MIT",
-	"version": "1.5.5",
+	"version": "1.5.6",
 	"author": "github.com/zakandaiev",
 	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
 	"keywords": [
