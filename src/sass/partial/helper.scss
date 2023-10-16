@@ -554,3 +554,10 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 		bottom: 0 !important;
 	}
 }
+
+$vertical-aligns: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
+@each $align in $vertical-aligns {
+  .vertical-align-#{$align} {
+    vertical-align: $align;
+  }
+}
