@@ -7,11 +7,11 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
-	margin: 0 0 1rem 0;
+	margin: 0;
 	text-align: left;
 
-	&:last-child {
-		margin-bottom: 0;
+	&:not(:first-child) {
+		margin-top: 1rem;
 	}
 
 	th {

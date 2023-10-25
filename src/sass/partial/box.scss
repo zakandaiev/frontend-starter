@@ -5,6 +5,10 @@
 	box-shadow: var(--shadow);
 	background: var(--color-box);
 
+	&:not(:first-child) {
+		margin-top: 1rem;
+	}
+
 	& + .box {
 		margin-top: var(--gap);
 	}
@@ -36,6 +40,11 @@
 		&_icon {
 			padding-right: 5.5em;
 		}
+
+		// .box__header + .box__body
+		& + .box__body {
+			padding-top: 0.5em;
+		}
 	}
 
 	// .box__title
@@ -44,17 +53,20 @@
 		align-items: flex-start;
 		justify-content: space-between;
 		gap: 0.5em;
-		margin: 0 0 1em;
 		font-size: 1.6rem;
 		font-weight: var(--font-bold);
 		line-height: 1.2;
 		color: var(--color-heading);
+
+		// .box__title + .box__subtitle
+		& + .box__subtitle {
+			margin-top: 1rem;
+		}
 	}
 
 	// .box__subtitle
 	&__subtitle {
 		display: block;
-		margin: 0 0 1em;
 		font-size: 1.4rem;
 		line-height: 1.2;
 		color: var(--color-text-muted);
@@ -65,8 +77,9 @@
 		display: block;
 		padding: 1.5em;
 
-		& > *:last-child {
-			margin-bottom: 0;
+		// .box__body + .box__footer
+		& + .box__footer {
+			padding-top: 0.5em;
 		}
 	}
 
@@ -76,18 +89,6 @@
 		flex-wrap: wrap;
 		gap: 1em;
 		padding:  1.5em;
-	}
-
-	& > .box__header + .box__body {
-		padding-top: 0.5em;
-	}
-
-	& > .box__body + .box__footer {
-		padding-top: 0.5em;
-	}
-
-	& > .box__title + .box__subtitle {
-		margin: -0.5em 0 0;
 	}
 
 	// .box__actions

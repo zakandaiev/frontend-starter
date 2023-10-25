@@ -52,14 +52,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: var(--font-bold);
 	line-height: 1.2;
 	color: var(--color-heading);
-	margin: 0 0 1rem 0;
+	margin: 0;
 
-	&:not(:first-child):not([class]) {
+	&:not(:first-child) {
 		margin-top: 3rem;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
 	}
 }
 
@@ -71,10 +67,10 @@ h5 { font-size: 1.4rem; }
 h6 { font-size: 1.2rem; }
 
 p {
-	margin: 0 0 1rem 0;
+	margin: 0;
 
-	&:last-child {
-		margin-bottom: 0;
+	&:not(:first-child) {
+		margin-top: 1rem;
 	}
 }
 
@@ -112,34 +108,30 @@ svg {
 blockquote {
 	display: block;
 	width: 100%;
-	margin: 0 0 1rem 0;
+	margin: 0;
 	padding: 0.5em 0 0.5em 1.5em;
 	font-style: italic;
 	border-left: 4px solid var(--color-text-muted);
-
-	&:last-child {
-		margin-bottom: 0;
-	}
 }
 
 ul, ol {
-	margin: 0 0 1rem 0;
+	margin: 0;
 	padding-left: 1.4em;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
 
 	& > li::marker {
 		color: var(--color-text-muted);
 	}
+
+	&:not(:first-child) {
+		margin-top: 1rem;
+	}
 }
 
 figure {
-	margin: 0 0 1em 0;
+	margin: 0;
 
-	&:last-child {
-		margin-bottom: 0;
+	&:not(:first-child) {
+		margin-top: 1rem;
 	}
 }
 
@@ -148,10 +140,10 @@ iframe {
 	width: 100%;
 	border: none;
 	box-shadow: none;
-	margin: 0 0 1rem 0;
+	margin: 0;
 
-	&:last-child {
-		margin-bottom: 0;
+	&:not(:first-child) {
+		margin-top: 1rem;
 	}
 }
 
@@ -173,6 +165,7 @@ code, kbd, pre, samp {
 /* ==========  Custom  ========== */
 .container {
 	display: block;
+	width: 100%;
 	max-width: 100em;
 	margin: 0 auto;
 	padding: 0 var(--gap);
@@ -181,7 +174,7 @@ code, kbd, pre, samp {
 
 .container-fluid {
 	display: block;
-	max-width: 100%;
+	width: 100%;
 	padding: 0 var(--gap);
 	position: relative;
 }

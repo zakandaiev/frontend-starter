@@ -1,7 +1,7 @@
 {
 	"name": "frontend-starter",
 	"license": "MIT",
-	"version": "1.5.9",
+	"version": "1.6.0",
 	"author": "github.com/zakandaiev",
 	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
 	"keywords": [
@@ -69,7 +69,7 @@
 		"gulp-sass": "^5.1.0",
 		"gulp-terser": "^2.1.0",
 		"gulp-version-number": "^0.2.4",
-		"sass": "^1.69.3"
+		"sass": "^1.69.4"
 	},
 	"dependencies": {
 		"reseter.css": "^2.0.0"

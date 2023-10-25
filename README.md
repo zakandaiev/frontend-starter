@@ -12,8 +12,8 @@ It is all-inclusive boilerplate for easy building modern and optimized sites usi
 3. Explore `package.json` & `gulpfile.js` to learn how it works
 4. Explore `src` folder to learn structure logic
 5. Use
-	* `npm run dev` or `gulp` task to start Dev mode
-	* `npm run prod` or `gulp --prod` task to start Prod mode
+	* `npm run dev` task to start Dev mode
+	* `npm run prod` task to start Prod mode
 6. Enjoy ;)
 
 ## Features
