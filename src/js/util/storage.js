@@ -5,8 +5,7 @@ function setStorage(key, data, type = 'session') {
 
   if (type === 'session') {
     sessionStorage.setItem(key, data);
-  }
-  else {
+  } else {
     localStorage.setItem(key, data);
   }
 
@@ -19,12 +18,10 @@ function getStorage(key, type = 'session') {
   if (data && (data.charAt(0) === '[' || data.charAt(0) === '{')) {
     if (isStringValidJSON(data)) {
       data = JSON.parse(data);
-    }
-    else if (data.charAt(0) === '[') {
+    } else if (data.charAt(0) === '[') {
       data = [];
       flushStorage(key);
-    }
-    else if (data.charAt(0) === '{') {
+    } else if (data.charAt(0) === '{') {
       data = {};
       flushStorage(key);
     }
@@ -36,8 +33,7 @@ function getStorage(key, type = 'session') {
 function flushStorage(key, type = 'session') {
   if (type === 'session') {
     sessionStorage.removeItem(key);
-  }
-  else {
+  } else {
     localStorage.removeItem(key);
   }
 

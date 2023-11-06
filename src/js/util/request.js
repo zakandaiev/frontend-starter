@@ -1,67 +1,65 @@
 async function fetchWithTimeout(resource, options = {}, timeout = 15000) {
-	const controller = new AbortController();
-	const id = setTimeout(() => controller.abort(), timeout);
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
 
-	const response = await fetch(resource, {
-		...options,
-		signal: controller.signal
-	});
+  const response = await fetch(resource, {
+    ...options,
+    signal: controller.signal,
+  });
 
-	clearTimeout(id);
+  clearTimeout(id);
 
-	return response;
+  return response;
 }
 
 async function request(resource, options = {}, timeout = 15000, delay = 1000) {
-	const startTime = performance.now();
+  const startTime = performance.now();
 
-	if (!options.method) {
-		options.method = 'POST';
-	}
+  if (!options.method) {
+    options.method = 'POST';
+  }
 
-	if (options.method.toLowerCase() !== 'get') {
-		if (!options.headers) {
-			options.headers = {
-				'Content-Type': 'application/json'
-			};
-		}
+  if (options.method.toLowerCase() !== 'get') {
+    if (!options.headers) {
+      options.headers = {
+        'Content-Type': 'application/json',
+      };
+    }
 
-		if (options.body) {
-			options.body = JSON.stringify(options.body);
-		}
-		else {
-			options.body = JSON.stringify({});
-		}
-	}
+    if (options.body) {
+      options.body = JSON.stringify(options.body);
+    } else {
+      options.body = JSON.stringify({});
+    }
+  }
 
-	const data = {
-		code: null,
-		status: null,
-		message: null,
-		data: null
-	};
+  const data = {
+    code: null,
+    status: null,
+    message: null,
+    data: null,
+  };
 
-	try {
-		const response = await fetchWithTimeout(resource, options, timeout);
-		const responseData = await response.json() ?? {};
+  try {
+    const response = await fetchWithTimeout(resource, options, timeout);
+    const responseData = await response.json() ?? {};
 
-		data.code = response.status;
-		data.status = responseData.status;
-		data.message = responseData.message;
-		data.data = responseData.data;
-	}
-	catch (error) {
-		data.status = 'error';
-		data.message = error;
-	}
+    data.code = response.status;
+    data.status = responseData.status;
+    data.message = responseData.message;
+    data.data = responseData.data;
+  } catch (error) {
+    data.status = 'error';
+    data.message = error;
+  }
 
-	const endTime = performance.now();
+  const endTime = performance.now();
 
-	const differenceTime = endTime - startTime;
+  const differenceTime = endTime - startTime;
 
-	if (differenceTime < delay) {
-		await sleep(delay - differenceTime);
-	}
+  if (differenceTime < delay) {
+    await sleep(delay - differenceTime);
+  }
 
-	return data;
+  return data;
 }

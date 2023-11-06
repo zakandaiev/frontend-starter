@@ -88,7 +88,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1em;
-		padding:  1.5em;
+		padding: 1.5em;
 	}
 
 	// .box__actions
@@ -106,7 +106,9 @@
 		cursor: pointer;
 		transition: var(--transition);
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 			& > .icon {
 				color: var(--color-text);
 			}

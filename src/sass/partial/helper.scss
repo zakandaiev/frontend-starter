@@ -88,6 +88,7 @@
 }
 
 $indent-step: 1;
+
 @for $i from 0 through 5 {
 	.flex-grow-#{$i} {
 		flex-grow: #{$i} !important;
@@ -99,6 +100,7 @@ $indent-step: 1;
 }
 
 $indent-step: 0.5;
+
 @for $i from 0 through 20 {
 	.gap-#{$i} {
 		gap: #{$i * $indent-step}rem !important;
@@ -107,27 +109,34 @@ $indent-step: 0.5;
 
 /* ==========  Margin  ========== */
 $indent-step: 0.5;
+
 @for $i from -10 through 10 {
 	.mt-#{$i} {
 		margin-top: #{$i * $indent-step}rem !important;
 	}
+
 	.mr-#{$i} {
 		margin-right: #{$i * $indent-step}rem !important;
 	}
+
 	.mb-#{$i} {
 		margin-bottom: #{$i * $indent-step}rem !important;
 	}
+
 	.ml-#{$i} {
 		margin-left: #{$i * $indent-step}rem !important;
 	}
+
 	.mx-#{$i} {
 		margin-left: #{$i * $indent-step}rem !important;
 		margin-right: #{$i * $indent-step}rem !important;
 	}
+
 	.my-#{$i} {
 		margin-top: #{$i * $indent-step}rem !important;
 		margin-bottom: #{$i * $indent-step}rem !important;
 	}
+
 	.m-#{$i} {
 		margin: #{$i * $indent-step}rem !important;
 	}
@@ -165,27 +174,34 @@ $indent-step: 0.5;
 
 /* ==========  Padding  ========== */
 $indent-step: 0.5;
+
 @for $i from 0 through 10 {
 	.pt-#{$i} {
 		padding-top: #{$i * $indent-step}rem !important;
 	}
+
 	.pr-#{$i} {
 		padding-right: #{$i * $indent-step}rem !important;
 	}
+
 	.pb-#{$i} {
 		padding-bottom: #{$i * $indent-step}rem !important;
 	}
+
 	.pl-#{$i} {
 		padding-left: #{$i * $indent-step}rem !important;
 	}
+
 	.px-#{$i} {
 		padding-left: #{$i * $indent-step}rem !important;
 		padding-right: #{$i * $indent-step}rem !important;
 	}
+
 	.py-#{$i} {
 		padding-top: #{$i * $indent-step}rem !important;
 		padding-bottom: #{$i * $indent-step}rem !important;
 	}
+
 	.p-#{$i} {
 		padding: #{$i * $indent-step}rem !important;
 	}
@@ -193,6 +209,7 @@ $indent-step: 0.5;
 
 /* ==========  Text  ========== */
 $indent-step: 0.1;
+
 @for $i from 0 through 60 {
 	.font-size-#{$i} {
 		font-size: #{$i * $indent-step}rem !important;
@@ -361,6 +378,7 @@ $indent-step: 0.1;
 
 /* ==========  Dimension  ========== */
 $indent-step: 0.5;
+
 @for $i from 0 through 20 {
 	.w-#{$i * 10 * $indent-step} {
 		width: #{calc($i * $indent-step * 10) + '%'} !important;
@@ -380,16 +398,20 @@ $indent-step: 0.5;
 }
 
 $indent-step: 1;
+
 @for $i from 1 through 10 {
 	.w-#{$i}em {
 		width: #{$i * $indent-step}em !important;
 	}
+
 	.w-#{$i}rem {
 		width: #{$i * $indent-step}rem !important;
 	}
+
 	.h-#{$i}em {
 		height: #{$i * $indent-step}em !important;
 	}
+
 	.h-#{$i}rem {
 		height: #{$i * $indent-step}rem !important;
 	}
@@ -458,7 +480,9 @@ $indent-step: 1;
 	&_hover {
 		transition: var(--transition);
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 			color: var(--color-link-hover) !important;
 		}
 	}
@@ -470,7 +494,9 @@ $indent-step: 1;
 	&_hover {
 		transition: var(--transition);
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 			background: var(--color-border-hover) !important;
 		}
 	}
@@ -485,6 +511,7 @@ $indent-step: 1;
 }
 
 $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
 @each $color in $accent-colors {
 	.color-#{$color} {
 		color: var(--color-#{$color}) !important;
@@ -496,7 +523,9 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 		&_hover {
 			transition: var(--transition);
 
-			&:hover, &:focus, &:active {
+			&:hover,
+			&:focus,
+			&:active {
 				color: var(--color-#{$color}-hover) !important;
 			}
 		}
@@ -512,7 +541,9 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 		&_hover {
 			transition: var(--transition);
 
-			&:hover, &:focus, &:active {
+			&:hover,
+			&:focus,
+			&:active {
 				background: var(--color-#{$color}-hover) !important;
 			}
 		}
@@ -556,8 +587,9 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 }
 
 $vertical-aligns: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
+
 @each $align in $vertical-aligns {
-  .vertical-align-#{$align} {
-    vertical-align: $align;
-  }
+	.vertical-align-#{$align} {
+		vertical-align: $align;
+	}
 }

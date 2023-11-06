@@ -19,7 +19,8 @@ table {
 		color: var(--color-heading);
 	}
 
-	th, td {
+	th,
+	td {
 		padding: 1em;
 		vertical-align: middle;
 		border-bottom: var(--border);
@@ -35,35 +36,45 @@ table {
 
 	// .table_align-top
 	&_align-top {
-		th, td {
+
+		th,
+		td {
 			vertical-align: top;
 		}
 	}
 
 	// .table_align-middle
 	&_align-middle {
-		th, td {
+
+		th,
+		td {
 			vertical-align: middle;
 		}
 	}
 
 	// .table_align-bottom
 	&_align-bottom {
-		th, td {
+
+		th,
+		td {
 			vertical-align: bottom;
 		}
 	}
 
 	// .table_striped
 	&_striped > tbody > tr:nth-child(odd) {
-		& > th, td {
+
+		& > th,
+		td {
 			background: #f8f9fa;
 		}
 	}
 
 	// .table_borderless
 	&_borderless {
-		th, td {
+
+		th,
+		td {
 			border: none;
 		}
 
@@ -88,7 +99,9 @@ table {
 		color: var(--color-text);
 		cursor: pointer;
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 			color: var(--color-heading);
 			text-decoration: none;
 		}
@@ -96,7 +109,9 @@ table {
 
 	// .table_sm
 	&_sm {
-		th, td {
+
+		th,
+		td {
 			padding-top: 0.5em;
 			padding-bottom: 0.5em;
 		}
@@ -105,7 +120,9 @@ table {
 
 :root[data-theme="dark"] {
 	.table_striped > tbody > tr:nth-child(odd) {
-		& > th, td {
+
+		& > th,
+		td {
 			background: #2d3846;
 		}
 	}

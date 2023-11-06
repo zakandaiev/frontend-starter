@@ -27,8 +27,7 @@ const DATA_THEME = {
 
     if (theme === DATA_THEME.value_default) {
       theme = DATA_THEME.value_dark;
-    }
-    else {
+    } else {
       theme = DATA_THEME.value_default;
     }
 
@@ -39,33 +38,32 @@ const DATA_THEME = {
 
   dataSrcDark: () => {
     const currentTheme = DATA_THEME.getCurrentTheme();
-    
-    document.querySelectorAll('[data-src-dark]').forEach(item => {
+
+    document.querySelectorAll('[data-src-dark]').forEach((item) => {
       if (!item.srcLight) {
         item.srcLight = item.src;
       }
 
-      const srcLight = item.srcLight;
+      const { srcLight } = item;
       const srcDark = item.srcDark || item.getAttribute('data-src-dark');
 
       item.src = DATA_THEME.value_dark === currentTheme ? srcDark : srcLight;
     });
 
     return true;
-  }
+  },
 };
 
 const initial_theme = DATA_THEME.getCurrentTheme();
 if (initial_theme) {
   DATA_THEME.setTheme(initial_theme);
-}
-else {
+} else {
   let theme = DATA_THEME.value_default;
 
   if (window.matchMedia) {
     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? DATA_THEME.value_dark : DATA_THEME.value_default;
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
       const t = event.matches ? DATA_THEME.value_dark : DATA_THEME.value_default;
       DATA_THEME.setTheme(t, false);
     });
@@ -74,7 +72,7 @@ else {
   DATA_THEME.setTheme(theme, false);
 }
 
-document.addEventListener('click', event => {
+document.addEventListener('click', (event) => {
   const theme_switcher = event.target.closest('[data-theme-set]');
   const theme_toggler = event.target.closest('[data-theme-toggle]');
 
@@ -88,8 +86,7 @@ document.addEventListener('click', event => {
     const theme = theme_switcher.getAttribute('data-theme-set');
 
     DATA_THEME.setTheme(theme);
-  }
-  else if (theme_toggler) {
+  } else if (theme_toggler) {
     DATA_THEME.toggleTheme();
   }
 });

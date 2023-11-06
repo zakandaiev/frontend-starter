@@ -9,9 +9,10 @@ function getVibrate(type) {
     case 'error': {
       return [20, 20, 20, 20, 20];
     }
+    default: {
+      return [20];
+    }
   }
-
-  return 20;
 }
 
 function vibrate(type = null) {

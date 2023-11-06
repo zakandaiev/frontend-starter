@@ -8,14 +8,13 @@ async function getUserPosition() {
   try {
     const { coords } = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 });
-    })
+    });
 
     if (coords.latitude && coords.longitude) {
       position.lat = coords.latitude;
       position.lng = coords.longitude;
     }
-  }
-  catch (error) {
+  } catch (error) {
     position.error = error;
   }
 

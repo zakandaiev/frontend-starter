@@ -1,5 +1,5 @@
 @mixin query($bp, $computer_first: false) {
-	@if $computer_first == true {
+	@if $computer_first ==true {
 		@if map-has-key($breakpoint_reverse, $bp) {
 			$bp_value: map-get($breakpoint_reverse, $bp);
 

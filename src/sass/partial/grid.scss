@@ -25,8 +25,10 @@
 }
 
 @each $bp, $val in $breakpoint {
+
 	// @media (min-width: $val) {
 	@include query($bp) {
+
 		// COLUMN COUNT - general class for .row
 		@for $i from 1 through 12 {
 			.row.cols-#{$bp}-#{$i} > .col {
@@ -59,6 +61,7 @@
 		.row.gap-#{$bp} {
 			margin: calc(-1 * var(--gap) / 2);
 		}
+
 		.row.gap-#{$bp} > .col,
 		.row.gap-#{$bp} > [class^="col-"] {
 			padding: calc(var(--gap) / 2);
@@ -68,6 +71,7 @@
 		.row.gap-#{$bp}-x {
 			margin: 0 calc(-1 * var(--gap) / 2);
 		}
+
 		.row.gap-#{$bp}-x > .col,
 		.row.gap-#{$bp}-x > [class^="col-"] {
 			padding: 0 calc(var(--gap) / 2);
@@ -77,6 +81,7 @@
 		.row.gap-#{$bp}-y {
 			margin: calc(-1 * var(--gap) / 2) 0;
 		}
+
 		.row.gap-#{$bp}-y > .col,
 		.row.gap-#{$bp}-y > [class^="col-"] {
 			padding: calc(var(--gap) / 2) 0;
