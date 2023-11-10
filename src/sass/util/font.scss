@@ -5,6 +5,6 @@
 		font-weight: $weight;
 		font-stretch: 100%;
 		font-display: swap;
-		src: local(""), url($url + "." + $format) format($format);
+		src: local(""), url($url) format($format);
 	}
 }

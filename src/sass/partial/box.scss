@@ -5,10 +5,6 @@
 	box-shadow: var(--shadow);
 	background: var(--color-box);
 
-	&:not(:first-child) {
-		margin-top: 1rem;
-	}
-
 	& + .box {
 		margin-top: var(--gap);
 	}
@@ -80,6 +76,30 @@
 		// .box__body + .box__footer
 		& + .box__footer {
 			padding-top: 0.5em;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			&:not(:first-child) {
+				margin-top: 3rem;
+			}
+		}
+
+		ul,
+		ol,
+		p,
+		code,
+		kbd,
+		pre,
+		samp,
+		table {
+			&:not(:first-child) {
+				margin-top: 1rem;
+			}
 		}
 	}
 

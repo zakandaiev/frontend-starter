@@ -10,10 +10,6 @@ table {
 	margin: 0;
 	text-align: left;
 
-	&:not(:first-child) {
-		margin-top: 1rem;
-	}
-
 	th {
 		font-weight: var(--font-bold);
 		color: var(--color-heading);

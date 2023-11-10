@@ -87,8 +87,6 @@
 	align-self: stretch !important;
 }
 
-$indent-step: 1;
-
 @for $i from 0 through 5 {
 	.flex-grow-#{$i} {
 		flex-grow: #{$i} !important;
@@ -99,46 +97,46 @@ $indent-step: 1;
 	}
 }
 
-$indent-step: 0.5;
+$gap-step: 0.5;
 
 @for $i from 0 through 20 {
 	.gap-#{$i} {
-		gap: #{$i * $indent-step}rem !important;
+		gap: #{$i * $gap-step}rem !important;
 	}
 }
 
 /* ==========  Margin  ========== */
-$indent-step: 0.5;
+$margin-step: 0.5;
 
 @for $i from -10 through 10 {
 	.mt-#{$i} {
-		margin-top: #{$i * $indent-step}rem !important;
+		margin-top: #{$i * $margin-step}rem !important;
 	}
 
 	.mr-#{$i} {
-		margin-right: #{$i * $indent-step}rem !important;
+		margin-right: #{$i * $margin-step}rem !important;
 	}
 
 	.mb-#{$i} {
-		margin-bottom: #{$i * $indent-step}rem !important;
+		margin-bottom: #{$i * $margin-step}rem !important;
 	}
 
 	.ml-#{$i} {
-		margin-left: #{$i * $indent-step}rem !important;
+		margin-left: #{$i * $margin-step}rem !important;
 	}
 
 	.mx-#{$i} {
-		margin-left: #{$i * $indent-step}rem !important;
-		margin-right: #{$i * $indent-step}rem !important;
+		margin-left: #{$i * $margin-step}rem !important;
+		margin-right: #{$i * $margin-step}rem !important;
 	}
 
 	.my-#{$i} {
-		margin-top: #{$i * $indent-step}rem !important;
-		margin-bottom: #{$i * $indent-step}rem !important;
+		margin-top: #{$i * $margin-step}rem !important;
+		margin-bottom: #{$i * $margin-step}rem !important;
 	}
 
 	.m-#{$i} {
-		margin: #{$i * $indent-step}rem !important;
+		margin: #{$i * $margin-step}rem !important;
 	}
 }
 
@@ -173,47 +171,63 @@ $indent-step: 0.5;
 }
 
 /* ==========  Padding  ========== */
-$indent-step: 0.5;
+$padding-step: 0.5;
 
 @for $i from 0 through 10 {
 	.pt-#{$i} {
-		padding-top: #{$i * $indent-step}rem !important;
+		padding-top: #{$i * $padding-step}rem !important;
 	}
 
 	.pr-#{$i} {
-		padding-right: #{$i * $indent-step}rem !important;
+		padding-right: #{$i * $padding-step}rem !important;
 	}
 
 	.pb-#{$i} {
-		padding-bottom: #{$i * $indent-step}rem !important;
+		padding-bottom: #{$i * $padding-step}rem !important;
 	}
 
 	.pl-#{$i} {
-		padding-left: #{$i * $indent-step}rem !important;
+		padding-left: #{$i * $padding-step}rem !important;
 	}
 
 	.px-#{$i} {
-		padding-left: #{$i * $indent-step}rem !important;
-		padding-right: #{$i * $indent-step}rem !important;
+		padding-left: #{$i * $padding-step}rem !important;
+		padding-right: #{$i * $padding-step}rem !important;
 	}
 
 	.py-#{$i} {
-		padding-top: #{$i * $indent-step}rem !important;
-		padding-bottom: #{$i * $indent-step}rem !important;
+		padding-top: #{$i * $padding-step}rem !important;
+		padding-bottom: #{$i * $padding-step}rem !important;
 	}
 
 	.p-#{$i} {
-		padding: #{$i * $indent-step}rem !important;
+		padding: #{$i * $padding-step}rem !important;
 	}
 }
 
 /* ==========  Text  ========== */
-$indent-step: 0.1;
+$fz-step: 0.1;
 
 @for $i from 0 through 60 {
 	.font-size-#{$i} {
-		font-size: #{$i * $indent-step}rem !important;
+		font-size: #{$i * $fz-step}rem !important;
 	}
+}
+
+.font-thin {
+	font-weight: var(--font-thin) !important;
+}
+
+.font-normal {
+	font-weight: var(--font-normal) !important;
+}
+
+.font-medium {
+	font-weight: var(--font-medium) !important;
+}
+
+.font-bold {
+	font-weight: var(--font-bold) !important;
 }
 
 .text-left {
@@ -264,20 +278,18 @@ $indent-step: 0.1;
 	text-decoration: line-through !important;
 }
 
-.font-thin {
-	font-weight: var(--font-thin) !important;
+.text-ellipsis {
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
 }
 
-.font-normal {
-	font-weight: var(--font-normal) !important;
+.white-space-normal {
+	white-space: initial !important;
 }
 
-.font-medium {
-	font-weight: var(--font-medium) !important;
-}
-
-.font-bold {
-	font-weight: var(--font-bold) !important;
+.white-space-nowrap {
+	white-space: nowrap !important;
 }
 
 /* ==========  Decoration  ========== */
@@ -377,15 +389,15 @@ $indent-step: 0.1;
 }
 
 /* ==========  Dimension  ========== */
-$indent-step: 0.5;
+$wahrem-step: 0.5;
 
 @for $i from 0 through 20 {
-	.w-#{$i * 10 * $indent-step} {
-		width: #{calc($i * $indent-step * 10) + '%'} !important;
+	.w-#{$i * 10 * $wahrem-step} {
+		width: #{calc($i * $wahrem-step * 10) + '%'} !important;
 	}
 
-	.h-#{$i * 10 * $indent-step} {
-		height: #{calc($i * $indent-step * 10) + '%'} !important;
+	.h-#{$i * 10 * $wahrem-step} {
+		height: #{calc($i * $wahrem-step * 10) + '%'} !important;
 	}
 }
 
@@ -397,23 +409,23 @@ $indent-step: 0.5;
 	height: auto !important;
 }
 
-$indent-step: 1;
+$wahem-step: 1;
 
 @for $i from 1 through 10 {
 	.w-#{$i}em {
-		width: #{$i * $indent-step}em !important;
+		width: #{$i * $wahem-step}em !important;
 	}
 
 	.w-#{$i}rem {
-		width: #{$i * $indent-step}rem !important;
+		width: #{$i * $wahem-step}rem !important;
 	}
 
 	.h-#{$i}em {
-		height: #{$i * $indent-step}em !important;
+		height: #{$i * $wahem-step}em !important;
 	}
 
 	.h-#{$i}rem {
-		height: #{$i * $indent-step}rem !important;
+		height: #{$i * $wahem-step}rem !important;
 	}
 }
 
@@ -510,9 +522,7 @@ $indent-step: 1;
 	background: var(--color-box) !important;
 }
 
-$accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
-
-@each $color in $accent-colors {
+@each $color in $accent-color-list {
 	.color-#{$color} {
 		color: var(--color-#{$color}) !important;
 
@@ -586,10 +596,16 @@ $accent-colors: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
 	}
 }
 
-$vertical-aligns: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
+$vertical-align-list: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
 
-@each $align in $vertical-aligns {
+@each $align in $vertical-align-list {
 	.vertical-align-#{$align} {
-		vertical-align: $align;
+		vertical-align: $align !important;
+	}
+}
+
+@each $index in $z-index-list {
+	.zi-#{$index} {
+		z-index: var(--zi-#{$index}) !important;
 	}
 }

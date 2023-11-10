@@ -13,6 +13,7 @@ const GET_PARAM = (key) => {
 @@include('util/fade.js')
 @@include('util/geolocation.js')
 @@include('util/is-object.js')
+@@include('util/random-int.js')
 @@include('util/request.js')
 @@include('util/sleep.js')
 @@include('util/smooth-scroll.js')
