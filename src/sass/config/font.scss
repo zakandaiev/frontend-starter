@@ -1,5 +1,15 @@
-@include font("Open Sans", normal, 400, "../font/OpenSans-Regular.woff2");
-@include font("Open Sans", normal, 600, "../font/OpenSans-SemiBold.woff2");
+$font-weight-list: (
+  thin: 100,
+  extralight: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
+);
 
-@include font("Open Sans", italic, 400, "../font/OpenSans-Italic.woff2");
-@include font("Open Sans", italic, 600, "../font/OpenSans-SemiBoldItalic.woff2");
+@each $key, $val in $font-weight-list {
+  @include font("Inter", normal, $val, "../font/inter-#{$val}.woff2");
+}

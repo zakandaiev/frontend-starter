@@ -1,32 +1,12 @@
-function smoothScroll(element = null, behavior = 'smooth') {
+function smoothScroll(element = null, offsetTop = 0, behavior = 'smooth') {
   if (element) {
-    element.scrollIntoView({ behavior });
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - offsetTop;
+
+    window.scrollTo({ top: offsetPosition, behavior });
   } else {
     window.scrollTo({ top: 0, behavior });
   }
 }
 
-document.addEventListener('click', (event) => {
-  if (event.target.tagName !== 'A') {
-    return false;
-  }
-  const anchor = event.target;
-  const anchor_href = anchor.getAttribute('href');
-
-  if (anchor_href === '#') {
-    event.preventDefault();
-
-    smoothScroll();
-  } else if (anchor_href.charAt(0) === '#' || (anchor_href.charAt(0) === '/' && anchor_href.charAt(1) === '#')) {
-    if (!anchor.hash) {
-      return false;
-    }
-
-    const target = document.querySelector(anchor.hash);
-    if (target) {
-      event.preventDefault();
-
-      smoothScroll(target);
-    }
-  }
-});
+export default smoothScroll;

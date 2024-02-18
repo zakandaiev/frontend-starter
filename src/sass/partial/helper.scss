@@ -1,611 +1,598 @@
 /* ==========  Flexbox  ========== */
 .d-flex {
-	display: flex !important;
+  display: flex !important;
 }
 
 .d-inline-flex {
-	display: inline-flex !important;
+  display: inline-flex !important;
 }
 
 .flex-wrap {
-	flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
 }
 
 .flex-nowrap {
-	flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
 }
 
 .flex-column {
-	flex-direction: column !important;
+  flex-direction: column !important;
 }
 
 .justify-content-start {
-	justify-content: flex-start !important;
+  justify-content: flex-start !important;
 }
 
 .justify-content-center {
-	justify-content: center !important;
+  justify-content: center !important;
 }
 
 .justify-content-end {
-	justify-content: flex-end !important;
+  justify-content: flex-end !important;
 }
 
 .justify-content-between {
-	justify-content: space-between !important;
+  justify-content: space-between !important;
 }
 
 .justify-content-around {
-	justify-content: space-around !important;
+  justify-content: space-around !important;
 }
 
 .justify-content-evenly {
-	justify-content: space-evenly !important;
+  justify-content: space-evenly !important;
 }
 
 .justify-content-stretch {
-	justify-content: stretch !important;
+  justify-content: stretch !important;
 }
 
 .align-items-baseline {
-	align-items: baseline !important;
+  align-items: baseline !important;
 }
 
 .align-items-start {
-	align-items: flex-start !important;
+  align-items: flex-start !important;
 }
 
 .align-items-center {
-	align-items: center !important;
+  align-items: center !important;
 }
 
 .align-items-end {
-	align-items: flex-end !important;
+  align-items: flex-end !important;
 }
 
 .align-items-stretch {
-	align-items: stretch !important;
+  align-items: stretch !important;
 }
 
 .align-self-baseline {
-	align-self: baseline !important;
+  align-self: baseline !important;
 }
 
 .align-self-start {
-	align-self: flex-start !important;
+  align-self: flex-start !important;
 }
 
 .align-self-center {
-	align-self: center !important;
+  align-self: center !important;
 }
 
 .align-self-end {
-	align-self: flex-end !important;
+  align-self: flex-end !important;
 }
 
 .align-self-stretch {
-	align-self: stretch !important;
+  align-self: stretch !important;
 }
 
 @for $i from 0 through 5 {
-	.flex-grow-#{$i} {
-		flex-grow: #{$i} !important;
-	}
+  .flex-grow-#{$i} {
+    flex-grow: #{$i} !important;
+  }
 
-	.flex-shrink-#{$i} {
-		flex-shrink: #{$i} !important;
-	}
+  .flex-shrink-#{$i} {
+    flex-shrink: #{$i} !important;
+  }
 }
 
 $gap-step: 0.5;
 
 @for $i from 0 through 20 {
-	.gap-#{$i} {
-		gap: #{$i * $gap-step}rem !important;
-	}
+  .gap-#{$i} {
+    gap: #{$i * $gap-step}rem !important;
+  }
 }
 
 /* ==========  Margin  ========== */
 $margin-step: 0.5;
 
 @for $i from -10 through 10 {
-	.mt-#{$i} {
-		margin-top: #{$i * $margin-step}rem !important;
-	}
+  .mt-#{$i} {
+    margin-top: #{$i * $margin-step}rem !important;
+  }
 
-	.mr-#{$i} {
-		margin-right: #{$i * $margin-step}rem !important;
-	}
+  .mr-#{$i} {
+    margin-right: #{$i * $margin-step}rem !important;
+  }
 
-	.mb-#{$i} {
-		margin-bottom: #{$i * $margin-step}rem !important;
-	}
+  .mb-#{$i} {
+    margin-bottom: #{$i * $margin-step}rem !important;
+  }
 
-	.ml-#{$i} {
-		margin-left: #{$i * $margin-step}rem !important;
-	}
+  .ml-#{$i} {
+    margin-left: #{$i * $margin-step}rem !important;
+  }
 
-	.mx-#{$i} {
-		margin-left: #{$i * $margin-step}rem !important;
-		margin-right: #{$i * $margin-step}rem !important;
-	}
+  .mx-#{$i} {
+    margin-right: #{$i * $margin-step}rem !important;
+    margin-left: #{$i * $margin-step}rem !important;
+  }
 
-	.my-#{$i} {
-		margin-top: #{$i * $margin-step}rem !important;
-		margin-bottom: #{$i * $margin-step}rem !important;
-	}
+  .my-#{$i} {
+    margin-top: #{$i * $margin-step}rem !important;
+    margin-bottom: #{$i * $margin-step}rem !important;
+  }
 
-	.m-#{$i} {
-		margin: #{$i * $margin-step}rem !important;
-	}
+  .m-#{$i} {
+    margin: #{$i * $margin-step}rem !important;
+  }
 }
 
 .mt-auto {
-	margin-top: auto !important;
+  margin-top: auto !important;
 }
 
 .mr-auto {
-	margin-right: auto !important;
+  margin-right: auto !important;
 }
 
 .mb-auto {
-	margin-bottom: auto !important;
+  margin-bottom: auto !important;
 }
 
 .ml-auto {
-	margin-left: auto !important;
+  margin-left: auto !important;
 }
 
 .mx-auto {
-	margin-left: auto !important;
-	margin-right: auto !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
 }
 
 .my-auto {
-	margin-top: auto !important;
-	margin-bottom: auto !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }
 
 .m-auto {
-	margin: auto !important;
+  margin: auto !important;
 }
 
 /* ==========  Padding  ========== */
 $padding-step: 0.5;
 
 @for $i from 0 through 10 {
-	.pt-#{$i} {
-		padding-top: #{$i * $padding-step}rem !important;
-	}
+  .pt-#{$i} {
+    padding-top: #{$i * $padding-step}rem !important;
+  }
 
-	.pr-#{$i} {
-		padding-right: #{$i * $padding-step}rem !important;
-	}
+  .pr-#{$i} {
+    padding-right: #{$i * $padding-step}rem !important;
+  }
 
-	.pb-#{$i} {
-		padding-bottom: #{$i * $padding-step}rem !important;
-	}
+  .pb-#{$i} {
+    padding-bottom: #{$i * $padding-step}rem !important;
+  }
 
-	.pl-#{$i} {
-		padding-left: #{$i * $padding-step}rem !important;
-	}
+  .pl-#{$i} {
+    padding-left: #{$i * $padding-step}rem !important;
+  }
 
-	.px-#{$i} {
-		padding-left: #{$i * $padding-step}rem !important;
-		padding-right: #{$i * $padding-step}rem !important;
-	}
+  .px-#{$i} {
+    padding-right: #{$i * $padding-step}rem !important;
+    padding-left: #{$i * $padding-step}rem !important;
+  }
 
-	.py-#{$i} {
-		padding-top: #{$i * $padding-step}rem !important;
-		padding-bottom: #{$i * $padding-step}rem !important;
-	}
+  .py-#{$i} {
+    padding-top: #{$i * $padding-step}rem !important;
+    padding-bottom: #{$i * $padding-step}rem !important;
+  }
 
-	.p-#{$i} {
-		padding: #{$i * $padding-step}rem !important;
-	}
+  .p-#{$i} {
+    padding: #{$i * $padding-step}rem !important;
+  }
 }
 
 /* ==========  Text  ========== */
 $fz-step: 0.1;
 
 @for $i from 0 through 60 {
-	.font-size-#{$i} {
-		font-size: #{$i * $fz-step}rem !important;
-	}
+  .font-size-#{$i} {
+    font-size: #{$i * $fz-step}rem !important;
+  }
 }
 
-.font-thin {
-	font-weight: var(--font-thin) !important;
-}
-
-.font-normal {
-	font-weight: var(--font-normal) !important;
-}
-
-.font-medium {
-	font-weight: var(--font-medium) !important;
-}
-
-.font-bold {
-	font-weight: var(--font-bold) !important;
+@each $key, $val in $font-weight-list {
+  #{'.font-' + $key} {
+    font-weight: var(--font-#{$key}) !important;
+  }
 }
 
 .text-left {
-	text-align: left !important;
+  text-align: left !important;
 }
 
 .text-center {
-	text-align: center !important;
+  text-align: center !important;
 }
 
 .text-right {
-	text-align: right !important;
+  text-align: right !important;
 }
 
 .text-justify {
-	text-align: justify !important;
+  text-align: justify !important;
 }
 
 .text-uppercase {
-	text-transform: uppercase !important;
+  text-transform: uppercase !important;
 }
 
 .text-lowercase {
-	text-transform: lowercase !important;
+  text-transform: lowercase !important;
 }
 
 .text-capitalize {
-	text-transform: capitalize !important;
+  text-transform: capitalize !important;
 }
 
 .text-normal {
-	font-style: normal !important;
+  font-style: normal !important;
 }
 
 .text-italic {
-	font-style: italic !important;
+  font-style: italic !important;
 }
 
 .text-underline {
-	text-decoration: underline !important;
+  text-decoration: underline !important;
 }
 
 .text-overline {
-	text-decoration: overline !important;
+  text-decoration: overline !important;
 }
 
 .text-strike {
-	text-decoration: line-through !important;
+  text-decoration: line-through !important;
 }
 
 .text-ellipsis {
-	overflow: hidden !important;
-	text-overflow: ellipsis !important;
-	white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 .white-space-normal {
-	white-space: initial !important;
+  white-space: initial !important;
 }
 
 .white-space-nowrap {
-	white-space: nowrap !important;
+  white-space: nowrap !important;
 }
 
 /* ==========  Decoration  ========== */
 .radius {
-	border-radius: var(--radius) !important;
+  border-radius: var(--radius) !important;
 }
 
 .radius-top-left {
-	border-top-left-radius: var(--radius) !important;
+  border-top-left-radius: var(--radius) !important;
 }
 
 .radius-top-right {
-	border-top-right-radius: var(--radius) !important;
+  border-top-right-radius: var(--radius) !important;
 }
 
 .radius-bottom-left {
-	border-bottom-left-radius: var(--radius) !important;
+  border-bottom-left-radius: var(--radius) !important;
 }
 
 .radius-bottom-right {
-	border-bottom-right-radius: var(--radius) !important;
+  border-bottom-right-radius: var(--radius) !important;
 }
 
 .radius-top {
-	border-top-left-radius: var(--radius) !important;
-	border-top-right-radius: var(--radius) !important;
+  border-top-left-radius: var(--radius) !important;
+  border-top-right-radius: var(--radius) !important;
 }
 
 .radius-right {
-	border-top-right-radius: var(--radius) !important;
-	border-bottom-right-radius: var(--radius) !important;
+  border-top-right-radius: var(--radius) !important;
+  border-bottom-right-radius: var(--radius) !important;
 }
 
 .radius-bottom {
-	border-bottom-left-radius: var(--radius) !important;
-	border-bottom-right-radius: var(--radius) !important;
+  border-bottom-right-radius: var(--radius) !important;
+  border-bottom-left-radius: var(--radius) !important;
 }
 
 .radius-left {
-	border-top-left-radius: var(--radius) !important;
-	border-bottom-left-radius: var(--radius) !important;
+  border-top-left-radius: var(--radius) !important;
+  border-bottom-left-radius: var(--radius) !important;
 }
 
 .radius-circle {
-	border-radius: 50% !important;
+  border-radius: 50% !important;
 }
 
 .border {
-	border: var(--border) !important;
+  border: var(--border) !important;
 }
 
 .border-top {
-	border-top: var(--border) !important;
+  border-top: var(--border) !important;
 }
 
 .border-right {
-	border-right: var(--border) !important;
+  border-right: var(--border) !important;
 }
 
 .border-bottom {
-	border-bottom: var(--border) !important;
+  border-bottom: var(--border) !important;
 }
 
 .border-left {
-	border-left: var(--border) !important;
+  border-left: var(--border) !important;
 }
 
 .shadow {
-	box-shadow: var(--shadow) !important;
+  box-shadow: var(--shadow) !important;
 }
 
 .drop-shadow {
-	filter: var(--drop-shadow) !important;
+  filter: var(--drop-shadow) !important;
 }
 
 /* ==========  Table  ========== */
 .table-fixed {
-	table-layout: fixed !important;
+  table-layout: fixed !important;
 }
 
 /* ==========  Visibility  ========== */
 .d-block {
-	display: block !important;
+  display: block !important;
 }
 
 .d-inline-block {
-	display: inline-block !important;
+  display: inline-block !important;
 }
 
 .d-none {
-	display: none !important;
+  display: none !important;
 }
 
 .hidden {
-	display: none !important;
-	visibility: hidden !important;
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.pointer-events-all {
+  pointer-events: all !important;
+}
+
+.pointer-events-none {
+  pointer-events: none !important;
 }
 
 /* ==========  Dimension  ========== */
 $wahrem-step: 0.5;
 
 @for $i from 0 through 20 {
-	.w-#{$i * 10 * $wahrem-step} {
-		width: #{calc($i * $wahrem-step * 10) + '%'} !important;
-	}
+  .w-#{$i * 10 * $wahrem-step} {
+    width: #{calc($i * $wahrem-step * 10) + '%'} !important;
+  }
 
-	.h-#{$i * 10 * $wahrem-step} {
-		height: #{calc($i * $wahrem-step * 10) + '%'} !important;
-	}
+  .h-#{$i * 10 * $wahrem-step} {
+    height: #{calc($i * $wahrem-step * 10) + '%'} !important;
+  }
 }
 
 .w-auto {
-	width: auto !important;
+  width: auto !important;
 }
 
 .h-auto {
-	height: auto !important;
+  height: auto !important;
 }
 
 $wahem-step: 1;
 
 @for $i from 1 through 10 {
-	.w-#{$i}em {
-		width: #{$i * $wahem-step}em !important;
-	}
+  .w-#{$i}em {
+    width: #{$i * $wahem-step}em !important;
+  }
 
-	.w-#{$i}rem {
-		width: #{$i * $wahem-step}rem !important;
-	}
+  .w-#{$i}rem {
+    width: #{$i * $wahem-step}rem !important;
+  }
 
-	.h-#{$i}em {
-		height: #{$i * $wahem-step}em !important;
-	}
+  .h-#{$i}em {
+    height: #{$i * $wahem-step}em !important;
+  }
 
-	.h-#{$i}rem {
-		height: #{$i * $wahem-step}rem !important;
-	}
+  .h-#{$i}rem {
+    height: #{$i * $wahem-step}rem !important;
+  }
 }
 
 .fit-contain {
-	object-fit: contain !important;
+  object-fit: contain !important;
 }
 
 .fit-cover {
-	object-fit: cover !important;
+  object-fit: cover !important;
 }
 
 .ratio-1 {
-	aspect-ratio: 1 !important;
+  aspect-ratio: 1 !important;
 }
 
 .ratio-3-2 {
-	aspect-ratio: 3 / 2 !important;
+  aspect-ratio: 3 / 2 !important;
 }
 
 .ratio-2-3 {
-	aspect-ratio: 2 / 3 !important;
+  aspect-ratio: 2 / 3 !important;
 }
 
 .ratio-4-3 {
-	aspect-ratio: 4 / 3 !important;
+  aspect-ratio: 4 / 3 !important;
 }
 
 .ratio-3-4 {
-	aspect-ratio: 3 / 4 !important;
+  aspect-ratio: 3 / 4 !important;
 }
 
 .ratio-16-9 {
-	aspect-ratio: 16 / 9 !important;
+  aspect-ratio: 16 / 9 !important;
 }
 
-.ratio-16-9 {
-	aspect-ratio: 9 / 16 !important;
+.ratio-9-16 {
+  aspect-ratio: 9 / 16 !important;
 }
 
 /* ==========  Color  ========== */
 .color-heading {
-	color: var(--color-heading) !important;
+  color: var(--color-heading) !important;
 }
 
 .color-heading-inverse {
-	color: var(--color-heading-inverse) !important;
+  color: var(--color-heading-inverse) !important;
 }
 
 .color-text {
-	color: var(--color-text) !important;
+  color: var(--color-text) !important;
 }
 
 .color-text-inverse {
-	color: var(--color-text-inverse) !important;
+  color: var(--color-text-inverse) !important;
 }
 
 .color-muted {
-	color: var(--color-text-muted) !important;
+  color: var(--color-text-muted) !important;
 }
 
 .color-link {
-	color: var(--color-link) !important;
+  color: var(--color-link) !important;
 
-	&_hover {
-		transition: var(--transition);
+  &_hover {
+    transition: var(--transition);
 
-		&:hover,
-		&:focus,
-		&:active {
-			color: var(--color-link-hover) !important;
-		}
-	}
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-link-hover) !important;
+    }
+  }
 }
 
 .bg-border {
-	background: var(--color-border) !important;
+  background: var(--color-border) !important;
 
-	&_hover {
-		transition: var(--transition);
+  &_hover {
+    transition: var(--transition);
 
-		&:hover,
-		&:focus,
-		&:active {
-			background: var(--color-border-hover) !important;
-		}
-	}
+    &:hover,
+    &:focus,
+    &:active {
+      background: var(--color-border-hover) !important;
+    }
+  }
 }
 
 .bg-body {
-	background: var(--color-body) !important;
+  background: var(--color-body) !important;
 }
 
 .bg-box {
-	background: var(--color-box) !important;
+  background: var(--color-box) !important;
 }
 
 @each $color in $accent-color-list {
-	.color-#{$color} {
-		color: var(--color-#{$color}) !important;
+  .color-#{$color} {
+    color: var(--color-#{$color}) !important;
 
-		&_light {
-			color: var(--color-#{$color}-light) !important;
-		}
+    &_hover {
+      transition: var(--transition);
 
-		&_hover {
-			transition: var(--transition);
+      &:hover,
+      &:focus,
+      &:active {
+        color: var(--color-#{$color}-hover) !important;
+      }
+    }
+  }
 
-			&:hover,
-			&:focus,
-			&:active {
-				color: var(--color-#{$color}-hover) !important;
-			}
-		}
-	}
+  .bg-#{$color} {
+    background: var(--color-#{$color}) !important;
 
-	.bg-#{$color} {
-		background: var(--color-#{$color}) !important;
+    &_hover {
+      transition: var(--transition);
 
-		&_light {
-			color: var(--color-#{$color}-light) !important;
-		}
-
-		&_hover {
-			transition: var(--transition);
-
-			&:hover,
-			&:focus,
-			&:active {
-				background: var(--color-#{$color}-hover) !important;
-			}
-		}
-	}
+      &:hover,
+      &:focus,
+      &:active {
+        background: var(--color-#{$color}-hover) !important;
+      }
+    }
+  }
 }
 
 /* ==========  Cursors  ========== */
 .cursor-pointer {
-	cursor: pointer !important;
+  cursor: pointer !important;
 }
 
 .cursor-default {
-	cursor: default !important;
+  cursor: default !important;
 }
 
 /* ==========  Position  ========== */
 .position-initial {
-	position: initial !important;
+  position: initial !important;
 }
 
 .position-static {
-	position: static !important;
+  position: static !important;
 }
 
 .position-relative {
-	position: relative !important;
+  position: relative !important;
 }
 
 .position-sticky {
-	position: sticky !important;
-	top: 0 !important;
-	height: auto !important;
-	max-height: 100dvh !important;
-	overflow-y: auto !important;
+  position: sticky !important;
+  top: 0;
 
-	// .position-sticky_bottom
-	&_bottom {
-		top: auto !important;
-		bottom: 0 !important;
-	}
+  // .position-sticky_bottom
+  &_bottom {
+    top: auto;
+    bottom: 0;
+  }
 }
 
 $vertical-align-list: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
 
 @each $align in $vertical-align-list {
-	.vertical-align-#{$align} {
-		vertical-align: $align !important;
-	}
+  .vertical-align-#{$align} {
+    vertical-align: $align !important;
+  }
 }
 
-@each $index in $z-index-list {
-	.zi-#{$index} {
-		z-index: var(--zi-#{$index}) !important;
-	}
+@each $key, $val in $z-index-list {
+  .zi-#{$key} {
+    z-index: var(--zi-#{$key}) !important;
+  }
 }

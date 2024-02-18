@@ -43,3 +43,8 @@ function fadeOut(element, callback = null, timing = 20) {
     opacity -= 0.1;
   }, timing);
 }
+
+export {
+  fadeIn,
+  fadeOut,
+};

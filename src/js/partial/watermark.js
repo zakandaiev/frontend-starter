@@ -1,1 +1,2 @@
-console.log('%cMade by Zakandaiev', 'background:#da4648;color:#fff;padding:10px;font-weight:bold;');
+// eslint-disable-next-line
+console.log('%cMade by Zakandaiev', 'background:#e44d26;color:#fff;padding:10px;font-weight:bold;');

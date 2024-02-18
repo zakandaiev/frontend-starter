@@ -1,90 +1,89 @@
 $accent-color-list: primary, secondary, success, info, warning, error;
-$z-index-list: top, tooltip, modal, header, default, bottom;
+
+$z-index-list: (
+  top: 1000,
+  tooltip: 300,
+  modal: 200,
+  header: 100,
+  default: 10,
+  below: -10,
+  bottom: -1000,
+);
 
 :root {
-	--font: "Open Sans", sans-serif;
-	--font-thin: 200;
-	--font-normal: 400;
-	--font-medium: 500;
-	--font-bold: 600;
+  --font: "Inter", sans-serif;
 
-	--color-primary: #3b7ddd;
-	--color-primary-hover: #326abc;
-	--color-primary-light: rgba(59, 125, 221, 0.15);
+  @each $key, $val in $font-weight-list {
+    #{'--font-' + $key}: #{$val};
+  }
 
-	--color-secondary: #6c757d;
-	--color-secondary-hover: #686f75;
-	--color-secondary-light: hsla(208, 7%, 46%, 0.15);
+  --color-primary: #e44d26;
+  --color-primary-hover: #f16529;
 
-	--color-success: #1cbb8c;
-	--color-success-hover: #189f77;
-	--color-success-light: rgba(28, 187, 140, 0.15);
+  --color-secondary: #6c757d;
+  --color-secondary-hover: #686f75;
 
-	--color-info: #17a2b8;
-	--color-info-hover: #148a9c;
-	--color-info-light: rgba(23, 162, 184, 0.15);
+  --color-success: #1cbb8c;
+  --color-success-hover: #189f77;
 
-	--color-warning: #fcb92c;
-	--color-warning-hover: #d69d25;
-	--color-warning-light: rgba(252, 185, 44, 0.15);
+  --color-info: #17a2b8;
+  --color-info-hover: #148a9c;
 
-	--color-error: #dc3545;
-	--color-error-hover: #bb2d3b;
-	--color-error-light: rgba(220, 53, 69, 0.15);
+  --color-warning: #fcb92c;
+  --color-warning-hover: #d69d25;
 
-	--color-body: #f5f7fb;
-	--color-box: #fff;
+  --color-error: #dc3545;
+  --color-error-hover: #bb2d3b;
 
-	--color-heading: #000;
-	--color-heading-inverse: #fff;
-	--color-text: #495057;
-	--color-text-inverse: #bdc0c5;
-	--color-text-muted: #939ba2;
-	--color-link: #3b7ddd;
-	--color-link-hover: #2f64b1;
-	--color-border: #dee2e6;
-	--color-border-hover: #ced4da;
+  --color-body: #fff;
+  --color-box: #f6f6f7;
 
-	--border-width: 2px;
-	--border: var(--border-width) solid var(--color-border);
+  --color-heading: rgb(60 60 67);
+  --color-heading-inverse: #fff;
+  --color-text: rgb(60 60 67 / 78%);
+  --color-text-inverse: rgb(235 235 245 / 60%);
+  --color-text-muted: #939ba2;
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+  --color-border: #dee2e6;
+  --color-border-hover: #ced4da;
 
-	--gap: 24px;
+  --border-width: 1px;
+  --border: var(--border-width) solid var(--color-border);
 
-	--radius: 4px;
+  --gap: 16px;
 
-	--shadow: 0 0 14px 0 rgba(33, 37, 41, 0.05);
-	--drop-shadow: drop-shadow(0 0 14px rgba(33, 37, 41, 0.05));
+  --radius: 12px;
 
-	--transition-time: 0.3s;
-	--transition: all var(--transition-time);
+  --shadow: 0 0 14px 0 rgb(33 37 41 / 5%);
+  --drop-shadow: drop-shadow(0 0 14px rgb(33 37 41 / 5%));
 
-	--zi-top: 1000;
-	--zi-tooltip: 200;
-	--zi-modal: 100;
-	--zi-header: 30;
-	--zi-default: 10;
-	--zi-below: -10;
-	--zi-bottom: -1000;
+  --transition-time: 0.3s;
+  --transition: all var(--transition-time);
 
-	color-scheme: light;
+  @each $key, $val in $z-index-list {
+    --zi-#{$key}: #{$val};
+  }
+
+  color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-	--color-body: #19222c;
-	--color-box: #222e3c;
+  --color-body: #1b1b1f;
+  --color-box: #202127;
 
-	--color-heading: #fff;
-	--color-heading-inverse: #000;
-	--color-text: #bdc0c5;
-	--color-text-inverse: #495057;
-	--color-text-muted: #6c757d;
-	--color-border: #4e5863;
-	--color-border-hover: #384350;
+  --color-heading: #fff;
+  --color-heading-inverse: rgb(60 60 67);
+  --color-text: rgb(235 235 245 / 60%);
+  --color-text-inverse: rgb(60 60 67 / 78%);
+  --color-text-muted: #6c757d;
+  --color-border: #32363f;
+  --color-border-hover: #414853;
 
-	--border: var(--border-width) solid var(--color-border);
+  --border: var(--border-width) solid var(--color-border);
 
-	--shadow: 0 0 14px 0 rgba(34, 46, 60, 0.05);
-	--drop-shadow: drop-shadow(0 0 14px 0 rgba(34, 46, 60, 0.05));
+  --shadow: 0 0 14px 0 rgb(34 46 60 / 5%);
+  --drop-shadow: drop-shadow(0 0 14px 0 rgb(34 46 60 / 5%));
 
-	color-scheme: dark;
+  color-scheme: dark;
 }

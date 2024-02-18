@@ -1,90 +1,88 @@
 .row {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-	// .row.fill
-	&.fill > .col {
-		flex: 1 0 auto;
+  // .row.fill
+  &.fill > .col {
+    flex: 1 0 auto;
 
-		// .row.fill > .col-auto
-		&-auto {
-			flex: initial;
-		}
-	}
+    // .row.fill > .col-auto
+    &-auto {
+      flex: initial;
+    }
+  }
 }
 
 .col,
 [class^="col-"] {
-	display: block;
-	flex: 0 0 auto;
+  display: block;
+  flex: 0 0 auto;
 
-	// .col.fill
-	&.fill {
-		flex: 1 0 auto;
-	}
+  // .col.fill
+  &.fill {
+    flex: 1 0 auto;
+  }
 }
 
 @each $bp, $val in $breakpoint {
+  // @media (min-width: $val) {
+  @include query($bp) {
+    // COLUMN COUNT - general class for .row
+    @for $i from 1 through 12 {
+      .row.cols-#{$bp}-#{$i} > .col {
+        width: calc(100% / $i);
+      }
+    }
 
-	// @media (min-width: $val) {
-	@include query($bp) {
+    // COLUMN COUNT - single class for .col
+    @for $i from 1 through 12 {
+      .col-#{$bp}-#{$i} {
+        width: calc(100% / 12) * $i;
+      }
+    }
 
-		// COLUMN COUNT - general class for .row
-		@for $i from 1 through 12 {
-			.row.cols-#{$bp}-#{$i} > .col {
-				width: calc(100% / $i);
-			}
-		}
+    // OFFSET - single class for .col
+    @for $i from 1 through 12 {
+      .offset-#{$bp}-#{$i} {
+        margin-left: calc(100% / 12) * $i;
+      }
+    }
 
-		// COLUMN COUNT - single class for .col
-		@for $i from 1 through 12 {
-			.col-#{$bp}-#{$i} {
-				width: calc(100% / 12) * $i;
-			}
-		}
+    // ORDER - single class for .col
+    @for $i from 1 through 12 {
+      .order-#{$bp}-#{$i} {
+        order: $i;
+      }
+    }
 
-		// OFFSET - single class for .col
-		@for $i from 1 through 12 {
-			.offset-#{$bp}-#{$i} {
-				margin-left: calc(100% / 12) * $i;
-			}
-		}
+    // GAP - XY
+    .row.gap-#{$bp} {
+      margin: calc(-1 * var(--gap) / 2);
+    }
 
-		// ORDER - single class for .col
-		@for $i from 1 through 12 {
-			.order-#{$bp}-#{$i} {
-				order: $i;
-			}
-		}
+    .row.gap-#{$bp} > .col,
+    .row.gap-#{$bp} > [class^="col-"] {
+      padding: calc(var(--gap) / 2);
+    }
 
-		// GAP - XY
-		.row.gap-#{$bp} {
-			margin: calc(-1 * var(--gap) / 2);
-		}
+    // GAP - X
+    .row.gap-#{$bp}-x {
+      margin: 0 calc(-1 * var(--gap) / 2);
+    }
 
-		.row.gap-#{$bp} > .col,
-		.row.gap-#{$bp} > [class^="col-"] {
-			padding: calc(var(--gap) / 2);
-		}
+    .row.gap-#{$bp}-x > .col,
+    .row.gap-#{$bp}-x > [class^="col-"] {
+      padding: 0 calc(var(--gap) / 2);
+    }
 
-		// GAP - X
-		.row.gap-#{$bp}-x {
-			margin: 0 calc(-1 * var(--gap) / 2);
-		}
+    // GAP - Y
+    .row.gap-#{$bp}-y {
+      margin: calc(-1 * var(--gap) / 2) 0;
+    }
 
-		.row.gap-#{$bp}-x > .col,
-		.row.gap-#{$bp}-x > [class^="col-"] {
-			padding: 0 calc(var(--gap) / 2);
-		}
-
-		// GAP - Y
-		.row.gap-#{$bp}-y {
-			margin: calc(-1 * var(--gap) / 2) 0;
-		}
-
-		.row.gap-#{$bp}-y > .col,
-		.row.gap-#{$bp}-y > [class^="col-"] {
-			padding: calc(var(--gap) / 2) 0;
-		}
-	}
+    .row.gap-#{$bp}-y > .col,
+    .row.gap-#{$bp}-y > [class^="col-"] {
+      padding: calc(var(--gap) / 2) 0;
+    }
+  }
 }

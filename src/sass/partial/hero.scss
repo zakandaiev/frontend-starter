@@ -1,0 +1,172 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  // .hero__main
+  &__main {
+    order: 2;
+  }
+
+  // .hero__title
+  &__title {
+    display: block;
+
+    font-size: 2em;
+    font-weight: var(--font-bold);
+    line-height: 1.2;
+    color: var(--color-primary);
+    text-align: center;
+  }
+
+  // .hero__subtitle
+  &__subtitle {
+    display: block;
+
+    font-size: 2em;
+    font-weight: var(--font-bold);
+    line-height: 1.2;
+    color: var(--color-heading);
+    text-align: center;
+  }
+
+  // .hero__text
+  &__text {
+    display: block;
+
+    margin: 0.5em 0 0;
+
+    font-size: 1.125em;
+    font-weight: var(--font-medium);
+    line-height: inherit;
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  // .hero__actions
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em;
+    justify-content: center;
+
+    margin: 2em 0 0;
+  }
+
+  // .hero__image
+  &__image {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+
+    text-align: center;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      z-index: var(--zi-below);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 10em;
+      height: 10em;
+
+      background: linear-gradient(-45deg, #e44d26 50%, #f16529 50%);
+      filter: blur(4.5em);
+    }
+
+    & > * {
+      display: block;
+      flex-shrink: 0;
+      width: auto;
+      height: 10em;
+    }
+  }
+}
+
+@include query(md) {
+  .hero {
+    // .hero__title
+    &__title {
+      font-size: 2.5em;
+    }
+
+    // .hero__subtitle
+    &__subtitle {
+      font-size: 2.5em;
+    }
+
+    // .hero__text
+    &__text {
+      font-size: 1.25em;
+    }
+
+    // .hero__image
+    &__image {
+      &::before {
+        width: 12em;
+        height: 12em;
+      }
+
+      & > * {
+        height: 12em;
+      }
+    }
+  }
+}
+
+@include query(lg) {
+  .hero {
+    flex-direction: row;
+    gap: 0;
+
+    // .hero__main
+    &__main {
+      flex: 0 0 50%;
+      order: 1;
+    }
+
+    // .hero__image
+    &__image {
+      flex: 0 0 50%;
+      order: 2;
+
+      &::before {
+        width: 16em;
+        height: 16em;
+      }
+
+      & > * {
+        height: 16em;
+      }
+    }
+
+    // .hero__title
+    &__title {
+      font-size: 3em;
+      text-align: left;
+    }
+
+    // .hero__subtitle
+    &__subtitle {
+      font-size: 3em;
+      text-align: left;
+    }
+
+    // .hero__text
+    &__text {
+      font-size: 1.5em;
+      text-align: left;
+    }
+
+    // .hero__actions
+    &__actions {
+      justify-content: flex-start;
+    }
+  }
+}

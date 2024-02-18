@@ -28,3 +28,8 @@ function vibrate(type = null) {
 
   return true;
 }
+
+export {
+  getVibrate,
+  vibrate,
+};

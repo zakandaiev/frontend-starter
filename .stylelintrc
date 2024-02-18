@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "stylelint-config-clean-order",
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "ignoreFiles": [
+    "**/*.min.css"
+  ],
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "no-descending-specificity": null,
+    "no-invalid-double-slash-comments": null,
+    "no-invalid-position-at-import-rule": null,
+    "selector-class-pattern": null,
+    "scss/at-else-empty-line-before": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "scss/at-if-closing-brace-newline-after": null,
+    "scss/at-mixin-parentheses-space-before": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/load-no-partial-leading-underscore": null,
+    "scss/no-global-function-names": null
+  }
+}

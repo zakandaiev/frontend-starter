@@ -1,6 +1,12 @@
 .footer {
-	display: block;
-	width: 100%;
-	border-top: var(--border);
-	margin-top: var(--gap);
+  display: block;
+  margin: 2em 0 0;
+  text-align: center;
+  border-top: var(--border-width) solid #e2e2e3;
+}
+
+:root[data-theme="dark"] {
+  .footer {
+    border-color: #000;
+  }
 }

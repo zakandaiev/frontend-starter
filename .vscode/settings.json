@@ -1,0 +1,52 @@
+{
+  // EDITOR
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
+  "Workspace_Formatter.excludePattern": [
+    "**/.*",
+    "**/build",
+    "**/docs",
+    "**/dist",
+    "**/node_modules",
+    "**/vendor",
+  ],
+  // HTML
+  "html.format.enable": true,
+  "html.autoClosingTags": false,
+  "html.format.wrapLineLength": 0,
+  "[html]": {
+    "editor.defaultFormatter": "mblode.twig-language"
+  },
+  "twig-language.indentStyle": "space",
+  "[twig]": {
+    "editor.defaultFormatter": "mblode.twig-language"
+  },
+  // JS
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // CSS
+  "css.format.spaceAroundSelectorSeparator": true,
+  "scss.format.spaceAroundSelectorSeparator": true,
+  "stylelint.validate": [
+    "css",
+    "sass",
+    "scss"
+  ]
+}

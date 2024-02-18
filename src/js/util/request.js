@@ -1,3 +1,5 @@
+import sleep from '@/js/util/sleep';
+
 async function fetchWithTimeout(resource, options = {}, timeout = 15000) {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
@@ -63,3 +65,8 @@ async function request(resource, options = {}, timeout = 15000, delay = 1000) {
 
   return data;
 }
+
+export {
+  fetchWithTimeout,
+  request,
+};

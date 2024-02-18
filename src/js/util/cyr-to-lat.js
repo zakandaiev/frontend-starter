@@ -80,12 +80,20 @@ function cyrToLat(text) {
 }
 
 function getSlug(text, delimiter = '-') {
-  const replace_1 = new RegExp(`[^A-Za-z0-9${delimiter}]+`, 'g');
-  const replace_2 = new RegExp(`[${delimiter}]+`, 'g');
-  const replace_3 = new RegExp(`^${delimiter}`);
-  const replace_4 = new RegExp(`${delimiter}$`);
+  const replaceInvalidChars = new RegExp(`[^A-Za-z0-9${delimiter}]+`, 'g');
+  const replaceDelimiterRepeats = new RegExp(`[${delimiter}]+`, 'g');
+  const replaceNoDelimiter = new RegExp(`^${delimiter}`);
+  const replaceDelimiter = new RegExp(`${delimiter}$`);
 
-  return cyrToLat(text).replaceAll(replace_1, delimiter).replaceAll(replace_2, delimiter).replace(replace_3, '')
-    .replace(replace_4, '')
+  return cyrToLat(text)
+    .replaceAll(replaceInvalidChars, delimiter)
+    .replaceAll(replaceDelimiterRepeats, delimiter)
+    .replace(replaceNoDelimiter, '')
+    .replace(replaceDelimiter, '')
     .toLowerCase();
 }
+
+export {
+  cyrToLat,
+  getSlug,
+};

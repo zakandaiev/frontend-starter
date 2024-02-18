@@ -1,79 +1,82 @@
 {
-	"name": "frontend-starter",
-	"license": "MIT",
-	"version": "1.6.2",
-	"author": "github.com/zakandaiev",
-	"description": "FrontEnd Starter - boilerplate for easy building sites using task manager Gulp 4",
-	"keywords": [
-		"frontend",
-		"starter",
-		"boilerplate",
-		"kit",
-		"gulp",
-		"html",
-		"css",
-		"sass",
-		"scss",
-		"javascript",
-		"js",
-		"es6",
-		"optimized",
-		"autoprefixer",
-		"babel",
-		"browsersync",
-		"404",
-		"grid",
-		"htaccess",
-		"robots.txt",
-		"sitemap.xml",
-		"favicon"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/zakandaiev/frontend-starter"
-	},
-	"main": "index.js",
-	"scripts": {
-		"dev": "gulp",
-		"prod": "gulp --prod",
-		"build": "gulp --prod"
-	},
-	"browserslist": [
-		"last 10 versions",
-		"not dead"
-	],
-	"babel": {
-		"presets": [
-			"@babel/preset-env"
-		],
-		"ignore": [
-			"./src/js/ingored.js"
-		]
-	},
-	"devDependencies": {
-		"@babel/core": "^7.23.2",
-		"@babel/preset-env": "^7.23.2",
-		"browser-sync": "^2.29.3",
-		"del": "^6.1.1",
-		"eslint": "^8.53.0",
-		"eslint-config-airbnb-base": "^15.0.0",
-		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^8.0.0",
-		"gulp-babel": "^8.0.0",
-		"gulp-clean-css": "^4.3.0",
-		"gulp-file-include": "^2.3.0",
-		"gulp-group-css-media-queries": "^1.2.2",
-		"gulp-htmlmin": "^5.0.1",
-		"gulp-if": "^3.0.0",
-		"gulp-imagemin": "^7.1.0",
-		"gulp-load-plugins": "^2.0.8",
-		"gulp-newer": "^1.4.0",
-		"gulp-sass": "^5.1.0",
-		"gulp-terser": "^2.1.0",
-		"gulp-version-number": "^0.2.4",
-		"sass": "^1.69.5"
-	},
-	"dependencies": {
-		"reseter.css": "^2.0.0"
-	}
+  "name": "frontend-starter",
+  "version": "2.0.0",
+  "author": "github.com/zakandaiev",
+  "description": "FrontEnd Starter is a boilerplate kit for easy building modern static web-sites using Gulp",
+  "keywords": [
+    "gulp",
+    "builder",
+    "frontend",
+    "starter",
+    "boilerplate",
+    "kit",
+    "twig",
+    "html",
+    "css",
+    "sass",
+    "scss",
+    "javascript",
+    "js",
+    "es6",
+    "optimized",
+    "autoprefixer",
+    "rollup",
+    "browsersync",
+    "404",
+    "grid",
+    "htaccess",
+    "robots.txt",
+    "sitemap.xml",
+    "favicon"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakandaiev/frontend-starter"
+  },
+  "type": "module",
+  "browserslist": [
+    "last 15 versions",
+    "not dead"
+  ],
+  "scripts": {
+    "dev": "gulp",
+    "prod": "gulp --prod",
+    "build": "gulp --prod",
+    "preview": "gulp preview",
+    "docs": "gulp --prod --dist ./docs",
+    "lint:js": "eslint --ext .js --ignore-path .gitignore ./",
+    "lint:sass": "stylelint ./src/sass/**/*.{sass,scss}"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "autoprefixer": "^10.4.17",
+    "browser-sync": "^3.0.2",
+    "cssnano": "^6.0.3",
+    "del": "^7.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.29.1",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^9.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-twig": "^1.2.0",
+    "gulp-version-number": "^0.2.4",
+    "postcss-combine-media-query": "^1.0.1",
+    "rollup": "^4.12.0",
+    "rollup-plugin-multi-input": "^1.4.1",
+    "sass": "^1.71.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-clean-order": "^5.4.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-scss": "^6.1.0"
+  },
+  "dependencies": {
+    "reseter.css": "^2.0.0"
+  }
 }

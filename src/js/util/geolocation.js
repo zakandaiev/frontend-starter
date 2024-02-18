@@ -20,3 +20,5 @@ async function getUserPosition() {
 
   return position;
 }
+
+export default getUserPosition;

@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "⚙️",
+    "title": "Gulp environment",
+    "text": "Modern & Automated development environment with it's all benefits"
+  },
+  {
+    "icon": "🏗️",
+    "title": "Twig template engine",
+    "text": "Flexible, fast, and secure template engine integrated"
+  },
+  {
+    "icon": "📁",
+    "title": "Structured",
+    "text": "Well thought-out and convenient project structure"
+  },
+  {
+    "icon": "🛠️",
+    "title": "Rich features",
+    "text": "Ready-to-use utils, styled components, helpers etc."
+  },
+  {
+    "icon": "⚡",
+    "title": "Optimized content",
+    "text": "Convenient, modern and SEO friendly templates"
+  },
+  {
+    "icon": "🤖",
+    "title": "Аutomation features",
+    "text": "Fast HMR, SASS preprocessor, assets auto minifier etc."
+  }
+]

@@ -54,9 +54,9 @@ const DATA_THEME = {
   },
 };
 
-const initial_theme = DATA_THEME.getCurrentTheme();
-if (initial_theme) {
-  DATA_THEME.setTheme(initial_theme);
+const initialTheme = DATA_THEME.getCurrentTheme();
+if (initialTheme) {
+  DATA_THEME.setTheme(initialTheme);
 } else {
   let theme = DATA_THEME.value_default;
 
@@ -73,20 +73,20 @@ if (initial_theme) {
 }
 
 document.addEventListener('click', (event) => {
-  const theme_switcher = event.target.closest('[data-theme-set]');
-  const theme_toggler = event.target.closest('[data-theme-toggle]');
+  const themeSwitcher = event.target.closest('[data-theme-set]');
+  const themeToggler = event.target.closest('[data-theme-toggle]');
 
-  if (!theme_switcher && !theme_toggler) {
+  if (!themeSwitcher && !themeToggler) {
     return false;
   }
 
   event.preventDefault();
 
-  if (theme_switcher) {
-    const theme = theme_switcher.getAttribute('data-theme-set');
+  if (themeSwitcher) {
+    const theme = themeSwitcher.getAttribute('data-theme-set');
 
     DATA_THEME.setTheme(theme);
-  } else if (theme_toggler) {
+  } else if (themeToggler) {
     DATA_THEME.toggleTheme();
   }
 });

@@ -1,29 +1,23 @@
 @mixin query($bp, $computer_first: false) {
-	@if $computer_first ==true {
-		@if map-has-key($breakpoint_reverse, $bp) {
-			$bp_value: map-get($breakpoint_reverse, $bp);
+  @if $computer_first == true {
+    @if map-has-key($breakpoint-reverse, $bp) {
+      $bp-value: map-get($breakpoint-reverse, $bp);
 
-			@media (max-width: $bp_value) {
-				@content;
-			}
-		}
+      @media (max-width: $bp-value) {
+        @content;
+      }
+    } @else {
+      @warn 'Invalid breakpoint: #{$bp}';
+    }
+  } @else {
+    @if map-has-key($breakpoint, $bp) {
+      $bp-value: map-get($breakpoint, $bp);
 
-		@else {
-			@warn 'Invalid breakpoint: #{$bp}';
-		}
-	}
-
-	@else {
-		@if map-has-key($breakpoint, $bp) {
-			$bp_value: map-get($breakpoint, $bp);
-
-			@media (min-width: $bp_value) {
-				@content;
-			}
-		}
-
-		@else {
-			@warn 'Invalid breakpoint: #{$bp}';
-		}
-	}
+      @media (min-width: $bp-value) {
+        @content;
+      }
+    } @else {
+      @warn 'Invalid breakpoint: #{$bp}';
+    }
+  }
 }

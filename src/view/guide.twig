@@ -1,0 +1,84 @@
+{% set title = 'Guide' %}
+{% set active_nav = '/guide' %}
+
+{% extends 'template/layout/main.twig' %}
+
+{% block content %}
+  <div class="container">
+
+    <div class="row gap-xs">
+      <div class="col-xs-12 col-md-8 order-xs-2 order-md-1">
+
+        <div class="section section_offset-bottom">
+          <h1>Getting Started</h1>
+        </div>
+
+        <section class="section section_offset border-top">
+          <h2 class="section__title">Overview</h2>
+
+          <div class="section__body">
+            <p>{{ APP_DESCRIPTION }}.</p>
+
+            <p>This starter is delivering with ready-to-use utils, styled components, helpers and much more. Its overview is available in
+              <a href="./components">components</a>
+              section.</p>
+          </div>
+        </section>
+
+        <section class="section section_offset border-top">
+          <h2 class="section__title">How to use</h2>
+
+          <div class="section__body">
+            <h4 class="font-regular">Instalation</h4>
+            <div class="box">
+              <pre>
+<span class="color-muted"># Clone the repository</span>
+<span class="color-primary">git clone</span> {{ APP_REPOSITORY }}.git
+
+<span class="color-muted"># Go to the folder</span>
+<span class="color-primary">cd</span> {{ APP_NAME }}
+
+<span class="color-muted"># Install packages</span>
+<span class="color-primary">npm</span> i
+
+<span class="color-muted"># Remove the link to the original repository</span>
+<span class="color-muted"># - if you use Windows system</span>
+<span class="color-primary">Remove-Item</span> .git <span class="color-primary">-Recurse -Force</span>
+<span class="color-muted"># - or if you use Unix system</span>
+<span class="color-primary">rm -rf</span> .git
+</pre>
+            </div>
+
+            <h4 class="font-regular">Development</h4>
+            <div class="box">
+              <pre>
+<span class="color-muted"># Start development mode with live-server</span>
+<span class="color-primary">npm</span> run dev
+</pre>
+            </div>
+
+            <h4 class="font-regular">Building</h4>
+            <div class="box">
+              <pre>
+<span class="color-muted"># Build static files for production</span>
+<span class="color-primary">npm</span> run build
+<span class="color-muted"># or</span>
+<span class="color-primary">npm</span> run prod
+
+<span class="color-muted"># Start server for build preview</span>
+<span class="color-primary">npm</span> run preview
+</pre>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <div class="col-xs-12 col-md-3 offset-md-1 align-self-start position-sticky order-xs-1 order-md-2 bg-body">
+        <div class="section__navigation"></div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

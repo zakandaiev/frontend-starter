@@ -1,111 +1,35 @@
 .label {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	max-width: 100%;
-	padding: 0.45em;
-	border-radius: var(--radius);
-	color: var(--color-text);
-	background: var(--color-body);
-	font-size: 1.125rem;
-	font-weight: var(--font-bold);
-	line-height: 1;
-	@include ellipsis;
+  @include ellipsis;
 
-	// .label__close
-	&__close {
-		position: absolute;
-		z-index: var(--zi-default);
-		top: 0;
-		right: 0;
-		bottom: 0;
-		padding: 0 0.5em;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		color: currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-		& > * {
-			font-size: 1.125em;
-		}
-	}
+  max-width: 100%;
+  padding: 0.25em 0.5em;
 
-	// .label_close
-	&_close {
-		position: relative;
-		padding-right: 2em;
-	}
+  font-size: 1rem;
+  font-weight: var(--font-bold);
+  line-height: 1;
+  color: var(--color-heading);
+  text-align: center;
+  vertical-align: middle;
 
-	// .label_cancel
-	&_cancel {
-		background: var(--color-border);
-	}
+  background: var(--color-body);
+  border: var(--border);
+  border-radius: 0.5em;
 
-	// .label_primary
-	&_primary {
-		color: #fff;
-		background: var(--color-primary);
+  // .label_cancel
+  &_cancel {
+    background: var(--color-border);
+    border-color: var(--color-border);
+  }
 
-		&.label_light {
-			color: var(--color-primary);
-			background: var(--color-primary-light);
-		}
-	}
-
-	// .label_secondary
-	&_secondary {
-		color: #fff;
-		background: var(--color-secondary);
-
-		&.label_light {
-			color: var(--color-secondary);
-			background: var(--color-secondary-light);
-		}
-	}
-
-	// .label_success
-	&_success {
-		color: #fff;
-		background: var(--color-success);
-
-		&.label_light {
-			color: var(--color-success);
-			background: var(--color-success-light);
-		}
-	}
-
-	// .label_info
-	&_info {
-		color: #fff;
-		background: var(--color-info);
-
-		&.label_light {
-			color: var(--color-info);
-			background: var(--color-info-light);
-		}
-	}
-
-	// .label_warning
-	&_warning {
-		color: #fff;
-		background: var(--color-warning);
-
-		&.label_light {
-			color: var(--color-warning);
-			background: var(--color-warning-light);
-		}
-	}
-
-	// .label_error
-	&_error {
-		color: #fff;
-		background: var(--color-error);
-
-		&.label_light {
-			color: var(--color-error);
-			background: var(--color-error-light);
-		}
-	}
+  @each $color in $accent-color-list {
+    &_#{$color} {
+      color: #fff;
+      background: var(--color-#{$color});
+      border-color: var(--color-#{$color});
+    }
+  }
 }

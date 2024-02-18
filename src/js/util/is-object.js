@@ -9,7 +9,9 @@ function isObject(o) {
 function isStringValidJSON(s) {
   if (
     /^[\],:{}\s]*$/.test(
+      // eslint-disable-next-line
       s.replace(/\\["\\\/bfnrtu]/g, '@')
+      // eslint-disable-next-line
         .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
         .replace(/(?:^|:|,)(?:\s*\[)+/g, ''),
     )
@@ -19,3 +21,9 @@ function isStringValidJSON(s) {
 
   return false;
 }
+
+export {
+  isArray,
+  isObject,
+  isStringValidJSON,
+};
