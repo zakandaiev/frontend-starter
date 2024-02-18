@@ -3,9 +3,8 @@ import multiInput from 'rollup-plugin-multi-input';
 import alias from '@rollup/plugin-alias';
 import terser from '@rollup/plugin-terser';
 import {
-  isProd, isDev, path, plugin,
+  isProd, isDev, absPath, path, plugin,
 } from '../config.js';
-import { absPath } from './_data.js';
 
 function js() {
   const plugins = [

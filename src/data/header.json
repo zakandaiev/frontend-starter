@@ -1,14 +1,14 @@
 [
   {
     "name": "Home",
-    "link": "/"
+    "link": "./"
   },
   {
     "name": "Guide",
-    "link": "/guide"
+    "link": "./guide"
   },
   {
     "name": "Components",
-    "link": "/components"
+    "link": "./components"
   }
 ]

@@ -1,4 +1,4 @@
-<img width=150 align="right" src="https://raw.githubusercontent.com/zakandaiev/frontend-starter/main/src/root-files/favicon.svg" alt="HTML5 Logo">
+<img width=150 align="right" src="https://raw.githubusercontent.com/zakandaiev/frontend-starter/main/src/public/favicon.svg" alt="HTML5 Logo">
 
 # FrontEnd Starter
 

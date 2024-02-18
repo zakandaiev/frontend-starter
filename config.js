@@ -1,5 +1,6 @@
-import { argv } from 'node:process';
-import { packageData, getTwigGlobals } from './task/_data.js';
+import fs from 'node:fs';
+import nodePath from 'node:path';
+import { argv, cwd } from 'node:process';
 
 const args = argv.slice(2);
 
@@ -14,9 +15,24 @@ if (distIndex !== -1 && distIndex + 1 < args.length) {
   pathDist = args[distIndex + 1];
 }
 
+const packageData = JSON.parse(fs.readFileSync('./package.json'));
+
+const absPath = {
+  dist: nodePath.resolve(cwd(), pathDist),
+  src: nodePath.resolve(cwd(), pathSrc),
+  data: nodePath.resolve(cwd(), `${pathSrc}/data`),
+  font: nodePath.resolve(cwd(), `${pathSrc}/font`),
+  img: nodePath.resolve(cwd(), `${pathSrc}/img`),
+  js: nodePath.resolve(cwd(), `${pathSrc}/js`),
+  public: nodePath.resolve(cwd(), `${pathSrc}/public`),
+  sass: nodePath.resolve(cwd(), `${pathSrc}/sass`),
+  template: nodePath.resolve(cwd(), `${pathSrc}/template`),
+  view: nodePath.resolve(cwd(), `${pathSrc}/view`),
+};
+
 const path = {
-  src: pathSrc,
   dist: pathDist,
+  src: pathSrc,
 
   del: pathDist,
 
@@ -145,9 +161,38 @@ const plugin = {
   },
 };
 
+function getTwigGlobals() {
+  const data = {
+    APP_NAME: packageData.name,
+    APP_NAME_FORMATTED: packageData.name.replace(/[^a-z]+/gi, ' ').replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
+    APP_VERSION: packageData.version,
+    APP_AUTHOR: packageData.author,
+    APP_REPOSITORY: packageData.repository?.url,
+    APP_DESCRIPTION: packageData.description,
+    APP_KEYWORDS: packageData.keywords,
+  };
+
+  const dataFolder = absPath.data;
+  const dataFiles = fs.readdirSync(dataFolder).filter((file) => file.endsWith('.json')) || [];
+
+  dataFiles.forEach((file) => {
+    const filePath = nodePath.join(dataFolder, file);
+    const fileContent = fs.readFileSync(filePath, 'utf8') || '{}';
+    const fileData = JSON.parse(fileContent);
+    const fileName = file.replace('.json', '').replace(/[\s-]+/g, '_').replace(/[^a-z_]+/g, '').replace(/(_)./g, (s) => s.slice(-1).toUpperCase());
+
+    data[fileName] = fileData;
+  });
+
+  return data;
+}
+
 export {
   isProd,
   isDev,
+  packageData,
+  absPath,
   path,
   plugin,
+  getTwigGlobals,
 };

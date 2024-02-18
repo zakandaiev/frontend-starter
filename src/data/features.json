@@ -27,6 +27,6 @@
   {
     "icon": "🤖",
     "title": "Аutomation features",
-    "text": "Fast HMR, SASS preprocessor, assets auto minifier etc."
+    "text": "Hot reload, SASS preprocessor, assets auto minifier etc."
   }
 ]
