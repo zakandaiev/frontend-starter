@@ -42,14 +42,22 @@ async function request(resource, options = {}, timeout = 15000, delay = 1000) {
     data: null,
   };
 
+  let response = {};
+
   try {
-    const response = await fetchWithTimeout(resource, options, timeout);
-    const responseData = await response.json() ?? {};
+    response = await fetchWithTimeout(resource, options, timeout);
 
     data.code = response.status;
+  } catch (error) {
+    // do nothing
+  }
+
+  try {
+    const responseData = await response.json() || {};
+
     data.status = responseData.status;
     data.message = responseData.message;
-    data.data = responseData.data;
+    data.data = responseData.data || responseData.payload;
   } catch (error) {
     data.status = 'error';
     data.message = error;
