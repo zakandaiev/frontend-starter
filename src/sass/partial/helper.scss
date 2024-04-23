@@ -283,48 +283,50 @@ $fz-step: 0.1;
 }
 
 /* ==========  Decoration  ========== */
-.radius {
-  border-radius: var(--radius) !important;
-}
-
-.radius-top-left {
-  border-top-left-radius: var(--radius) !important;
-}
-
-.radius-top-right {
-  border-top-right-radius: var(--radius) !important;
-}
-
-.radius-bottom-left {
-  border-bottom-left-radius: var(--radius) !important;
-}
-
-.radius-bottom-right {
-  border-bottom-right-radius: var(--radius) !important;
-}
-
-.radius-top {
-  border-top-left-radius: var(--radius) !important;
-  border-top-right-radius: var(--radius) !important;
-}
-
-.radius-right {
-  border-top-right-radius: var(--radius) !important;
-  border-bottom-right-radius: var(--radius) !important;
-}
-
-.radius-bottom {
-  border-bottom-right-radius: var(--radius) !important;
-  border-bottom-left-radius: var(--radius) !important;
-}
-
-.radius-left {
-  border-top-left-radius: var(--radius) !important;
-  border-bottom-left-radius: var(--radius) !important;
-}
-
-.radius-circle {
+.radius-round {
   border-radius: 50% !important;
+}
+
+@each $key, $val in $radius-list {
+  .radius-#{$key} {
+    border-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-top-left {
+    border-top-left-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-top-right {
+    border-top-right-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-bottom-left {
+    border-bottom-left-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-bottom-right {
+    border-bottom-right-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-top {
+    border-top-left-radius: var(--radius-#{$key}) !important;
+    border-top-right-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-right {
+    border-top-right-radius: var(--radius-#{$key}) !important;
+    border-bottom-right-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-bottom {
+    border-bottom-right-radius: var(--radius-#{$key}) !important;
+    border-bottom-left-radius: var(--radius-#{$key}) !important;
+  }
+
+  .radius-#{$key}-left {
+    border-top-left-radius: var(--radius-#{$key}) !important;
+    border-bottom-left-radius: var(--radius-#{$key}) !important;
+  }
 }
 
 .border {

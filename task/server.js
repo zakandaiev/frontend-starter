@@ -1,7 +1,7 @@
 import browserSync from 'browser-sync';
-import { path } from '../config.js';
+import { path, isProd, isDev } from '../config.js';
 
-function server() {
+function server(options = {}) {
   return browserSync.init({
     // proxy: 'starter.loc',
     // or
@@ -12,9 +12,10 @@ function server() {
       },
     },
     // tunnel: true,
-    port: 3000,
+    port: isProd ? 3000 : 5173,
+    open: isDev,
     notify: false,
-    open: true,
+    ...options,
   });
 }
 

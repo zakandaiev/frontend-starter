@@ -7,9 +7,9 @@
   },
   "extends": "airbnb-base",
   "ignorePatterns": [
-    "./docs/**/*",
-    "./dist/**/*",
-    "./node_modules/**/*"
+    "**/docs/**/*",
+    "**/dist/**/*",
+    "**/node_modules/**/*"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",

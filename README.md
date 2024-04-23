@@ -64,5 +64,4 @@ npm run preview
 * And many more...
 
 ## TODO
-* eslint `import/no-unresolved` errors in all scripts from `./src/js/**/*.js` folder
 * @rollup/plugin-node-resolve

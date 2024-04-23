@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "github.com/zakandaiev",
   "description": "FrontEnd Starter is a boilerplate kit for easy building modern static web-sites using Gulp",
   "keywords": [
@@ -42,9 +42,9 @@
     "dev": "gulp",
     "prod": "gulp --prod",
     "build": "gulp --prod",
-    "preview": "gulp preview",
+    "preview": "gulp preview --prod",
     "docs": "gulp --prod --dist ./docs",
-    "lint:js": "eslint --ext .js --ignore-path .gitignore ./",
+    "lint:js": "eslint --ext .js,.jsx,.cjs,.mjs --ignore-path .gitignore ./",
     "lint:sass": "stylelint ./src/sass/**/*.{sass,scss}"
   },
   "devDependencies": {

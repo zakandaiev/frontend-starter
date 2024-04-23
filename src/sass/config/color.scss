@@ -1,0 +1,52 @@
+$accent-color-list: primary, secondary, success, info, warning, error;
+
+$color-list: (
+  body: #fff,
+  box: #f6f6f7,
+
+  heading: rgb(60 60 67),
+  heading-inverse: #fff,
+
+  text: rgb(60 60 67 / 78%),
+  text-inverse: rgb(235 235 245 / 60%),
+  text-muted: #939ba2,
+
+  link: #e44d26,
+  link-hover: #f16529,
+
+  border: #dee2e6,
+  border-hover: #ced4da,
+
+  primary: #e44d26,
+  primary-hover: #f16529,
+
+  secondary: #6c757d,
+  secondary-hover: #686f75,
+
+  success: #1cbb8c,
+  success-hover: #189f77,
+
+  info: #17a2b8,
+  info-hover: #148a9c,
+
+  warning: #fcb92c,
+  warning-hover: #d69d25,
+
+  error: #dc3545,
+  error-hover: #bb2d3b,
+);
+
+$color-dark-list: (
+  body: #1b1b1f,
+  box: #202127,
+
+  heading: #fff,
+  heading-inverse: rgb(60 60 67),
+
+  text: rgb(235 235 245 / 60%),
+  text-inverse: rgb(60 60 67 / 78%),
+  text-muted: #6c757d,
+
+  border: #32363f,
+  border-hover: #414853,
+);
