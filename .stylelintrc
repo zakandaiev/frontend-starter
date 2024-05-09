@@ -22,6 +22,7 @@
     "scss/at-if-closing-brace-newline-after": null,
     "scss/at-mixin-parentheses-space-before": null,
     "scss/dollar-variable-empty-line-before": null,
+    "scss/double-slash-comment-empty-line-before": null,
     "scss/load-no-partial-leading-underscore": null,
     "scss/no-global-function-names": null
   }

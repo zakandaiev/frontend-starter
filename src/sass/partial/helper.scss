@@ -466,6 +466,18 @@ $wahem-step: 1;
 }
 
 /* ==========  Color  ========== */
+.color-border {
+  color: var(--color-border) !important;
+}
+
+.color-body {
+  color: var(--color-body) !important;
+}
+
+.color-box {
+  color: var(--color-box) !important;
+}
+
 .color-heading {
   color: var(--color-heading) !important;
 }
