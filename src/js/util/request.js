@@ -18,21 +18,17 @@ async function request(resource, options = {}, timeout = 15000, delay = 1000) {
   const startTime = performance.now();
 
   if (!options.method) {
-    options.method = 'POST';
+    options.method = 'GET';
   }
 
-  if (options.method.toLowerCase() !== 'get') {
-    if (!options.headers) {
-      options.headers = {
-        'Content-Type': 'application/json',
-      };
-    }
+  if (!options.headers) {
+    options.headers = {
+      'Content-Type': 'application/json',
+    };
+  }
 
-    if (options.body) {
-      options.body = JSON.stringify(options.body);
-    } else {
-      options.body = JSON.stringify({});
-    }
+  if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
+    options.body = JSON.stringify(options.body);
   }
 
   const data = {
@@ -55,9 +51,11 @@ async function request(resource, options = {}, timeout = 15000, delay = 1000) {
   try {
     const responseData = await response.json() || {};
 
-    data.status = responseData.status;
-    data.message = responseData.message;
-    data.data = responseData.data || responseData.payload;
+    Object.assign(data, responseData);
+
+    data.status = responseData.status || null;
+    data.message = responseData.message || null;
+    data.data = responseData.data || responseData.payload || null;
   } catch (error) {
     data.status = 'error';
     data.message = error;

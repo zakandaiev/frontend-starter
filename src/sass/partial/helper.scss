@@ -207,6 +207,7 @@ $padding-step: 0.5;
 
 /* ==========  Text  ========== */
 $fz-step: 0.1;
+$lh-step: 0.1;
 
 @for $i from 0 through 60 {
   .font-size-#{$i} {
@@ -214,8 +215,14 @@ $fz-step: 0.1;
   }
 }
 
+@for $i from 0 through 60 {
+  .line-height-#{$i} {
+    line-height: #{$i * $lh-step} !important;
+  }
+}
+
 @each $key, $val in $font-weight-list {
-  #{'.font-' + $key} {
+  .font-#{key} {
     font-weight: var(--font-#{$key}) !important;
   }
 }
