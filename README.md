@@ -62,6 +62,3 @@ npm run preview
 * .htaccess, robots.txt, sitemap.xml, favicon
 * 404 page
 * And many more...
-
-## TODO
-* @rollup/plugin-node-resolve

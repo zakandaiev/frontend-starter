@@ -91,11 +91,14 @@
       align-items: center;
       justify-content: center;
 
+      padding: 2rem 0;
+
       font-size: 0.85em;
       font-weight: var(--font-medium);
-      line-height: 4em;
+      line-height: 1.2;
       color: var(--color-heading);
       text-align: center;
+      white-space: nowrap;
 
       transition: var(--transition);
 

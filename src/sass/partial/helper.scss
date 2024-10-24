@@ -222,7 +222,7 @@ $lh-step: 0.1;
 }
 
 @each $key, $val in $font-weight-list {
-  .font-#{key} {
+  .font-#{$key} {
     font-weight: var(--font-#{$key}) !important;
   }
 }

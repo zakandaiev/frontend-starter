@@ -24,7 +24,7 @@
   "html.autoClosingTags": false,
   "html.format.wrapLineLength": 0,
   "[html]": {
-    "editor.defaultFormatter": "mblode.twig-language"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "twig-language.indentStyle": "space",
   "[twig]": {
