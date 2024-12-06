@@ -45,7 +45,7 @@ const DATA_THEME = {
       }
 
       const { srcLight } = item;
-      const srcDark = item.srcDark || item.getAttribute('data-src-dark');
+      const srcDark = item.srcDark || item.getAttribute('data-src-dark') || srcLight;
 
       item.src = DATA_THEME.value_dark === currentTheme ? srcDark : srcLight;
     });
