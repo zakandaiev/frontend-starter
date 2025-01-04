@@ -7,65 +7,76 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}">
 
-  <head>
-    {% block head %}
-      <title>{{ title }}</title>
+<head>
+  {% block head %}
+  <title>{{ title }}</title>
 
-      <meta charset="utf-8">
-      <meta name="author" content="{{ APP_AUTHOR }}">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="author" content="{{ APP_AUTHOR }}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
 
-      <meta name="description" content="{{ description }}">
-      <meta name="keywords" content="{{ keywords }}">
+  <!-- Description -->
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="{{ keywords }}">
 
-      <meta property="og:type" content="website">
-      <meta property="og:locale" content="{{ locale|replace({'-': '_'}) }}">
-      <meta property="og:url" content="">
-      <meta property="og:title" content="{{ title }}">
-      <meta property="og:description" content="{{ description }}">
-      <meta property="og:keywords" content="{{ keywords }}">
-      <meta property="og:image" content="{{image}}">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{ locale|replace({'-': '_'}) }}">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:keywords" content="{{ keywords }}">
+  <meta property="og:image" content="{{image}}">
 
-      <meta property="twitter:card" content="summary">
-      <meta property="twitter:url" content="">
-      <meta property="twitter:title" content="{{ title }}">
-      <meta property="twitter:description" content="{{ description }}">
-      <meta property="twitter:image" content="{{image}}">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="">
+  <meta property="twitter:title" content="{{ title }}">
+  <meta property="twitter:description" content="{{ description }}">
+  <meta property="twitter:image" content="{{image}}">
 
-      <link rel="canonical" href="">
+  <!-- Misc/SEO -->
+  <link rel="canonical" href="">
+  <link rel="image_src" href="{{image}}">
 
-      <link rel="image_src" href="{{image}}">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" sizes="any" href="./favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="apple-touch-icon" href="./favicon.png">
 
-      <link rel="icon" type="image/x-icon" sizes="any" href="./favicon.ico">
-      <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-      <link rel="icon" type="image/png" href="./favicon.png">
-      <link rel="apple-touch-icon" href="./favicon.png">
+  <!-- App data -->
+  <link rel="stylesheet" href="./css/main.css">
+  <script type="module" src="./js/main.js"></script>
+  {% endblock %}
 
-      <link rel="stylesheet" href="./css/main.css">
+  <!-- App misc -->
+  {% block head_additional %}{% endblock %}
+</head>
 
-      <script type="module" src="./js/main.js"></script>
-    {% endblock %}
+<body>
+  <!-- Handle theme data attributes -->
+  <script src="./js/data-theme.js"></script>
 
-    {% block head_additional %}{% endblock %}
-  </head>
+  <!-- Page header -->
+  {% block header %}
+  {% include '../partial/header.twig' %}
+  {% endblock %}
 
-  <body>
-    <script src="./js/data-theme.js"></script>
+  <!-- Page content -->
+  {% block main %}
+  <main class="page-content">
+    {% block content %}{% endblock %}
+  </main>
+  {% endblock %}
 
-    {% block header %}
-      {% include '../partial/header.twig' %}
-    {% endblock %}
-
-    {% block main %}
-      <main class="page-content">
-        {% block content %}{% endblock %}
-      </main>
-    {% endblock %}
-
-    {% block footer %}
-      {% include '../partial/footer.twig' %}
-    {% endblock %}
-  </body>
+  <!-- Page footer -->
+  {% block footer %}
+  {% include '../partial/footer.twig' %}
+  {% endblock %}
+</body>
 
 </html>

@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
-import * as dartSass from 'sass';
+import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import combineMediaQuery from 'postcss-combine-media-query';
 import postCss from 'gulp-postcss';

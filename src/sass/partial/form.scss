@@ -1,0 +1,47 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  @include reset-btn;
+
+  display: block;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-size: 1.4rem;
+  font-weight: var(--font-regular);
+  line-height: 1.2;
+
+  &[for] {
+    cursor: pointer;
+  }
+}
+
+input, textarea, select {
+  @include reset-btn;
+
+  display: block;
+
+  width: 100%;
+  padding: calc(1.4rem - var(--border-width));
+
+  font-size: 1.6rem;
+  font-weight: var(--font-medium);
+  line-height: 1.25;
+  color: var(--color-text);
+
+  background: var(--color-body);
+  border: var(--border);
+  border-radius: var(--radius-md);
+}
+
+textarea {
+  // resize: vertical;
+  overflow: hidden auto;
+  min-height: 3.4rem;
+  max-height: 30rem;
+}

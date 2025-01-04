@@ -16,6 +16,20 @@ if (distIndex !== -1 && distIndex + 1 < args.length) {
 }
 
 const packageData = JSON.parse(fs.readFileSync('./package.json'));
+const appData = {
+  ...packageData,
+
+  NODE_ENV: isProd ? 'prod' : 'dev',
+  APP_MODE: isProd ? 'prod' : 'dev',
+
+  APP_NAME: packageData.name,
+  APP_NAME_FORMATTED: packageData.name.replace(/[^a-z]+/gi, ' ').replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
+  APP_VERSION: packageData.version,
+  APP_AUTHOR: packageData.author,
+  APP_REPOSITORY: packageData.repository?.url,
+  APP_DESCRIPTION: packageData.description,
+  APP_KEYWORDS: packageData.keywords,
+};
 
 const absPath = {
   dist: nodePath.resolve(cwd(), pathDist),
@@ -135,7 +149,9 @@ const plugin = {
 
   // CSS
   sass: {
-    includePaths: ['node_modules'],
+    api: 'modern-compiler',
+    loadPaths: ['node_modules'],
+    silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
   },
   autoprefixer: {
     cascade: !isProd,
@@ -163,13 +179,7 @@ const plugin = {
 
 function getTwigGlobals() {
   const data = {
-    APP_NAME: packageData.name,
-    APP_NAME_FORMATTED: packageData.name.replace(/[^a-z]+/gi, ' ').replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
-    APP_VERSION: packageData.version,
-    APP_AUTHOR: packageData.author,
-    APP_REPOSITORY: packageData.repository?.url,
-    APP_DESCRIPTION: packageData.description,
-    APP_KEYWORDS: packageData.keywords,
+    ...appData,
   };
 
   const dataFolder = absPath.data;
@@ -191,6 +201,7 @@ export {
   isProd,
   isDev,
   packageData,
+  appData,
   absPath,
   path,
   plugin,

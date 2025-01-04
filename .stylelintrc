@@ -17,6 +17,7 @@
     "no-invalid-double-slash-comments": null,
     "no-invalid-position-at-import-rule": null,
     "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": null,
     "scss/at-else-empty-line-before": null,
     "scss/at-extend-no-missing-placeholder": null,
     "scss/at-if-closing-brace-newline-after": null,

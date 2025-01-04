@@ -1,0 +1,6 @@
+.git
+coverage
+dist
+dist-ssr
+docs
+node_modules

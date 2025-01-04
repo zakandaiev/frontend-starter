@@ -12,8 +12,8 @@
     "twig": "html"
   },
   "Workspace_Formatter.excludePattern": [
-    "**/.*",
     "**/build",
+    "**/coverage",
     "**/docs",
     "**/dist",
     "**/node_modules",

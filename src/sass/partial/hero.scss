@@ -76,7 +76,7 @@
       width: 10em;
       height: 10em;
 
-      background: linear-gradient(-45deg, #e44d26 50%, #f16529 50%);
+      background: linear-gradient(-45deg, var(--color-primary) 50%, var(--color-primary-hover) 50%);
       filter: blur(4.5em);
     }
 

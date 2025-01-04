@@ -1,8 +1,17 @@
+import Config from '@/config';
 import sleep from '@/js/util/sleep';
 
-async function fetchWithTimeout(resource, options = {}, timeout = 15000) {
+function getApiTimeout(timeout) {
+  return timeout || Config.api.timeoutMs || 15000;
+}
+
+function getApiDelay(delay) {
+  return delay || Config.api.delayMs || 1000;
+}
+
+async function fetchWithTimeout(resource, options = {}, timeout = null) {
   const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), timeout);
+  const id = setTimeout(() => controller.abort(), getApiTimeout(timeout));
 
   const response = await fetch(resource, {
     ...options,
@@ -14,7 +23,7 @@ async function fetchWithTimeout(resource, options = {}, timeout = 15000) {
   return response;
 }
 
-async function request(resource, options = {}, timeout = 15000, delay = 1000) {
+async function request(resource, options = {}, timeout = null, delay = null) {
   const startTime = performance.now();
 
   if (!options.method) {
@@ -41,7 +50,7 @@ async function request(resource, options = {}, timeout = 15000, delay = 1000) {
   let response = {};
 
   try {
-    response = await fetchWithTimeout(resource, options, timeout);
+    response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
 
     data.code = response.status;
   } catch (error) {
@@ -62,11 +71,11 @@ async function request(resource, options = {}, timeout = 15000, delay = 1000) {
   }
 
   const endTime = performance.now();
-
   const differenceTime = endTime - startTime;
+  const delayTime = getApiDelay(delay);
 
-  if (differenceTime < delay) {
-    await sleep(delay - differenceTime);
+  if (differenceTime < delayTime) {
+    await sleep(delayTime - differenceTime);
   }
 
   return data;

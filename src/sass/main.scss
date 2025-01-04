@@ -10,6 +10,8 @@
 /* ==========  Global  ========== */
 *, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -192,6 +194,7 @@ code, kbd, pre, samp {
 
 @import "partial/box";
 @import "partial/button";
+@import "partial/form";
 @import "partial/grid";
 @import "partial/helper";
 @import "partial/label";

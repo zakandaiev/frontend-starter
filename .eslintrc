@@ -7,8 +7,11 @@
   },
   "extends": "airbnb-base",
   "ignorePatterns": [
+    "**/build/**/*",
+    "**/coverage/**/*",
     "**/docs/**/*",
     "**/dist/**/*",
+    "**/dist-ssr/**/*",
     "**/node_modules/**/*"
   ],
   "parserOptions": {

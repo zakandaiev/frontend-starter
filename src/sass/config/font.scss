@@ -12,4 +12,5 @@ $font-weight-list: (
 
 @each $key, $val in $font-weight-list {
   @include font("Inter", normal, $val, "../font/inter-#{$val}.woff2");
+  @include font("Inter", italic, $val, "../font/inter-#{$val}-italic.woff2");
 }
