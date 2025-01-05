@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import newer from 'gulp-newer';
 import browserSync from 'browser-sync';
-import { path } from '../config.js';
+import { path } from '../config/path.js';
 
 function publicFiles() {
   return gulp.src(path.public.src, { dot: true })

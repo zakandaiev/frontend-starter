@@ -1,5 +1,6 @@
 import browserSync from 'browser-sync';
-import { path, isProd, isDev } from '../config.js';
+import { isDev, isProd } from '../config/app.js';
+import { path } from '../config/path.js';
 
 function server(options = {}) {
   return browserSync.init({

@@ -5,9 +5,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import multiInput from 'rollup-plugin-multi-input';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
-import {
-  isProd, isDev, absPath, path, plugin, appData,
-} from '../config.js';
+import { isDev, isProd, appData } from '../config/app.js';
+import { path, absPath } from '../config/path.js';
+import { terser as terserConfig } from '../config/plugin.js';
 import 'dotenv/config';
 
 const processEnv = {
@@ -42,7 +42,7 @@ async function js() {
 
   if (isProd) {
     plugins.push(
-      terser(plugin.terser),
+      terser(terserConfig),
     );
   }
 

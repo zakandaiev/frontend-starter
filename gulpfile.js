@@ -1,14 +1,15 @@
 import gulp from 'gulp';
 import browserSync from 'browser-sync';
-import { isProd, path } from './config.js';
-import del from './task/del.js';
-import font from './task/font.js';
-import img from './task/img.js';
-import js from './task/js.js';
-import publicFiles from './task/public-files.js';
-import sass from './task/sass.js';
-import server from './task/server.js';
-import twig from './task/twig.js';
+import { isProd } from './gulp/config/app.js';
+import { path } from './gulp/config/path.js';
+import del from './gulp/task/del.js';
+import font from './gulp/task/font.js';
+import img from './gulp/task/img.js';
+import js from './gulp/task/js.js';
+import publicFiles from './gulp/task/public-files.js';
+import sass from './gulp/task/sass.js';
+import server from './gulp/task/server.js';
+import twig from './gulp/task/twig.js';
 
 function watch() {
   gulp.watch(path.font.watch, font).on('change', browserSync.reload);

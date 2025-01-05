@@ -7,22 +7,22 @@ import postCss from 'gulp-postcss';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
-import {
-  isProd, isDev, path, plugin,
-} from '../config.js';
+import { isDev, isProd } from '../config/app.js';
+import { path } from '../config/path.js';
+import { sass as sassConfig, autoprefixer as autoprefixerConfig, cssnano as cssnanoConfig } from '../config/plugin.js';
 
 const sassPlugin = gulpSass(dartSass);
 
 function sass() {
   return gulp.src(path.sass.src, { sourcemaps: isDev })
-    .pipe(sassPlugin.sync(plugin.sass).on('error', sassPlugin.logError))
+    .pipe(sassPlugin.sync(sassConfig).on('error', sassPlugin.logError))
     .pipe(
       gulpif(
         isProd,
         postCss([
           combineMediaQuery(),
-          autoprefixer(plugin.autoprefixer),
-          cssnano(plugin.cssnano),
+          autoprefixer(autoprefixerConfig),
+          cssnano(cssnanoConfig),
         ]),
       ),
     )

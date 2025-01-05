@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import newer from 'gulp-newer';
 import browserSync from 'browser-sync';
-import { path } from '../config.js';
+import { path } from '../config/path.js';
 
 function font() {
   return gulp.src(path.font.src)

@@ -5,7 +5,9 @@ import imagemin, {
   gifsicle, mozjpeg, optipng, svgo,
 } from 'gulp-imagemin';
 import browserSync from 'browser-sync';
-import { isProd, path, plugin } from '../config.js';
+import { isProd } from '../config/app.js';
+import { path } from '../config/path.js';
+import { imagemin as imageminConfig } from '../config/plugin.js';
 
 function img() {
   return gulp.src(path.img.src)
@@ -14,10 +16,10 @@ function img() {
       gulpif(
         isProd,
         imagemin([
-          gifsicle(plugin.imagemin.gifsicle),
-          mozjpeg(plugin.imagemin.mozjpeg),
-          optipng(plugin.imagemin.optipng),
-          svgo(plugin.imagemin.svgo),
+          gifsicle(imageminConfig.gifsicle),
+          mozjpeg(imageminConfig.mozjpeg),
+          optipng(imageminConfig.optipng),
+          svgo(imageminConfig.svgo),
         ]),
       ),
     )
