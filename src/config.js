@@ -1,8 +1,9 @@
 const Config = {
   app: {
-    name: process.env.npm_package_name,
-    version: process.env.npm_package_version,
-    mode: process.env.APP_MODE || process.env.NODE_ENV,
+    /* eslint-disable no-undef */
+    name: APP_NAME,
+    version: APP_VERSION,
+    mode: APP_MODE,
   },
   api: {
     delayMs: 500,

@@ -4,13 +4,12 @@ import gulpif from 'gulp-if';
 import imagemin, {
   gifsicle, mozjpeg, optipng, svgo,
 } from 'gulp-imagemin';
-import browserSync from 'browser-sync';
 import { isProd } from '../config/app.js';
 import { path } from '../config/path.js';
 import { imagemin as imageminConfig } from '../config/plugin.js';
 
 function img() {
-  return gulp.src(path.img.src)
+  return gulp.src(path.img.src, { encoding: false })
     .pipe(newer(path.img.dist))
     .pipe(
       gulpif(
@@ -23,8 +22,7 @@ function img() {
         ]),
       ),
     )
-    .pipe(gulp.dest(path.img.dist))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(path.img.dist));
 }
 
 export default img;

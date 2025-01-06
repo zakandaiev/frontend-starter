@@ -6,7 +6,7 @@ import combineMediaQuery from 'postcss-combine-media-query';
 import postCss from 'gulp-postcss';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
-import browserSync from 'browser-sync';
+import server from './server.js';
 import { isDev, isProd } from '../config/app.js';
 import { path } from '../config/path.js';
 import { sass as sassConfig, autoprefixer as autoprefixerConfig, cssnano as cssnanoConfig } from '../config/plugin.js';
@@ -14,7 +14,7 @@ import { sass as sassConfig, autoprefixer as autoprefixerConfig, cssnano as cssn
 const sassPlugin = gulpSass(dartSass);
 
 function sass() {
-  return gulp.src(path.sass.src, { sourcemaps: isDev })
+  return gulp.src(path.sass.src, { encoding: false, sourcemaps: isDev })
     .pipe(sassPlugin.sync(sassConfig).on('error', sassPlugin.logError))
     .pipe(
       gulpif(
@@ -27,7 +27,7 @@ function sass() {
       ),
     )
     .pipe(gulp.dest(path.sass.dist, { sourcemaps: isDev }))
-    .pipe(browserSync.stream());
+    .pipe(server.stream());
 }
 
 export default sass;

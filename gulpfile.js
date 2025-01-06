@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import browserSync from 'browser-sync';
 import { isProd } from './gulp/config/app.js';
 import { path } from './gulp/config/path.js';
 import del from './gulp/task/del.js';
@@ -8,16 +7,16 @@ import img from './gulp/task/img.js';
 import js from './gulp/task/js.js';
 import publicFiles from './gulp/task/public-files.js';
 import sass from './gulp/task/sass.js';
-import server from './gulp/task/server.js';
 import twig from './gulp/task/twig.js';
+import { reload, serve } from './gulp/task/server.js';
 
 function watch() {
-  gulp.watch(path.font.watch, font).on('change', browserSync.reload);
-  gulp.watch(path.img.watch, img).on('change', browserSync.reload);
-  gulp.watch(path.js.watch, js).on('change', browserSync.reload);
-  gulp.watch(path.public.watch, publicFiles).on('change', browserSync.reload);
+  gulp.watch(path.font.watch, gulp.series(font, reload));
+  gulp.watch(path.img.watch, gulp.series(img, reload));
+  gulp.watch(path.js.watch, gulp.series(js, reload));
+  gulp.watch(path.public.watch, gulp.series(publicFiles, reload));
   gulp.watch(path.sass.watch, sass);
-  gulp.watch(path.twig.watch, twig).on('change', browserSync.reload);
+  gulp.watch(path.twig.watch, gulp.series(twig, reload));
 }
 
 function compileFiles() {
@@ -28,7 +27,7 @@ function compileFiles() {
 }
 
 function startServer() {
-  return gulp.parallel(server, watch);
+  return gulp.parallel(serve, watch);
 }
 
 function startDevServer() {
@@ -50,7 +49,7 @@ export {
   js,
   publicFiles,
   sass,
-  server,
+  serve,
   twig,
 
   dev,

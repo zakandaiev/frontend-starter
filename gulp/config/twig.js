@@ -1,11 +1,12 @@
 import fs from 'node:fs';
 import nodePath from 'node:path';
-import { appData } from './app.js';
+import { appData, envData } from './app.js';
 import { absPath } from './path.js';
 
 function getTwigGlobals() {
   const data = {
     ...appData,
+    ...envData,
   };
 
   const dataFolder = absPath.data;

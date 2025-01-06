@@ -5,27 +5,20 @@ import commonjs from '@rollup/plugin-commonjs';
 import multiInput from 'rollup-plugin-multi-input';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
-import { isDev, isProd, appData } from '../config/app.js';
+import {
+  isDev, isProd, appData, envData,
+} from '../config/app.js';
 import { path, absPath } from '../config/path.js';
 import { terser as terserConfig } from '../config/plugin.js';
-import 'dotenv/config';
 
-const processEnv = {
-  ...appData,
-  ...process.env,
-};
-const processEnvReplace = {
-  'process.env': JSON.stringify(processEnv),
-};
+const appDataReplace = Object.fromEntries(Object.entries(appData).map(([k, v]) => [k, JSON.stringify(v)]));
+const envDataReplace = Object.fromEntries(Object.entries(envData).map(([k, v]) => [k, JSON.stringify(v)]));
 
-Object.keys(processEnv).forEach((key) => {
-  processEnvReplace[`process.env.${key}`] = JSON.stringify(processEnv[key]);
-});
-
-async function js() {
+async function js(done) {
   const plugins = [
     replace({
-      ...processEnvReplace,
+      ...appDataReplace,
+      ...envDataReplace,
     }),
     nodeResolve(),
     alias({
@@ -55,6 +48,8 @@ async function js() {
     dir: absPath.dist,
     sourcemap: isDev,
   });
+
+  done();
 
   return result;
 }
