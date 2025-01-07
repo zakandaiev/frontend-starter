@@ -7,6 +7,8 @@
 
   max-width: 100%;
   padding: 0.25em 0.5em;
+  border: var(--border);
+  border-radius: 0.5em;
 
   font-size: 1rem;
   font-weight: var(--font-bold);
@@ -16,20 +18,18 @@
   vertical-align: middle;
 
   background: var(--color-body);
-  border: var(--border);
-  border-radius: 0.5em;
 
   // .label_cancel
   &_cancel {
-    background: var(--color-border);
     border-color: var(--color-border);
+    background: var(--color-border);
   }
 
   @each $color in $accent-color-list {
     &_#{$color} {
+      border-color: var(--color-#{$color});
       color: #fff;
       background: var(--color-#{$color});
-      border-color: var(--color-#{$color});
     }
   }
 }

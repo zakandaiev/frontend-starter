@@ -12,7 +12,6 @@
   display: block;
 
   margin: 0 0 2em;
-
   border-bottom: var(--border-width) solid transparent;
 
   transition: var(--transition);
@@ -156,8 +155,8 @@
 
   // .header.is-scrolled
   &.is-scrolled {
-    background: var(--color-body);
     border-color: #e2e2e3;
+    background: var(--color-body);
   }
 }
 

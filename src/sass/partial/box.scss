@@ -3,9 +3,9 @@
   flex-direction: column;
 
   padding: 1.5em;
+  border-radius: var(--radius-md);
 
   background: var(--color-box);
-  border-radius: var(--radius-md);
 
   // box-shadow: var(--shadow);
 
@@ -18,12 +18,12 @@
     width: 2em;
     height: 2em;
     margin: 0 0 0.8em;
+    border-radius: 0.25em;
 
     font-size: 1.5em;
     text-align: center;
 
     background: var(--color-border);
-    border-radius: 0.25em;
   }
 
   // .box__title

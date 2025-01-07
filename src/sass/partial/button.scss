@@ -10,6 +10,8 @@
   justify-content: center;
 
   padding: 0.75em 0.875em;
+  border: var(--border);
+  border-radius: var(--radius-md);
 
   font-size: 1em;
   font-weight: var(--font-medium);
@@ -20,8 +22,6 @@
   white-space: nowrap;
 
   background: var(--color-body);
-  border: var(--border);
-  border-radius: var(--radius-md);
 
   transition: var(--transition);
 
@@ -44,27 +44,27 @@
 
   // .btn_cancel
   &_cancel {
+    border-color: var(--color-border);
     color: var(--color-heading);
     background: var(--color-border);
-    border-color: var(--color-border);
 
     &:hover, &:focus, &:active {
+      border-color: var(--color-border-hover);
       color: var(--color-heading);
       background: var(--color-border-hover);
-      border-color: var(--color-border-hover);
     }
   }
 
   @each $color in $accent-color-list {
     &_#{$color} {
+      border-color: var(--color-#{$color});
       color: #fff;
       background: var(--color-#{$color});
-      border-color: var(--color-#{$color});
 
       &:hover, &:focus, &:active {
+        border-color: var(--color-#{$color}-hover);
         color: #fff;
         background: var(--color-#{$color}-hover);
-        border-color: var(--color-#{$color}-hover);
       }
     }
   }

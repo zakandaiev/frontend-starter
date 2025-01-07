@@ -124,10 +124,9 @@ blockquote {
   width: 100%;
   margin: 0;
   padding: 0.5em 0 0.5em 1.5em;
+  border-left: 4px solid var(--color-text-muted);
 
   font-style: italic;
-
-  border-left: 4px solid var(--color-text-muted);
 }
 
 ul, ol {
@@ -149,8 +148,8 @@ iframe {
 
   width: 100%;
   margin: 0;
-
   border: none;
+
   box-shadow: none;
 }
 

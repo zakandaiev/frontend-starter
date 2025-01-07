@@ -28,6 +28,8 @@ input, textarea, select {
 
   width: 100%;
   padding: calc(1.4rem - var(--border-width));
+  border: var(--border);
+  border-radius: var(--radius-md);
 
   font-size: 1.6rem;
   font-weight: var(--font-medium);
@@ -35,8 +37,6 @@ input, textarea, select {
   color: var(--color-text);
 
   background: var(--color-body);
-  border: var(--border);
-  border-radius: var(--radius-md);
 }
 
 textarea {

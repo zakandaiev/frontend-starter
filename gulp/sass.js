@@ -2,16 +2,37 @@ import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-import combineMediaQuery from 'postcss-combine-media-query';
 import postCss from 'gulp-postcss';
-import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
+import combineMediaQuery from 'postcss-combine-media-query';
+import cssnano from 'cssnano';
+import { isDev, isProd } from './app.js';
+import { path } from './path.js';
 import server from './server.js';
-import { isDev, isProd } from '../config/app.js';
-import { path } from '../config/path.js';
-import { sass as sassConfig, autoprefixer as autoprefixerConfig, cssnano as cssnanoConfig } from '../config/plugin.js';
 
 const sassPlugin = gulpSass(dartSass);
+
+const sassConfig = {
+  api: 'modern-compiler',
+  loadPaths: ['node_modules'],
+  silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
+};
+
+const autoprefixerConfig = {
+  cascade: !isProd,
+  grid: false,
+};
+
+const cssnanoConfig = {
+  preset: [
+    'default',
+    {
+      discardComments: {
+        removeAll: true,
+      },
+    },
+  ],
+};
 
 function sass() {
   return gulp.src(path.sass.src, { encoding: false, sourcemaps: isDev })

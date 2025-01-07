@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "private": false,
   "author": "github.com/zakandaiev",
   "description": "FrontEnd Starter is a boilerplate kit for easy building modern static web-sites using Gulp",
@@ -76,11 +76,11 @@
     "gulp-version-number": "^0.2.4",
     "nodemon": "^3.1.9",
     "postcss-combine-media-query": "^1.0.1",
-    "rollup": "^4.30.0",
+    "rollup": "^4.30.1",
     "rollup-plugin-multi-input": "^1.5.0",
     "sass": "^1.83.1",
     "stylelint": "^16.12.0",
-    "stylelint-config-clean-order": "^6.1.0",
+    "stylelint-config-clean-order": "^7.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-scss": "^6.10.0"
   },

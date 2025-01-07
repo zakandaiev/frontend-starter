@@ -3,13 +3,14 @@ import { argv, cwd } from 'node:process';
 
 const args = argv.slice(2);
 
-const pathSrc = './src';
-
-let pathDist = './dist';
+let distFolder = './dist';
 const distIndex = args.indexOf('--dist');
 if (distIndex !== -1 && distIndex + 1 < args.length) {
-  pathDist = args[distIndex + 1];
+  distFolder = args[distIndex + 1];
 }
+
+const pathDist = distFolder;
+const pathSrc = './src';
 
 const absPath = {
   dist: nodePath.resolve(cwd(), pathDist),
@@ -69,7 +70,7 @@ const path = {
 
 export {
   pathSrc,
-  // pathDist,
+  pathDist,
   absPath,
   path,
 };

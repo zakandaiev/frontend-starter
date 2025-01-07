@@ -47,12 +47,11 @@
       display: block;
 
       padding: 0.375em 0 0.375em 1em;
+      border-left: var(--border);
 
       font-size: 0.875em;
       font-weight: var(--font-regular);
       color: var(--color-text);
-
-      border-left: var(--border);
 
       transition: var(--transition);
 

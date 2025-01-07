@@ -1,25 +1,23 @@
 import { rollup } from 'rollup';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import multiInput from 'rollup-plugin-multi-input';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
-import {
-  isDev, isProd, appData, envData,
-} from '../config/app.js';
-import { path, absPath } from '../config/path.js';
-import { terser as terserConfig } from '../config/plugin.js';
+import { isDev, isProd, replaceData } from './app.js';
+import { path, absPath } from './path.js';
 
-const appDataReplace = Object.fromEntries(Object.entries(appData).map(([k, v]) => [k, JSON.stringify(v)]));
-const envDataReplace = Object.fromEntries(Object.entries(envData).map(([k, v]) => [k, JSON.stringify(v)]));
+const terserConfig = {
+  mangle: true,
+  keep_classnames: true,
+  keep_fnames: false,
+  ie8: false,
+};
 
 async function js(done) {
   const plugins = [
-    replace({
-      ...appDataReplace,
-      ...envDataReplace,
-    }),
+    replace(replaceData),
     nodeResolve(),
     alias({
       entries: [

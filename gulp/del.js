@@ -1,6 +1,9 @@
 import { deleteAsync } from 'del';
-import { path } from '../config/path.js';
-import { del as delConfig } from '../config/plugin.js';
+import { path } from './path.js';
+
+const delConfig = {
+  force: true,
+};
 
 function del() {
   return deleteAsync(path.del, delConfig);

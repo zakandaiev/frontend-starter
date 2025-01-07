@@ -8,11 +8,10 @@
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+      -webkit-line-clamp: $lines;
 
       text-overflow: ellipsis;
       white-space: initial;
-
-      -webkit-line-clamp: $lines;
     }
   }
 }

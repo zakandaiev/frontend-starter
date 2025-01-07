@@ -50,7 +50,7 @@ rm -rf .git
 # Start development mode with live-server
 npm run dev
 # or with options
-npm run dev -- --port 3000
+npm run dev --port 3000
 ```
 
 ### Build
@@ -61,12 +61,12 @@ npm run build
 # or
 npm run prod
 # or with options
-npm run build -- --dist=/dest
+npm run build --dist=/dest
 
 # Start server for build preview
 npm run preview
 # or with options
-npm run preview -- --port 8080
+npm run preview --port 8080
 ```
 
 ### Lint
@@ -75,12 +75,12 @@ npm run preview -- --port 8080
 # ESLint
 npm run lint:js
 # or with options
-npm run lint:js -- --fix
+npm run lint:js --fix
 
 # StyleLint
 npm run lint:sass
 # or with options
-npm run lint:sass -- --fix
+npm run lint:sass --fix
 ```
 
 ### Backend emulation

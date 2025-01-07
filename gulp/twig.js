@@ -1,7 +1,35 @@
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import twigInstance from 'gulp-twig';
 import fs from 'node:fs';
 import nodePath from 'node:path';
-import { appData, envData } from './app.js';
-import { absPath } from './path.js';
+import { appData, envData, isProd } from './app.js';
+import { absPath, pathSrc, path } from './path.js';
+import htmlmin from './htmlmin.js';
+import versionNumber from './version-number.js';
+
+const twigConfig = {
+  base: pathSrc,
+  data: getTwigGlobals(),
+};
+
+function twig() {
+  return gulp.src(path.twig.src, { encoding: false })
+    .pipe(twigInstance(twigConfig))
+    .pipe(
+      gulpif(
+        isProd,
+        versionNumber,
+      ),
+    )
+    .pipe(
+      gulpif(
+        isProd,
+        htmlmin,
+      ),
+    )
+    .pipe(gulp.dest(path.twig.dist));
+}
 
 function getTwigGlobals() {
   const data = {
@@ -24,4 +52,4 @@ function getTwigGlobals() {
   return data;
 }
 
-export default getTwigGlobals;
+export default twig;

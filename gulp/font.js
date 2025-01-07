@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import newer from 'gulp-newer';
-import { path } from '../config/path.js';
+import { path } from './path.js';
 
 function font() {
   return gulp.src(path.font.src, { encoding: false })

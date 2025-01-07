@@ -34,12 +34,12 @@ $toast-shadow-hover: 0 3px 9px 0 rgb(0 0 0 / 35%);
     min-width: 20rem;
     max-width: 30rem;
     padding: 0.75em 1em;
+    border-radius: 0.25em;
 
     color: #fff;
 
     opacity: 0.9;
     background: #222e3c;
-    border-radius: 0.25em;
     box-shadow: $toast-shadow;
 
     transition: var(--transition);
@@ -102,9 +102,9 @@ $toast-shadow-hover: 0 3px 9px 0 rgb(0 0 0 / 35%);
 
     width: 1.5em;
     height: 1.5em;
+    border-radius: 50%;
 
     background: #fff;
-    border-radius: 50%;
 
     &::before, &::after {
       content: "";
@@ -115,8 +115,9 @@ $toast-shadow-hover: 0 3px 9px 0 rgb(0 0 0 / 35%);
 
       display: block;
 
-      background: #222e3c;
       border-radius: 0.15em;
+
+      background: #222e3c;
     }
 
     &::before {

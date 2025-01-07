@@ -1,14 +1,14 @@
 import gulp from 'gulp';
-import { isProd } from './gulp/config/app.js';
-import { path } from './gulp/config/path.js';
-import del from './gulp/task/del.js';
-import font from './gulp/task/font.js';
-import img from './gulp/task/img.js';
-import js from './gulp/task/js.js';
-import publicFiles from './gulp/task/public-files.js';
-import sass from './gulp/task/sass.js';
-import twig from './gulp/task/twig.js';
-import { reload, serve } from './gulp/task/server.js';
+import { isProd } from './gulp/app.js';
+import { path } from './gulp/path.js';
+import del from './gulp/del.js';
+import font from './gulp/font.js';
+import img from './gulp/img.js';
+import js from './gulp/js.js';
+import publicFiles from './gulp/public-files.js';
+import sass from './gulp/sass.js';
+import twig from './gulp/twig.js';
+import { reload, serve } from './gulp/server.js';
 
 function watch() {
   gulp.watch(path.font.watch, gulp.series(font, reload));

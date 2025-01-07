@@ -30,10 +30,16 @@ Object.keys(process.env).forEach((key) => {
   }
 });
 
+const replaceData = {
+  ...Object.fromEntries(Object.entries(appData).map(([k, v]) => [k, JSON.stringify(v)])),
+  ...Object.fromEntries(Object.entries(envData).map(([k, v]) => [k, JSON.stringify(v)])),
+};
+
 export {
   isDev,
   isProd,
   packageData,
   appData,
   envData,
+  replaceData,
 };
