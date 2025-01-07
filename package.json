@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "private": false,
   "author": "github.com/zakandaiev",
   "description": "FrontEnd Starter is a boilerplate kit for easy building modern static web-sites using Gulp",
@@ -44,9 +44,11 @@
     "prod": "gulp --prod",
     "build": "gulp --prod",
     "preview": "gulp preview --prod",
-    "docs": "gulp --prod --dist ./docs",
+    "docs": "gulp --prod --dist=./docs",
     "lint:js": "eslint --ext .js,.jsx,.cjs,.mjs --ignore-path .gitignore ./",
+    "lint:js:fix": "eslint --ext .js,.jsx,.cjs,.mjs --ignore-path .gitignore ./ --fix",
     "lint:sass": "stylelint ./src/sass/**/*.{sass,scss}",
+    "lint:sass:fix": "stylelint ./src/sass/**/*.{sass,scss} --fix",
     "backend": "nodemon backend"
   },
   "devDependencies": {
@@ -74,6 +76,8 @@
     "gulp-sass": "^6.0.0",
     "gulp-twig": "^1.2.0",
     "gulp-version-number": "^0.2.4",
+    "localtunnel": "^2.0.2",
+    "minimist": "^1.2.8",
     "nodemon": "^3.1.9",
     "postcss-combine-media-query": "^1.0.1",
     "rollup": "^4.30.1",

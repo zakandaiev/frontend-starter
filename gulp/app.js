@@ -1,8 +1,11 @@
 import fs from 'node:fs';
-import { argv } from 'node:process';
+import { argv, env } from 'node:process';
+import minimist from 'minimist';
 import 'dotenv/config';
 
-const isProd = argv.includes('--prod');
+const processArg = minimist(argv.slice(2));
+
+const isProd = processArg.prod;
 const isDev = !isProd;
 
 const packageData = JSON.parse(fs.readFileSync('./package.json'));
@@ -24,9 +27,9 @@ const appData = {
 };
 
 const envData = {};
-Object.keys(process.env).forEach((key) => {
+Object.keys(env).forEach((key) => {
   if (key.startsWith('APP_')) {
-    envData[key] = process.env[key];
+    envData[key] = env[key];
   }
 });
 
@@ -36,6 +39,7 @@ const replaceData = {
 };
 
 export {
+  processArg,
   isDev,
   isProd,
   packageData,

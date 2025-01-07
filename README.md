@@ -36,6 +36,8 @@ cd frontend-starter
 
 # Install packages
 npm i
+# or
+npm install
 
 # Remove the link to the original repository
 # - if you use Windows system
@@ -66,7 +68,7 @@ npm run build --dist=/dest
 # Start server for build preview
 npm run preview
 # or with options
-npm run preview --port 8080
+npm run preview --port 3001
 ```
 
 ### Lint
@@ -74,13 +76,13 @@ npm run preview --port 8080
 ``` bash
 # ESLint
 npm run lint:js
-# or with options
-npm run lint:js --fix
+# or
+npm run lint:js:fix
 
 # StyleLint
 npm run lint:sass
-# or with options
-npm run lint:sass --fix
+# or
+npm run lint:sass:fix
 ```
 
 ### Backend emulation

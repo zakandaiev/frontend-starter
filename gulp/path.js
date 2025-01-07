@@ -1,15 +1,8 @@
 import nodePath from 'node:path';
-import { argv, cwd } from 'node:process';
+import { cwd } from 'node:process';
+import { processArg } from './app.js';
 
-const args = argv.slice(2);
-
-let distFolder = './dist';
-const distIndex = args.indexOf('--dist');
-if (distIndex !== -1 && distIndex + 1 < args.length) {
-  distFolder = args[distIndex + 1];
-}
-
-const pathDist = distFolder;
+const pathDist = processArg.dist || './dist';
 const pathSrc = './src';
 
 const absPath = {
@@ -69,8 +62,8 @@ const path = {
 };
 
 export {
-  pathSrc,
   pathDist,
+  pathSrc,
   absPath,
   path,
 };
