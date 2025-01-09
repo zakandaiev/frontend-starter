@@ -3,25 +3,25 @@
 {% extends 'template/layout/main.twig' %}
 
 {% block content %}
-  <div class="container">
+<div class="container">
 
-    {% include '/template/partial/hero.twig' %}
+  {% include '/template/partial/hero.twig' %}
 
-    <div class="section section_offset">
-      <div class="row cols-xs-1 cols-sm-2 cols-md-3 gap-xs">
-        {% for feature in features %}
-          <div class="col">
-            <div class="box h-100">
-              <div class="box__icon">{{ feature.icon }}</div>
+  <div class="section section_offset">
+    <div class="row cols-xs-1 cols-sm-2 cols-md-3 gap-xs">
+      {% for feature in features %}
+      <div class="col">
+        <div class="box h-100">
+          <div class="box__icon">{{ feature.icon }}</div>
 
-              <h4 class="box__title">{{ feature.title }}</h4>
+          <h4 class="box__title">{{ feature.title }}</h4>
 
-              <div class="box__text">{{ feature.text }}</div>
-            </div>
-          </div>
-        {% endfor %}
+          <div class="box__text">{{ feature.text }}</div>
+        </div>
       </div>
+      {% endfor %}
     </div>
-
   </div>
+
+</div>
 {% endblock %}

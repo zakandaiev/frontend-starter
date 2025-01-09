@@ -6,6 +6,7 @@ import nodePath from 'node:path';
 import { appData, envData, isProd } from './app.js';
 import { absPath, pathSrc, path } from './path.js';
 import htmlmin from './htmlmin.js';
+import htmlTransformBase from './html-transform-base.js';
 import versionNumber from './version-number.js';
 
 const twigConfig = {
@@ -19,13 +20,19 @@ function twig() {
     .pipe(
       gulpif(
         isProd,
-        versionNumber,
+        versionNumber(),
       ),
     )
     .pipe(
       gulpif(
         isProd,
-        htmlmin,
+        htmlmin(),
+      ),
+    )
+    .pipe(
+      gulpif(
+        isProd,
+        htmlTransformBase(),
       ),
     )
     .pipe(gulp.dest(path.twig.dist));

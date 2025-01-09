@@ -34,12 +34,12 @@ git clone https://github.com/zakandaiev/frontend-starter.git
 # Go to the folder
 cd frontend-starter
 
-# Install packages
+# Install
 npm i
 # or
 npm install
 
-# Remove the link to the original repository
+# Remove link to the original repository
 # - if you use Windows system
 Remove-Item .git -Recurse -Force
 # - or if you use Unix system
@@ -63,7 +63,7 @@ npm run build
 # or
 npm run prod
 # or with options
-npm run build --dist=/dest
+npm run build --base=/subdomain --dist=./dest
 
 # Start server for build preview
 npm run preview
@@ -80,14 +80,14 @@ npm run lint:js
 npm run lint:js:fix
 
 # StyleLint
-npm run lint:sass
+npm run lint:css
 # or
-npm run lint:sass:fix
+npm run lint:css:fix
 ```
 
 ### Backend emulation
 
 ``` bash
-# Fastify listen ./backend.js
+# Fastify listen backend.js
 npm run backend
 ```

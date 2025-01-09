@@ -8,6 +8,6 @@ const htmlminConfig = {
   removeComments: true,
 };
 
-const htmlmin = htmlminInstance(htmlminConfig);
+const htmlmin = () => htmlminInstance(htmlminConfig);
 
 export default htmlmin;

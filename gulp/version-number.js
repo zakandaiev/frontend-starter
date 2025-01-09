@@ -9,6 +9,6 @@ const versionNumberConfig = {
   },
 };
 
-const versionNumber = versionNumberInstance(versionNumberConfig);
+const versionNumber = () => versionNumberInstance(versionNumberConfig);
 
 export default versionNumber;

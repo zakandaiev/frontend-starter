@@ -1,15 +1,15 @@
 <header id="header" class="header">
   <div class="container">
     <div class="header__wrapper">
-      <a href="./" class="header__logo">
-        <img class="header__logo-image" src="./favicon.svg" alt="HTML5 Logo" height="24">
+      <a href="/" class="header__logo">
+        <img class="header__logo-image" src="/favicon.svg" alt="HTML5 Logo" height="24">
         <span class="header__logo-text">{{ APP_NAME_FORMATTED }}</span>
         <span class="label label_primary header__logo-label">v{{ APP_VERSION }}</span>
       </a>
 
       <nav class="header__nav">
         {% for nav in header %}
-          <a href="{{ nav.link }}" class="header__nav-item {% if active_nav == nav.link %}active{% endif %}">{{ nav.name }}</a>
+        <a href="{{ nav.link }}" class="header__nav-item {% if active_nav == nav.link %}active{% endif %}">{{ nav.name }}</a>
         {% endfor %}
       </nav>
 
