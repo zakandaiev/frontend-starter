@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "private": false,
   "author": "github.com/zakandaiev",
   "description": "FrontEnd Starter is a boilerplate kit for easy building modern static web-sites using Gulp",

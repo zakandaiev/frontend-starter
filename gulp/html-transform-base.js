@@ -25,9 +25,9 @@ function htmlTransformBase() {
           return match;
         }
 
-        const modifiedUrl = url.startsWith('/') ? `${baseFormatted}${url}` : `${baseFormatted}/${url}`;
+        const urlFormatted = url === '/' ? '' : `${url.trim().replace(/^\/|\/$/g, '')}`;
 
-        return `${attr}="${modifiedUrl}"`;
+        return `${attr}="${baseFormatted}${urlFormatted.length ? `/${urlFormatted}` : ''}"`;
       });
 
       file.contents = Buffer.from(modifiedHtml);
