@@ -9,9 +9,16 @@ import htmlmin from './htmlmin.js';
 import htmlTransformBase from './html-transform-base.js';
 import versionNumber from './version-number.js';
 
+const tablerIconsAbsPath = nodePath.join(absPath.node, '@tabler', 'icons', 'icons');
+
 const twigConfig = {
   base: pathSrc,
   data: getTwigGlobals(),
+  namespaces: {
+    node: absPath.node,
+    ti: nodePath.join(tablerIconsAbsPath, 'outline'),
+    'ti-filled': nodePath.join(tablerIconsAbsPath, 'filled'),
+  },
 };
 
 function twig() {

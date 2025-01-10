@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "private": false,
   "author": "github.com/zakandaiev",
   "description": "FrontEnd Starter is a boilerplate kit for easy building modern static web-sites using Gulp",
@@ -89,6 +89,7 @@
     "stylelint-scss": "^6.10.0"
   },
   "dependencies": {
+    "@tabler/icons": "^3.28.1",
     "reseter.css": "^2.0.0"
   }
 }

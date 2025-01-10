@@ -6,6 +6,7 @@ const pathDist = processArg.dist || './dist';
 const pathSrc = './src';
 
 const absPath = {
+  node: nodePath.resolve(cwd(), 'node_modules'),
   dist: nodePath.resolve(cwd(), pathDist),
   src: nodePath.resolve(cwd(), pathSrc),
   data: nodePath.resolve(cwd(), `${pathSrc}/data`),
