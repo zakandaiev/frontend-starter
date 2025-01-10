@@ -20,6 +20,7 @@ const appData = {
 
   APP_VERSION: packageData.version,
   APP_AUTHOR: packageData.author,
+  APP_AUTHOR_URL: packageData.authorUrl,
   APP_REPOSITORY: packageData.repository?.url,
 
   APP_DESCRIPTION: packageData.description,
