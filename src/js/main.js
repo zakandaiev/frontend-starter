@@ -1,14 +1,14 @@
-import '@/js/partial/watermark';
-import '@/js/partial/logger';
+import '@/js/component/watermark';
+import '@/js/component/logger';
 
-import '@/js/partial/data-copy';
-import '@/js/partial/data-toast';
-import '@/js/partial/external-link-norefer';
-import '@/js/partial/format-tel-link';
-import '@/js/partial/placeholder-image';
-import '@/js/partial/protect-image';
-import '@/js/partial/responsive-table';
-import '@/js/partial/smooth-scroll';
+import '@/js/component/data-copy';
+import '@/js/component/data-toast';
+import '@/js/component/external-link-norefer';
+import '@/js/component/format-tel-link';
+import '@/js/component/placeholder-image';
+import '@/js/component/protect-image';
+import '@/js/component/responsive-table';
+import '@/js/component/smooth-scroll';
 
-import '@/js/partial/header';
-import '@/js/partial/section-navigation';
+import '@/js/component/header';
+import '@/js/component/section-navigation';

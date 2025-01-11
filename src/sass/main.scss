@@ -191,16 +191,17 @@ code, kbd, pre, samp {
   flex-direction: column;
 }
 
-@import "partial/box";
-@import "partial/button";
-@import "partial/form";
-@import "partial/grid";
-@import "partial/helper";
-@import "partial/label";
-@import "partial/section";
-@import "partial/table";
-@import "partial/toast";
+@import "component/box";
+@import "component/button";
+@import "component/form";
+@import "component/grid";
+@import "component/helper";
+@import "component/label";
+@import "component/loader";
+@import "component/section";
+@import "component/table";
+@import "component/toast";
 
-@import "partial/header";
-@import "partial/hero";
-@import "partial/footer";
+@import "component/header";
+@import "component/hero";
+@import "component/footer";

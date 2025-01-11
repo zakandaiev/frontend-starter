@@ -1,0 +1,7 @@
+{% set classname = size is not defined or size is null ? '' : ' loader_' ~ size %}
+
+<span class="loader{{ classname }}">
+  <svg viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="14" fill="none" />
+  </svg>
+</span>

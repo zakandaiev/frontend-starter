@@ -1,20 +1,20 @@
 {% set title = 'Components' %}
 {% set active_nav = '/components' %}
 
-{% extends 'template/layout/main.twig' %}
+{% extends '@template/layout/main.twig' %}
 
 {% block content %}
 <div class="container">
-
   <div class="row gap-xs">
     <div class="col-xs-12 col-md-8 order-xs-2 order-md-1">
-
       <div class="section section_offset-bottom">
         <h1>Components</h1>
       </div>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Overview</h2>
+        <h2 class="section__title">
+          Overview
+        </h2>
 
         <div class="section__body">
           <p>This starter is delivering with ready-to-use utils, styled components, helpers and much more. Some majors of these are described in this section.</p>
@@ -22,24 +22,44 @@
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Button</h2>
+        <h2 class="section__title">
+          Button
+        </h2>
 
         <div class="section__body">
           <div class="d-flex flex-wrap gap-1">
-            <button type="button" class="btn">Default</button>
-            <button type="button" class="btn btn_cancel">Cancel</button>
-            <button type="button" class="btn btn_primary">Primary</button>
-            <button type="button" class="btn btn_secondary">Secondary</button>
-            <button type="button" class="btn btn_success">Success</button>
-            <button type="button" class="btn btn_info">Info</button>
-            <button type="button" class="btn btn_warning">Warning</button>
-            <button type="button" class="btn btn_error">Error</button>
+            <button type="button" class="btn">
+              Default
+            </button>
+            <button type="button" class="btn btn_cancel">
+              Cancel
+            </button>
+            <button type="button" class="btn btn_primary">
+              Primary
+            </button>
+            <button type="button" class="btn btn_secondary">
+              Secondary
+            </button>
+            <button type="button" class="btn btn_success">
+              Success
+            </button>
+            <button type="button" class="btn btn_info">
+              Info
+            </button>
+            <button type="button" class="btn btn_warning">
+              Warning
+            </button>
+            <button type="button" class="btn btn_error">
+              Error
+            </button>
           </div>
         </div>
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Label</h2>
+        <h2 class="section__title">
+          Label
+        </h2>
 
         <div class="section__body">
           <div class="d-flex flex-wrap gap-1">
@@ -56,144 +76,213 @@
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Grid</h2>
+        <h2 class="section__title">
+          Loader
+        </h2>
 
         <div class="section__body">
-          <h4 class="mt-8">
-            <span>Grow and auto width columns controlled with</span>
-            <span class="label label_info">.fill</span>
-            <span>class</span>
-          </h4>
-
-          <div class="row fill">
-            <div class="col">
-              <div class="border radius p-2 text-center">Grow column</div>
-            </div>
-            <div class="col col-auto">
-              <div class="border radius p-2 text-center">Auto column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">Grow column</div>
-            </div>
+          <div class="d-flex align-items-center flex-wrap gap-1">
+            {% include '@template/component/loader.twig' with {size: 'xs'} %}
+            {% include '@template/component/loader.twig' with {size: 'sm'} %}
+            {% include '@template/component/loader.twig' %}
+            {% include '@template/component/loader.twig' with {size: 'lg'} %}
+            {% include '@template/component/loader.twig' with {size: 'xl'} %}
           </div>
-
-          <h4 class="mt-8">
-            <span>Equal-width columns defined in</span>
-            <span class="label label_info">.row</span>
-            <span>with</span>
-            <span class="label label_info">.cols-{breakpoint}-{size}</span>
-            <span>syntax</span>
-          </h4>
-
-          <div class="row cols-xs-2 cols-md-4">
-            <div class="col">
-              <div class="border radius p-2 text-center">1 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">2 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">3 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">4 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">5 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">6 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">7 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">8 column</div>
-            </div>
-          </div>
-
-          <h4 class="mt-8">
-            <span>Control column width in each</span>
-            <span class="label label_info">.col</span>
-            <span>with</span>
-            <span class="label label_info">.col-{breakpoint}-{size}</span>
-            <span>syntax</span>
-          </h4>
-
-          <div class="row">
-            <div class="col-xs-12 col-md-3">
-              <div class="border radius p-2 text-center">1 column</div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <div class="border radius p-2 text-center">2 column</div>
-            </div>
-            <div class="col-xs-12 col-md-3">
-              <div class="border radius p-2 text-center">3 column</div>
-            </div>
-            <div class="col-xs-12">
-              <div class="border radius p-2 text-center">4 column</div>
-            </div>
-          </div>
-
-          <h4 class="mt-8">
-            <span>Offset columns with</span>
-            <span class="label label_info">.offset-{breakpoint}-{size}</span>
-            <span>syntax</span>
-          </h4>
-
-          <div class="row">
-            <div class="col-xs-12 col-md-3">
-              <div class="border radius p-2 text-center">1 column</div>
-            </div>
-            <div class="col-xs-12 col-md-3 offset-md-3">
-              <div class="border radius p-2 text-center">2 column</div>
-            </div>
-            <div class="col-xs-12 col-md-3 offset-md-3">
-              <div class="border radius p-2 text-center">3 column</div>
-            </div>
-            <div class="col-xs-12 col-md-3 offset-md-3">
-              <div class="border radius p-2 text-center">4 column</div>
-            </div>
-          </div>
-
-          <h4 class="mt-8">
-            <span>Gaps controlled with</span>
-            <span class="label label_info">.gap-{breakpoint}</span>
-            <span>for XY axes,</span>
-            <span class="label label_info">.gap-{breakpoint}-x</span>
-            <span>for X axis or</span>
-            <span class="label label_info">.gap-{breakpoint}-y</span>
-            <span>for Y axis syntax defined in</span>
-            <span class="label label_info">.row</span>
-            <span>class</span>
-          </h4>
-
-          <div class="row fill gap-xs cols-xs-2 cols-md-4">
-            <div class="col">
-              <div class="border radius p-2 text-center">1 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">2 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">3 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">4 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">5 column</div>
-            </div>
-            <div class="col">
-              <div class="border radius p-2 text-center">6 column</div>
-            </div>
-          </div>
-
         </div>
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Helper</h2>
+        <h2 class="section__title">
+          Grid
+        </h2>
+
+        <div class="section__body">
+          <h4 class="mt-8">
+            Grow and auto width columns controlled with
+            <span class="label label_info">.fill</span>
+            class
+          </h4>
+
+          <div class="row fill">
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                Grow column
+              </div>
+            </div>
+            <div class="col col-auto">
+              <div class="border radius p-2 text-center">
+                Auto column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                Grow column
+              </div>
+            </div>
+          </div>
+
+          <h4 class="mt-8">
+            Equal-width columns defined in
+            <span class="label label_info">.row</span>
+            with
+            <span class="label label_info">.cols-{breakpoint}-{size}</span>
+            syntax
+          </h4>
+
+          <div class="row cols-xs-2 cols-md-4">
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                1 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                2 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                3 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                4 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                5 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                6 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                7 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                8 column
+              </div>
+            </div>
+          </div>
+
+          <h4 class="mt-8">
+            Control column width in each
+            <span class="label label_info">.col</span>
+            with
+            <span class="label label_info">.col-{breakpoint}-{size}</span>
+            syntax
+          </h4>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3">
+              <div class="border radius p-2 text-center">
+                1 column
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div class="border radius p-2 text-center">
+                2 column
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+              <div class="border radius p-2 text-center">
+                3 column
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="border radius p-2 text-center">
+                4 column
+              </div>
+            </div>
+          </div>
+
+          <h4 class="mt-8">
+            Offset columns with
+            <span class="label label_info">.offset-{breakpoint}-{size}</span>
+            syntax
+          </h4>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3">
+              <div class="border radius p-2 text-center">
+                1 column
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-3 offset-md-3">
+              <div class="border radius p-2 text-center">
+                2 column
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-3 offset-md-3">
+              <div class="border radius p-2 text-center">
+                3 column
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-3 offset-md-3">
+              <div class="border radius p-2 text-center">
+                4 column
+              </div>
+            </div>
+          </div>
+
+          <h4 class="mt-8">
+            Gaps controlled with
+            <span class="label label_info">.gap-{breakpoint}</span>
+            for XY axes,
+            <span class="label label_info">.gap-{breakpoint}-x</span>
+            for X axis or
+            <span class="label label_info">.gap-{breakpoint}-y</span>
+            for Y axis syntax defined in
+            <span class="label label_info">.row</span>
+            class
+          </h4>
+
+          <div class="row fill gap-xs cols-xs-2 cols-md-4">
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                1 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                2 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                3 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                4 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                5 column
+              </div>
+            </div>
+            <div class="col">
+              <div class="border radius p-2 text-center">
+                6 column
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section_offset border-top">
+        <h2 class="section__title">
+          Helper
+        </h2>
 
         <div class="section__body">
           <p>
@@ -207,17 +296,21 @@
 
           <p>
             Full list you can view in
-            <span class="label label_info">@/src/sass/partial/helper.scss</span>
+            <span class="label label_info">@/src/sass/component/helper.scss</span>
             file.
           </p>
         </div>
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Table</h2>
+        <h2 class="section__title">
+          Table
+        </h2>
 
         <div class="section__body">
-          <h4 class="mt-8">Default table</h4>
+          <h4 class="mt-8">
+            Default table
+          </h4>
 
           <table>
             <thead>
@@ -255,11 +348,11 @@
           </table>
 
           <h4 class="mt-8">
-            <span>Table with</span>
+            Table with
             <span class="label label_info">.table_striped</span>
             and
             <span class="label label_info">.table_sm</span>
-            <span>class</span>
+            class
           </h4>
 
           <table class="table_striped table_sm">
@@ -298,11 +391,11 @@
           </table>
 
           <h4 class="mt-8">
-            <span>Table with</span>
+            Table with
             <span class="label label_info">.table_borderless</span>
             and
             <span class="label label_info">.table_sm</span>
-            <span>class</span>
+            class
           </h4>
 
           <table class="table_borderless table_sm">
@@ -343,7 +436,9 @@
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Toast</h2>
+        <h2 class="section__title">
+          Toast
+        </h2>
 
         <div class="section__body">
           <p>
@@ -364,21 +459,35 @@
           </p>
 
           <div class="d-flex flex-wrap gap-1">
-            <button type="button" class="btn" data-toast>Default</button>
-            <button type="button" class="btn btn_success" data-toast data-toast-type="success">Success</button>
-            <button type="button" class="btn btn_info" data-toast data-toast-type="info">Info</button>
-            <button type="button" class="btn btn_warning" data-toast data-toast-type="warning">Warning</button>
-            <button type="button" class="btn btn_error" data-toast data-toast-type="error">Error</button>
+            <button type="button" class="btn" data-toast>
+              Default
+            </button>
+            <button type="button" class="btn btn_success" data-toast data-toast-type="success">
+              Success
+            </button>
+            <button type="button" class="btn btn_info" data-toast data-toast-type="info">
+              Info
+            </button>
+            <button type="button" class="btn btn_warning" data-toast data-toast-type="warning">
+              Warning
+            </button>
+            <button type="button" class="btn btn_error" data-toast data-toast-type="error">
+              Error
+            </button>
           </div>
 
           <p>Example with custom text, primary type and 10s duration.</p>
 
-          <button type="button" class="btn btn_cancel" data-toast="Lorem ipsum" data-toast-type="primary" data-toast-duration="10000">Customization example</button>
+          <button type="button" class="btn btn_cancel" data-toast="Lorem ipsum" data-toast-type="primary" data-toast-duration="10000">
+            Customization example
+          </button>
         </div>
       </section>
 
       <section class="section section_offset border-top">
-        <h2 class="section__title">Copy to clipboard</h2>
+        <h2 class="section__title">
+          Copy to clipboard
+        </h2>
 
         <div class="section__body">
           <p>
@@ -401,16 +510,16 @@
             to notify user.
           </p>
 
-          <button type="button" class="btn btn_cancel" data-copy="Lorem ipsum" data-toast="Copied to clipboard" data-toast-type="info">Example</button>
+          <button type="button" class="btn btn_cancel" data-copy="Lorem ipsum" data-toast="Copied to clipboard" data-toast-type="info">
+            Example
+          </button>
         </div>
       </section>
-
     </div>
 
     <div class="col-xs-12 col-md-3 offset-md-1 align-self-start position-sticky order-xs-1 order-md-2 bg-body">
-      <div class="section__navigation"></div>
+      <div class="section__navigation" />
     </div>
   </div>
-
 </div>
 {% endblock %}
