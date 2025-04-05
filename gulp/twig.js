@@ -16,7 +16,8 @@ const twigConfig = {
   data: getTwigGlobals(),
   namespaces: {
     node: absPath.node,
-    template: absPath.template,
+    component: absPath.component,
+    layout: absPath.layout,
     view: absPath.view,
     ti: nodePath.join(tablerIconsAbsPath, 'outline'),
     'ti-filled': nodePath.join(tablerIconsAbsPath, 'filled'),

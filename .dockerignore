@@ -1,6 +1,9 @@
-.git
-coverage
-dist
-dist-ssr
-docs
-node_modules
+# IGNORE ALL
+**
+
+# EXCEPT
+!gulp/
+!src/
+!.env
+!gulpfile.*
+!package.json

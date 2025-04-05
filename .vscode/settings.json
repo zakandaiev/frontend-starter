@@ -11,14 +11,6 @@
   "emmet.includeLanguages": {
     "twig": "html"
   },
-  "Workspace_Formatter.excludePattern": [
-    "**/build",
-    "**/coverage",
-    "**/docs",
-    "**/dist",
-    "**/node_modules",
-    "**/vendor",
-  ],
   // HTML
   "html.format.enable": true,
   "html.autoClosingTags": false,

@@ -1,7 +1,7 @@
 {% set title = 'Components' %}
 {% set active_nav = '/components' %}
 
-{% extends '@template/layout/main.twig' %}
+{% extends '@layout/main.twig' %}
 
 {% block content %}
 <div class="container">
@@ -82,11 +82,11 @@
 
         <div class="section__body">
           <div class="d-flex align-items-center flex-wrap gap-1">
-            {% include '@template/component/loader.twig' with {size: 'xs'} %}
-            {% include '@template/component/loader.twig' with {size: 'sm'} %}
-            {% include '@template/component/loader.twig' %}
-            {% include '@template/component/loader.twig' with {size: 'lg'} %}
-            {% include '@template/component/loader.twig' with {size: 'xl'} %}
+            {% include '@component/loader.twig' with {size: 'xs'} %}
+            {% include '@component/loader.twig' with {size: 'sm'} %}
+            {% include '@component/loader.twig' %}
+            {% include '@component/loader.twig' with {size: 'lg'} %}
+            {% include '@component/loader.twig' with {size: 'xl'} %}
           </div>
         </div>
       </section>

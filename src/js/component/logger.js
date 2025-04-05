@@ -3,7 +3,7 @@ import { request } from '@/js/util/request';
 import { urlFull } from '@/js/util/route';
 
 async function logError(error) {
-  if (Config.app.mode !== 'prod') {
+  if (Config.app.mode !== 'prod' || error?.message === 'Script error.') {
     return false;
   }
 
