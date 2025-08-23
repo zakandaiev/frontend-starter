@@ -1,52 +1,155 @@
 $accent-color-list: primary, secondary, success, info, warning, error;
 
 $color-list: (
+  // BODY
   body: #fff,
-  box: #f6f6f7,
+  body-inverse: #1b1b1f,
 
-  heading: rgb(60 60 67),
+  // BOX
+  box: #f6f6f7,
+  box-inverse: #202127,
+
+  // HEADING
+  heading: #3c3c43,
   heading-inverse: #fff,
 
+  // TEXT
   text: rgb(60 60 67 / 78%),
   text-inverse: rgb(235 235 245 / 60%),
-  text-muted: #939ba2,
 
+  // TEXT SHADES
+  text-shade-1: rgb(0 0 0 / 5%),
+  text-shade-2: rgb(0 0 0 / 10%),
+  text-shade-3: rgb(0 0 0 / 15%),
+  text-shade-4: rgb(0 0 0 / 20%),
+  text-shade-5: rgb(0 0 0 / 25%),
+  text-shade-6: rgb(0 0 0 / 30%),
+  text-shade-7: rgb(0 0 0 / 35%),
+  text-shade-8: rgb(0 0 0 / 40%),
+  text-shade-9: rgb(0 0 0 / 45%),
+  text-shade-10: rgb(0 0 0 / 50%),
+  text-shade-11: rgb(0 0 0 / 55%),
+  text-shade-12: rgb(0 0 0 / 60%),
+  text-shade-13: rgb(0 0 0 / 65%),
+  text-shade-14: rgb(0 0 0 / 70%),
+  text-shade-15: rgb(0 0 0 / 75%),
+  text-shade-16: rgb(0 0 0 / 80%),
+  text-shade-17: rgb(0 0 0 / 85%),
+  text-shade-18: rgb(0 0 0 / 90%),
+  text-shade-19: rgb(0 0 0 / 95%),
+
+  // TEXT SHADES INVERSE
+  text-shade-inverse-1: rgb(255 255 255 / 5%),
+  text-shade-inverse-2: rgb(255 255 255 / 10%),
+  text-shade-inverse-3: rgb(255 255 255 / 15%),
+  text-shade-inverse-4: rgb(255 255 255 / 20%),
+  text-shade-inverse-5: rgb(255 255 255 / 25%),
+  text-shade-inverse-6: rgb(255 255 255 / 30%),
+  text-shade-inverse-7: rgb(255 255 255 / 35%),
+  text-shade-inverse-8: rgb(255 255 255 / 40%),
+  text-shade-inverse-9: rgb(255 255 255 / 45%),
+  text-shade-inverse-10: rgb(255 255 255 / 50%),
+  text-shade-inverse-11: rgb(255 255 255 / 55%),
+  text-shade-inverse-12: rgb(255 255 255 / 60%),
+  text-shade-inverse-13: rgb(255 255 255 / 65%),
+  text-shade-inverse-14: rgb(255 255 255 / 70%),
+  text-shade-inverse-15: rgb(255 255 255 / 75%),
+  text-shade-inverse-16: rgb(255 255 255 / 80%),
+  text-shade-inverse-17: rgb(255 255 255 / 85%),
+  text-shade-inverse-18: rgb(255 255 255 / 90%),
+  text-shade-inverse-19: rgb(255 255 255 / 95%),
+
+  // LINK
   link: #e44d26,
   link-hover: #f16529,
 
-  border: #dee2e6,
-  border-hover: #ced4da,
+  // PRIMARY
+  primary: #41b883,
+  primary-hover: #4fc993,
+  primary-text: #fff,
 
-  primary: #e44d26,
-  primary-hover: #f16529,
+  // SECONDARY
+  secondary: #34495e,
+  secondary-hover: #4f667d,
+  secondary-text: #fff,
 
-  secondary: #6c757d,
-  secondary-hover: #686f75,
-
+  // SUCCESS
   success: #1cbb8c,
   success-hover: #189f77,
+  success-text: #fff,
 
+  // INFO
   info: #17a2b8,
   info-hover: #148a9c,
+  info-text: #fff,
 
+  // WARNING
   warning: #fcb92c,
   warning-hover: #d69d25,
+  warning-text: #fff,
 
+  // ERROR
   error: #dc3545,
   error-hover: #bb2d3b,
+  error-text: #fff,
 );
 
-$color-dark-list: (
+$color-inverse-list: (
+  // BODY
   body: #1b1b1f,
+  body-inverse: #fff,
+
+  // BOX
   box: #202127,
+  box-inverse: #f6f6f7,
 
+  // HEADING
   heading: #fff,
-  heading-inverse: rgb(60 60 67),
+  heading-inverse: #3c3c43,
 
+  // TEXT
   text: rgb(235 235 245 / 60%),
   text-inverse: rgb(60 60 67 / 78%),
-  text-muted: #6c757d,
 
-  border: #32363f,
-  border-hover: #414853,
+  // TEXT SHADES
+  text-shade-1: rgb(255 255 255 / 5%),
+  text-shade-2: rgb(255 255 255 / 10%),
+  text-shade-3: rgb(255 255 255 / 15%),
+  text-shade-4: rgb(255 255 255 / 20%),
+  text-shade-5: rgb(255 255 255 / 25%),
+  text-shade-6: rgb(255 255 255 / 30%),
+  text-shade-7: rgb(255 255 255 / 35%),
+  text-shade-8: rgb(255 255 255 / 40%),
+  text-shade-9: rgb(255 255 255 / 45%),
+  text-shade-10: rgb(255 255 255 / 50%),
+  text-shade-11: rgb(255 255 255 / 55%),
+  text-shade-12: rgb(255 255 255 / 60%),
+  text-shade-13: rgb(255 255 255 / 65%),
+  text-shade-14: rgb(255 255 255 / 70%),
+  text-shade-15: rgb(255 255 255 / 75%),
+  text-shade-16: rgb(255 255 255 / 80%),
+  text-shade-17: rgb(255 255 255 / 85%),
+  text-shade-18: rgb(255 255 255 / 90%),
+  text-shade-19: rgb(255 255 255 / 95%),
+
+  // TEXT SHADES INVERSE
+  text-shade-inverse-1: rgb(0 0 0 / 5%),
+  text-shade-inverse-2: rgb(0 0 0 / 10%),
+  text-shade-inverse-3: rgb(0 0 0 / 15%),
+  text-shade-inverse-4: rgb(0 0 0 / 20%),
+  text-shade-inverse-5: rgb(0 0 0 / 25%),
+  text-shade-inverse-6: rgb(0 0 0 / 30%),
+  text-shade-inverse-7: rgb(0 0 0 / 35%),
+  text-shade-inverse-8: rgb(0 0 0 / 40%),
+  text-shade-inverse-9: rgb(0 0 0 / 45%),
+  text-shade-inverse-10: rgb(0 0 0 / 50%),
+  text-shade-inverse-11: rgb(0 0 0 / 55%),
+  text-shade-inverse-12: rgb(0 0 0 / 60%),
+  text-shade-inverse-13: rgb(0 0 0 / 65%),
+  text-shade-inverse-14: rgb(0 0 0 / 70%),
+  text-shade-inverse-15: rgb(0 0 0 / 75%),
+  text-shade-inverse-16: rgb(0 0 0 / 80%),
+  text-shade-inverse-17: rgb(0 0 0 / 85%),
+  text-shade-inverse-18: rgb(0 0 0 / 90%),
+  text-shade-inverse-19: rgb(0 0 0 / 95%),
 );

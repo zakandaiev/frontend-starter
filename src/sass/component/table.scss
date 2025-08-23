@@ -18,8 +18,8 @@ table, .table {
   }
 
   th, td {
-    padding: 1em;
-    border-bottom: var(--border);
+    padding: 1.6rem;
+    border-bottom: var(--border-md-medium);
     vertical-align: middle;
   }
 }
@@ -54,7 +54,7 @@ table, .table {
   // .table_striped
   &_striped > tbody > tr:nth-child(odd) {
     & > th, & > td {
-      background: #f6f6f7;
+      background: var(--color-box);
     }
   }
 
@@ -80,16 +80,8 @@ table, .table {
   // .table_sm
   &_sm {
     th, td {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-    }
-  }
-}
-
-:root[data-theme="dark"] {
-  .table_striped > tbody > tr:nth-child(odd) {
-    & > th, & > td {
-      background: #202127;
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
     }
   }
 }

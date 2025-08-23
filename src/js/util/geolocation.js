@@ -1,4 +1,4 @@
-async function getUserPosition() {
+async function getUserPosition(opt = {}) {
   const position = {
     error: true,
     errorMessage: null,
@@ -12,7 +12,16 @@ async function getUserPosition() {
 
   try {
     const { coords } = await new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 });
+      navigator.geolocation.getCurrentPosition(
+        resolve,
+        reject,
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0,
+          timeout: 5000,
+          ...opt,
+        },
+      );
     });
 
     if (coords.latitude && coords.longitude) {
@@ -57,9 +66,65 @@ function getDistanceBetweenCoords(lat1, lon1, lat2, lon2, unit = 'mi') {
   return dist;
 }
 
+function watchUserPosition(callback, opt = {}) {
+  if (!navigator.geolocation || typeof callback !== 'function') {
+    return false;
+  }
+
+  const updateIntervalMs = opt.updateIntervalMs || 0;
+  let lastUpdateTimestamp = 0;
+
+  const watchId = navigator.geolocation.watchPosition(
+    (pos) => {
+      const nowTimestamp = Date.now();
+      if (updateIntervalMs > 0 && nowTimestamp - lastUpdateTimestamp < updateIntervalMs) {
+        return false;
+      }
+
+      lastUpdateTimestamp = nowTimestamp;
+
+      const { coords } = pos;
+      if (coords.latitude && coords.longitude) {
+        callback({
+          error: false,
+          errorMessage: null,
+          lat: coords.latitude,
+          lng: coords.longitude,
+        });
+      }
+    },
+    (err) => {
+      callback({
+        error: true,
+        errorMessage: err,
+        lat: null,
+        lng: null,
+      });
+    },
+    {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 5000,
+      ...opt,
+    },
+  );
+
+  return watchId;
+}
+
+function stopWatchUserPosition(watchId) {
+  if (watchId && navigator.geolocation) {
+    return navigator.geolocation.clearWatch(watchId);
+  }
+
+  return false;
+}
+
 export {
   getUserPosition,
   getDistanceBetweenCoords,
+  watchUserPosition,
+  stopWatchUserPosition,
 };
 
 export default getUserPosition;

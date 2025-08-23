@@ -3,8 +3,8 @@ const protocol = window.location.protocol.replace(':', '');
 const uri = window.location.pathname;
 const [url, queryString] = window.location.href.split('?');
 
-const uriFull = `${uri}?${queryString}`;
-const urlFull = `${url}?${queryString}`;
+const uriFull = queryString ? `${uri}?${queryString}` : uri;
+const urlFull = queryString ? `${url}?${queryString}` : url;
 
 const base = `${protocol}://${host}`;
 

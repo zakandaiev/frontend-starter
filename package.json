@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "private": false,
   "author": "Oleksandr Zakandaiev",
   "authorUrl": "https://github.com/zakandaiev",
@@ -36,6 +36,9 @@
     "url": "https://github.com/zakandaiev/frontend-starter"
   },
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "browserslist": [
     "last 15 versions",
     "not dead"
@@ -54,24 +57,24 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.24.0",
+    "@eslint/js": "^9.34.0",
     "@rollup/plugin-alias": "^5.1.1",
-    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-terser": "^0.4.4",
     "autoprefixer": "^10.4.21",
     "browser-sync": "^3.0.4",
-    "cssnano": "^7.0.6",
+    "cssnano": "^7.1.1",
     "del": "^8.0.0",
-    "dotenv": "^16.4.7",
-    "eslint": "^9.24.0",
+    "dotenv": "^17.2.1",
+    "eslint": "^9.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.31.0",
-    "fastify": "^5.2.2",
-    "globals": "^16.0.0",
-    "gulp": "^5.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "fastify": "^5.5.0",
+    "globals": "^16.3.0",
+    "gulp": "^5.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^9.1.0",
@@ -82,21 +85,21 @@
     "gulp-version-number": "^0.2.4",
     "localtunnel": "^2.0.2",
     "minimist": "^1.2.8",
-    "nodemon": "^3.1.9",
-    "postcss-combine-media-query": "^1.0.1",
-    "rollup": "^4.39.0",
+    "nodemon": "^3.1.10",
+    "postcss-combine-media-query": "^2.0.0",
+    "rollup": "^4.48.0",
     "rollup-plugin-multi-input": "^1.5.0",
-    "sass": "^1.86.3",
-    "stylelint": "^16.17.0",
+    "sass": "^1.90.0",
+    "stylelint": "^16.23.1",
     "stylelint-config-clean-order": "^7.0.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-scss": "^6.11.1"
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1"
   },
   "dependencies": {
-    "@tabler/icons": "^3.31.0",
+    "@tabler/icons": "^3.34.1",
     "reseter.css": "^2.0.0"
   },
   "overrides": {
-    "eslint": "^9.24.0"
+    "eslint": "^9.34.0"
   }
 }

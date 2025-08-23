@@ -4,16 +4,16 @@
   // .section__title
   &__title {
     display: flex;
-    gap: 0.5em;
+    gap: 1.2rem;
     align-items: flex-start;
     justify-content: space-between;
 
-    font-size: 1.5em;
+    font-size: 2.4rem;
     font-weight: var(--font-medium);
     color: var(--color-heading);
 
     & + .section__body {
-      margin: 1em 0 0;
+      margin: 3.2rem 0 0;
     }
   }
 
@@ -23,7 +23,7 @@
     width: 100%;
 
     & > *:not(:first-child) {
-      margin: 1em 0 0;
+      margin: 1.6rem 0 0;
     }
 
     a {
@@ -46,10 +46,10 @@
 
       display: block;
 
-      padding: 0.375em 0 0.375em 1em;
-      border-left: var(--border);
+      padding: 0.6rem 0 0.6rem 1.6rem;
+      border-left: var(--border-md-medium);
 
-      font-size: 0.875em;
+      font-size: 1.4rem;
       font-weight: var(--font-regular);
       color: var(--color-text);
 
@@ -74,8 +74,8 @@
           left: 0;
           transform: translate(-50%, -50%);
 
-          width: calc(var(--border-width) * 2);
-          height: 1.5em;
+          width: calc(var(--border-width-md) * 2);
+          height: 2.4rem;
 
           background: var(--color-primary);
         }
@@ -85,17 +85,17 @@
 
   // .section_offset
   &_offset {
-    padding: 1.5em 0;
+    padding: 2.4rem 0;
   }
 
   // .section_offset-top
   &_offset-top {
-    padding-top: 1.5em;
+    padding-top: 2.4rem;
   }
 
   // .section_offset-bottom
   &_offset-bottom {
-    padding-bottom: 1.5em;
+    padding-bottom: 2.4rem;
   }
 
   // .section_grow
@@ -108,17 +108,17 @@
   .section {
     // .section_offset
     &_offset {
-      padding: 2em 0;
+      padding: 3.2rem 0;
     }
 
     // .section_offset-top
     &_offset-top {
-      padding-top: 2em;
+      padding-top: 3.2rem;
     }
 
     // .section_offset-bottom
     &_offset-bottom {
-      padding-bottom: 2em;
+      padding-bottom: 3.2rem;
     }
   }
 }

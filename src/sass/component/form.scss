@@ -27,8 +27,8 @@ input, textarea, select {
   display: block;
 
   width: 100%;
-  padding: calc(1.4rem - var(--border-width));
-  border: var(--border);
+  padding: calc(1.4rem - var(--border-width-md));
+  border: var(--border-md-medium);
   border-radius: var(--radius-md);
 
   font-size: 1.6rem;

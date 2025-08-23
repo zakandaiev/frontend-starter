@@ -1,0 +1,28 @@
+$shadow-width-list: (
+  md: 0px 1px 12px 0px,
+  lg: 0px 2px 16px 0px,
+  xl: 0px 2px 20px 0px,
+  xxl: 0px 4px 24px 0px,
+);
+
+$shadow-color-list: (
+  extralight: rgb(0 0 0 / 3%),
+  light: rgb(0 0 0 / 4%),
+  regular: rgb(0 0 0 / 5%),
+  medium: rgb(0 0 0 / 10%),
+  semibold: rgb(0 0 0 / 15%),
+  bold: rgb(0 0 0 / 20%),
+  extrabold: rgb(0 0 0 / 25%),
+  "black": rgb(0 0 0 / 30%),
+);
+
+$shadow-color-inverse-list: (
+  extralight: rgb(255 255 255 / 3%),
+  light: rgb(255 255 255 / 4%),
+  regular: rgb(255 255 255 / 5%),
+  medium: rgb(255 255 255 / 10%),
+  semibold: rgb(255 255 255 / 15%),
+  bold: rgb(255 255 255 / 20%),
+  extrabold: rgb(255 255 255 / 25%),
+  "black": rgb(255 255 255 / 30%),
+);

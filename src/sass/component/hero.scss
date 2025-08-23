@@ -1,7 +1,7 @@
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.6rem;
 
   // .hero__main
   &__main {
@@ -12,7 +12,7 @@
   &__title {
     display: block;
 
-    font-size: 2em;
+    font-size: 3.2rem;
     font-weight: var(--font-bold);
     line-height: 1.2;
     color: var(--color-primary);
@@ -23,7 +23,7 @@
   &__subtitle {
     display: block;
 
-    font-size: 2em;
+    font-size: 3.2rem;
     font-weight: var(--font-bold);
     line-height: 1.2;
     color: var(--color-heading);
@@ -34,9 +34,9 @@
   &__text {
     display: block;
 
-    margin: 0.5em 0 0;
+    margin: 1.2rem 0 0;
 
-    font-size: 1.125em;
+    font-size: 1.8rem;
     font-weight: var(--font-medium);
     line-height: inherit;
     color: var(--color-text);
@@ -47,10 +47,10 @@
   &__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75em;
+    gap: 1.2rem;
     justify-content: center;
 
-    margin: 2em 0 0;
+    margin: 3.2rem 0 0;
   }
 
   // .hero__image
@@ -73,18 +73,18 @@
       left: 50%;
       transform: translate(-50%, -50%);
 
-      width: 10em;
-      height: 10em;
+      width: 16rem;
+      height: 16rem;
 
-      background: linear-gradient(-45deg, var(--color-primary) 50%, var(--color-primary-hover) 50%);
-      filter: blur(4.5em);
+      background: linear-gradient(-45deg, var(--color-primary) 50%, var(--color-secondary) 50%);
+      filter: blur(7.2rem);
     }
 
     & > * {
       display: block;
       flex-shrink: 0;
       width: auto;
-      height: 10em;
+      height: 16rem;
     }
   }
 }
@@ -93,28 +93,28 @@
   .hero {
     // .hero__title
     &__title {
-      font-size: 2.5em;
+      font-size: 4rem;
     }
 
     // .hero__subtitle
     &__subtitle {
-      font-size: 2.5em;
+      font-size: 4rem;
     }
 
     // .hero__text
     &__text {
-      font-size: 1.25em;
+      font-size: 2rem;
     }
 
     // .hero__image
     &__image {
       &::before {
-        width: 12em;
-        height: 12em;
+        width: 20rem;
+        height: 20rem;
       }
 
       & > * {
-        height: 12em;
+        height: 20rem;
       }
     }
   }
@@ -137,30 +137,30 @@
       order: 2;
 
       &::before {
-        width: 16em;
-        height: 16em;
+        width: 26rem;
+        height: 26rem;
       }
 
       & > * {
-        height: 16em;
+        height: 26rem;
       }
     }
 
     // .hero__title
     &__title {
-      font-size: 3em;
+      font-size: 4.8rem;
       text-align: left;
     }
 
     // .hero__subtitle
     &__subtitle {
-      font-size: 3em;
+      font-size: 4.8rem;
       text-align: left;
     }
 
     // .hero__text
     &__text {
-      font-size: 1.5em;
+      font-size: 2.4rem;
       text-align: left;
     }
 

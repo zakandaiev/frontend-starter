@@ -1,7 +1,9 @@
 import fs from 'node:fs';
 import { argv, env } from 'node:process';
 import minimist from 'minimist';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: ['.env.local', '.env'], override: true });
 
 const processArg = minimist(argv.slice(2));
 

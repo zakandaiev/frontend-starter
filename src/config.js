@@ -10,6 +10,7 @@ const Config = {
     timeoutMs: 30000,
 
     backend: 'http://localhost:4173',
+    key: APP_API_KEY,
   },
   search: {
     debounceMs: 1000,

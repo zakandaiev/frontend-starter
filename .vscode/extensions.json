@@ -2,7 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
-    "mblode.twig-language",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "mblode.twig-language"
   ]
 }

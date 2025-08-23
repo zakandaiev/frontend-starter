@@ -1,5 +1,5 @@
 .header {
-  scrollbar-color: var(--color-border-hover) var(--color-border);
+  scrollbar-color: var(--color-border-medium) var(--color-border-medium);
   scrollbar-width: thin;
 
   position: sticky;
@@ -11,35 +11,35 @@
   overflow: auto hidden;
   display: block;
 
-  margin: 0 0 2em;
-  border-bottom: var(--border-width) solid transparent;
+  margin: 0 0 3rem;
+  border-bottom: var(--border-width-md) solid transparent;
 
   transition: var(--transition);
 
   // .header__wrapper
   &__wrapper {
     display: flex;
-    gap: 1.5em;
+    gap: 2.4rem;
     justify-content: space-between;
   }
 
   // .header__divider
   &__divider {
     position: relative;
-    margin-left: 0.5em;
+    margin-left: 0.8rem;
 
     &::before {
       content: "";
 
       position: absolute;
       top: 50%;
-      right: calc(100% + 0.75em + var(--border-width) / 2);
+      right: calc(100% + 1.2rem + var(--border-width-md) / 2);
       transform: translateY(-50%);
 
-      width: var(--border-width);
-      height: 1.25em;
+      width: var(--border-width-md);
+      height: 2rem;
 
-      background-color: var(--color-border);
+      background-color: var(--color-border-medium);
     }
 
     // .header__divider + .header__divider
@@ -52,7 +52,7 @@
   &__logo {
     display: flex;
     flex-shrink: 0;
-    gap: 0.5em;
+    gap: 0.8rem;
     align-items: center;
 
     // .header__logo-image
@@ -60,7 +60,7 @@
       display: block;
       flex-shrink: 0;
       width: auto;
-      height: 1.5em;
+      height: 2.4rem;
     }
 
     // .header__logo-text
@@ -74,7 +74,7 @@
   &__nav {
     display: flex;
     flex-grow: 1;
-    gap: 1.5em;
+    gap: 2.4rem;
     justify-content: flex-end;
 
     // .header__nav-item
@@ -87,9 +87,9 @@
 
       padding: 2rem 0;
 
-      font-size: 0.85em;
+      font-size: 1.4rem;
       font-weight: var(--font-medium);
-      line-height: 1.2;
+      line-height: 1;
       color: var(--color-heading);
       text-align: center;
       white-space: nowrap;
@@ -107,12 +107,17 @@
     }
   }
 
+  // .header__language-switcher
+  &__language-switcher {
+    @extend .header__divider;
+  }
+
   // .header__appearance
   &__appearance {
     @extend .header__divider;
     display: flex;
     flex-shrink: 0;
-    gap: 0.5em;
+    gap: 1rem;
 
     // .header__appearance-item
     &-item {
@@ -123,7 +128,7 @@
       align-items: center;
       justify-content: center;
 
-      width: 1.25em;
+      width: 2rem;
 
       color: var(--color-text);
       text-align: center;
@@ -138,7 +143,7 @@
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: contain
+        object-fit: contain;
       }
     }
   }
@@ -155,7 +160,7 @@
 
   // .header.is-scrolled
   &.is-scrolled {
-    border-color: #e2e2e3;
+    border-color: var(--color-border-medium);
     background: var(--color-body);
   }
 }

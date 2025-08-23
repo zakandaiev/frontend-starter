@@ -6,7 +6,7 @@ async function copyToClipboard(textToCopy) {
       await navigator.clipboard.writeText(textToCopy);
 
       result = true;
-    } catch (error) {
+    } finally {
       // do nothing
     }
   } else {
@@ -28,8 +28,6 @@ async function copyToClipboard(textToCopy) {
       document.execCommand('copy');
 
       result = true;
-    } catch (error) {
-      // do nothing
     } finally {
       textArea.remove();
     }

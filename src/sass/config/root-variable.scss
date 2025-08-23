@@ -1,45 +1,95 @@
 :root {
   --font: "Inter", sans-serif;
 
-  --gap: 16px;
+  --gap: 1.6rem;
 
+  // COLOR
   @each $key, $val in $color-list {
     --color-#{$key}: #{$val};
   }
 
+  // FONT
   @each $key, $val in $font-weight-list {
     #{'--font-' + $key}: #{$val};
   }
 
+  // RADIUS
   @each $key, $val in $radius-list {
     --radius-#{$key}: #{$val};
   }
 
+  // Z-INDEX
   @each $key, $val in $z-index-list {
     --zi-#{$key}: #{$val};
   }
 
-  --border-width: 1px;
-  --border: var(--border-width) solid var(--color-border);
+  // BORDER - COLOR
+  @each $name, $color in $border-color-list {
+    --color-border-#{$name}: #{$color};
+  }
 
-  --shadow: 0 0 14px 0 rgb(33 37 41 / 5%);
-  --drop-shadow: drop-shadow(0 0 14px rgb(33 37 41 / 5%));
+  // BORDER - COLOR INVERSE
+  @each $name, $color in $border-color-list {
+    --color-border-inverse-#{$name}: #{$color};
+  }
 
+  // BORDER - WIDTH
+  @each $size, $value in $border-width-list {
+    --border-width-#{$size}: #{$value};
+  }
+
+  // BORDER - KIT
+  @each $size, $width in $border-width-list {
+    @each $name, $color in $border-color-list {
+      --border-#{$size}-#{$name}: var(--border-width-#{$size}) solid var(--color-border-#{$name});
+    }
+  }
+
+  // SHADOW - COLOR
+  @each $name, $color in $shadow-color-list {
+    --color-shadow-#{$name}: #{$color};
+  }
+
+  // SHADOW - COLOR INVERSE
+  @each $name, $color in $shadow-color-list {
+    --color-shadow-inverse-#{$name}: #{$color};
+  }
+
+  // SHADOW - WIDTH
+  @each $size, $value in $shadow-width-list {
+    --shadow-width-#{$size}: #{$value};
+  }
+
+  // SHADOW - KIT
+  @each $size, $width in $shadow-width-list {
+    @each $name, $color in $shadow-color-list {
+      --shadow-#{$size}-#{$name}: var(--shadow-width-#{$size}) var(--color-shadow-#{$name});
+    }
+  }
+
+  // TRANSITION
   --transition-time: 0.3s;
-  --transition: all var(--transition-time);
+  --transition-timing: cubic-bezier(0.25, 0.8, 0.5, 1);
+  --transition: all var(--transition-time) var(--transition-timing);
 
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  @each $key, $val in $color-dark-list {
+  // COLOR
+  @each $key, $val in $color-inverse-list {
     --color-#{$key}: #{$val};
   }
 
-  --border: var(--border-width) solid var(--color-border);
+  // BORDER - COLOR
+  @each $name, $color in $border-color-inverse-list {
+    --color-border-#{$name}: #{$color};
+  }
 
-  --shadow: 0 0 14px 0 rgb(34 46 60 / 5%);
-  --drop-shadow: drop-shadow(0 0 14px 0 rgb(34 46 60 / 5%));
+  // SHADOW - COLOR
+  // @each $name, $color in $shadow-color-inverse-list {
+  //   --color-shadow-#{$name}: #{$color};
+  // }
 
   color-scheme: dark;
 }

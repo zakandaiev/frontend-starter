@@ -23,8 +23,10 @@ async function fetchWithTimeout(resource, options = {}, timeout = null) {
   return response;
 }
 
-async function request(resource, options = {}, timeout = null, delay = null) {
+async function request(resource, opt = {}, timeout = null, delay = null) {
   const startTime = performance.now();
+
+  const options = { ...opt };
 
   if (!options.method) {
     options.method = 'GET';
@@ -34,6 +36,10 @@ async function request(resource, options = {}, timeout = null, delay = null) {
     options.headers = {
       'Content-Type': 'application/json',
     };
+  }
+
+  if (Config.api.key && Config.api.key.length) {
+    options.headers.Authorization = Config.api.key;
   }
 
   if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
@@ -53,18 +59,20 @@ async function request(resource, options = {}, timeout = null, delay = null) {
     response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
 
     data.code = response.status;
-  } catch (error) {
+  } finally {
     // do nothing
   }
 
   try {
     const responseData = await response.json() || {};
 
-    Object.assign(data, responseData);
+    if (responseData.constructor.name === 'Object') {
+      Object.assign(data, responseData);
+    }
 
     data.status = responseData.status || null;
     data.message = responseData.message || null;
-    data.data = responseData.data || responseData.payload || null;
+    data.data = responseData.data || responseData.payload || responseData || null;
   } catch (error) {
     data.status = 'error';
     data.message = error;

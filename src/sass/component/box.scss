@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
 
-  padding: 1.5em;
+  padding: 2rem;
   border-radius: var(--radius-md);
 
   background: var(--color-box);
-
-  // box-shadow: var(--shadow);
+  // box-shadow: var(--shadow-md-medium);
 
   // .box__icon
   &__icon {
@@ -15,16 +14,16 @@
     align-items: center;
     justify-content: center;
 
-    width: 2em;
-    height: 2em;
-    margin: 0 0 0.8em;
-    border-radius: 0.25em;
+    width: 4.8rem;
+    height: 4.8rem;
+    margin: 0 0 1.4rem;
+    border-radius: var(--radius-sm);
 
-    font-size: 1.5em;
+    font-size: 2.4rem;
     color: var(--color-primary);
     text-align: center;
 
-    background: var(--color-border);
+    background: var(--color-border-regular);
   }
 
   // .box__title
@@ -37,7 +36,7 @@
   // .box__text
   &__text {
     display: block;
-    margin: 0.5em 0 0;
-    font-size: 0.875em;
+    margin: 0.8rem 0 0;
+    font-size: 1.4rem;
   }
 }

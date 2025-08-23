@@ -124,7 +124,7 @@ blockquote {
   width: 100%;
   margin: 0;
   padding: 0.5em 0 0.5em 1.5em;
-  border-left: 4px solid var(--color-text-muted);
+  border-left: var(--border-xxl-medium);
 
   font-style: italic;
 }
@@ -134,7 +134,7 @@ ul, ol {
   padding-left: 1.4em;
 
   & > li::marker {
-    color: var(--color-text-muted);
+    color: var(--color-border-md);
   }
 }
 
@@ -156,7 +156,7 @@ iframe {
 hr {
   display: block;
   margin: 1rem 0;
-  border: var(--border);
+  border: var(--border-md-medium);
 }
 
 code, kbd, pre, samp {
@@ -165,7 +165,7 @@ code, kbd, pre, samp {
 }
 
 ::placeholder {
-  color: var(--color-text-muted);
+  color: var(--color-border-md);
   opacity: 1;
 }
 
@@ -174,7 +174,7 @@ code, kbd, pre, samp {
   display: block;
 
   width: 100%;
-  max-width: 72em;
+  max-width: 120rem;
   margin: 0 auto;
   padding: 0 var(--gap);
 }

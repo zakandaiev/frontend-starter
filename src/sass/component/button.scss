@@ -5,15 +5,15 @@
   position: relative;
 
   display: inline-flex;
-  gap: 0.5em;
+  gap: 0.8rem;
   align-items: center;
   justify-content: center;
 
-  padding: 0.75em 0.875em;
-  border: var(--border);
+  padding: 1.2rem 1.6rem;
+  border: var(--border-md-medium);
   border-radius: var(--radius-md);
 
-  font-size: 1em;
+  font-size: 1.4rem;
   font-weight: var(--font-medium);
   line-height: 1;
   color: var(--color-heading);
@@ -44,26 +44,26 @@
 
   // .btn_cancel
   &_cancel {
-    border-color: var(--color-border);
+    border-color: var(--color-border-regular);
     color: var(--color-heading);
-    background: var(--color-border);
+    background: var(--color-border-regular);
 
     &:hover, &:focus, &:active {
-      border-color: var(--color-border-hover);
+      border-color: var(--color-border-medium);
       color: var(--color-heading);
-      background: var(--color-border-hover);
+      background: var(--color-border-medium);
     }
   }
 
   @each $color in $accent-color-list {
     &_#{$color} {
       border-color: var(--color-#{$color});
-      color: #fff;
+      color: var(--color-#{$color}-text);
       background: var(--color-#{$color});
 
       &:hover, &:focus, &:active {
         border-color: var(--color-#{$color}-hover);
-        color: #fff;
+        color: var(--color-#{$color}-text);
         background: var(--color-#{$color}-hover);
       }
     }
