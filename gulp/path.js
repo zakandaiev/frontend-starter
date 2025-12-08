@@ -69,8 +69,7 @@ const path = {
 };
 
 export {
-  pathDist,
-  pathSrc,
   absPath,
-  path,
+  path, pathDist,
+  pathSrc,
 };

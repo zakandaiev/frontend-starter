@@ -43,7 +43,7 @@ function flushStorage(key, type = 'session') {
 }
 
 export {
-  setStorage,
-  getStorage,
   flushStorage,
+  getStorage,
+  setStorage,
 };

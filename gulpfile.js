@@ -1,14 +1,14 @@
 import gulp from 'gulp';
 import { isProd } from './gulp/app.js';
-import { path } from './gulp/path.js';
 import del from './gulp/del.js';
 import font from './gulp/font.js';
 import img from './gulp/img.js';
 import js from './gulp/js.js';
+import { path } from './gulp/path.js';
 import publicFiles from './gulp/public-files.js';
 import sass from './gulp/sass.js';
-import twig from './gulp/twig.js';
 import { reload, serve } from './gulp/server.js';
+import twig from './gulp/twig.js';
 
 function watch() {
   gulp.watch(path.font.watch, gulp.series(font, reload));
@@ -43,19 +43,18 @@ const build = compileFiles();
 const preview = startServer();
 
 export {
+  build,
   del,
+  dev,
   font,
   img,
   js,
+  preview,
+  prod,
   publicFiles,
   sass,
   serve,
   twig,
-
-  dev,
-  prod,
-  build,
-  preview,
 };
 
 export default isProd ? prod : dev;

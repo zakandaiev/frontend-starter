@@ -1,5 +1,5 @@
 import browserSync from 'browser-sync';
-import { processArg, isDev, isProd } from './app.js';
+import { isDev, isProd, processArg } from './app.js';
 import { pathDist } from './path.js';
 
 const server = browserSync.create();

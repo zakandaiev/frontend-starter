@@ -226,6 +226,14 @@ $lh-step: 0.1;
   }
 }
 
+.font-family-heading {
+  font-family: var(--font-family-heading) !important;
+}
+
+.font-family-text {
+  font-family: var(--font-family-text) !important;
+}
+
 .text-left {
   text-align: left !important;
 }

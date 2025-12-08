@@ -4,9 +4,9 @@ import twigInstance from 'gulp-twig';
 import fs from 'node:fs';
 import nodePath from 'node:path';
 import { appData, envData, isProd } from './app.js';
-import { absPath, pathSrc, path } from './path.js';
-import htmlmin from './htmlmin.js';
 import htmlTransformBase from './html-transform-base.js';
+import htmlmin from './htmlmin.js';
+import { absPath, path, pathSrc } from './path.js';
 import versionNumber from './version-number.js';
 
 const tablerIconsAbsPath = nodePath.join(absPath.node, '@tabler', 'icons', 'icons');

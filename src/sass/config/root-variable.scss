@@ -1,5 +1,6 @@
 :root {
-  --font: "Inter", sans-serif;
+  --font-family-heading: "Inter", sans-serif;
+  --font-family-text: "Inter", sans-serif;
 
   --gap: 1.6rem;
 
@@ -29,7 +30,7 @@
   }
 
   // BORDER - COLOR INVERSE
-  @each $name, $color in $border-color-list {
+  @each $name, $color in $border-color-inverse-list {
     --color-border-inverse-#{$name}: #{$color};
   }
 
@@ -51,7 +52,7 @@
   }
 
   // SHADOW - COLOR INVERSE
-  @each $name, $color in $shadow-color-list {
+  @each $name, $color in $shadow-color-inverse-list {
     --color-shadow-inverse-#{$name}: #{$color};
   }
 

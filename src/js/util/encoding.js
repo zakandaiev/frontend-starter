@@ -25,6 +25,6 @@ function decode(data) {
 }
 
 export {
-  encode,
   decode,
+  encode,
 };

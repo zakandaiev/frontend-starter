@@ -16,6 +16,10 @@ async function getSearchResultByText(searchText, searchTextMinLength = 2, opt = 
   };
 
   const data = await request(url, options);
+  if (data.status !== 'success') {
+    return false;
+  }
+
   return data;
 }
 

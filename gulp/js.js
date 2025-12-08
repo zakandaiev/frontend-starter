@@ -1,12 +1,12 @@
-import { rollup } from 'rollup';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
-import multiInput from 'rollup-plugin-multi-input';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
+import { rollup } from 'rollup';
+import multiInput from 'rollup-plugin-multi-input';
 import { isDev, isProd, replaceData } from './app.js';
-import { path, absPath } from './path.js';
+import { absPath, path } from './path.js';
 
 const terserConfig = {
   mangle: true,

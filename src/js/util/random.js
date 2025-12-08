@@ -17,7 +17,7 @@ function randomString() {
 }
 
 export {
-  randomInt,
   randomFloat,
+  randomInt,
   randomString,
 };

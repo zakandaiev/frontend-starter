@@ -1,6 +1,6 @@
-import globals from 'globals';
-import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import globals from 'globals';
 import { absPath } from './gulp/path.js';
 
 const compat = new FlatCompat({

@@ -2,20 +2,19 @@ import Config from '@/config';
 import { request } from '@/js/util/request';
 
 async function dummy(opt = {}) {
-  if (!opt.dummy) {
-    return false;
-  }
-
   const url = `${Config.api.backend}/dummy`;
   const options = {
     method: 'POST',
     body: {
-      dummy: opt.dummy,
+      ...opt,
     },
-    ...opt,
   };
 
   const data = await request(url, options);
+  if (data.status !== 'success') {
+    return false;
+  }
+
   return data;
 }
 

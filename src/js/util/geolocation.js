@@ -121,10 +121,10 @@ function stopWatchUserPosition(watchId) {
 }
 
 export {
-  getUserPosition,
   getDistanceBetweenCoords,
-  watchUserPosition,
+  getUserPosition,
   stopWatchUserPosition,
+  watchUserPosition,
 };
 
 export default getUserPosition;

@@ -13,69 +13,84 @@ async function fetchWithTimeout(resource, options = {}, timeout = null) {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), getApiTimeout(timeout));
 
-  const response = await fetch(resource, {
-    ...options,
-    signal: controller.signal,
-  });
-
-  clearTimeout(id);
-
-  return response;
+  try {
+    const response = await fetch(resource, {
+      ...options,
+      signal: controller.signal,
+    });
+    return response;
+  } catch (error) {
+    return { error };
+  } finally {
+    clearTimeout(id);
+  }
 }
 
 async function request(resource, opt = {}, timeout = null, delay = null) {
   const startTime = performance.now();
 
-  const options = { ...opt };
+  const options = {
+    ...opt,
+    headers: opt.headers || { 'Content-Type': 'application/json' },
+    method: opt.method || 'GET',
+  };
 
-  if (!options.method) {
-    options.method = 'GET';
-  }
-
-  if (!options.headers) {
-    options.headers = {
-      'Content-Type': 'application/json',
-    };
-  }
-
-  if (Config.api.key && Config.api.key.length) {
+  if (Config.api.key && Config.api.key.length && options.headers.Authorization === undefined) {
     options.headers.Authorization = Config.api.key;
+  }
+
+  if (options.method.toUpperCase() === 'GET' && typeof options.body === 'object') {
+    const url = new URL(resource, window.location.origin);
+    Object.entries(options.body).forEach(([key, value]) => {
+      if (value === null || value === undefined) {
+        return false;
+      }
+      if (typeof value === 'object') {
+        url.searchParams.append(key, JSON.stringify(value));
+      } else {
+        url.searchParams.append(key, value);
+      }
+    });
+    resource = url.toString();
+    delete options.body;
   }
 
   if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
     options.body = JSON.stringify(options.body);
   }
 
-  const data = {
+  const result = {
     code: null,
     status: null,
     message: null,
     data: null,
+    error: null,
   };
 
-  let response = {};
+  const response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
 
-  try {
-    response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
-
-    data.code = response.status;
-  } finally {
-    // do nothing
-  }
-
-  try {
-    const responseData = await response.json() || {};
-
-    if (responseData.constructor.name === 'Object') {
-      Object.assign(data, responseData);
+  if (response?.error) {
+    const err = response.error;
+    result.code = 0;
+    result.status = 'error';
+    result.message = err.name === 'AbortError'
+      ? `Request to ${resource} timed out`
+      : err.message || 'Network error';
+    result.error = err;
+  } else {
+    result.code = response.status;
+    try {
+      const responseData = await response.json();
+      if (responseData && typeof responseData === 'object') {
+        result.status = responseData.status || null;
+        result.message = responseData.message || null;
+        result.data = responseData.data || responseData.payload || responseData || null;
+      }
+    } catch (parseError) {
+      result.status = 'error';
+      result.message = 'Failed to parse JSON';
+      result.error = parseError;
     }
-
-    data.status = responseData.status || null;
-    data.message = responseData.message || null;
-    data.data = responseData.data || responseData.payload || responseData || null;
-  } catch (error) {
-    data.status = 'error';
-    data.message = error;
   }
 
   const endTime = performance.now();
@@ -86,10 +101,12 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     await sleep(delayTime - differenceTime);
   }
 
-  return data;
+  return result;
 }
 
 export {
   fetchWithTimeout,
   request,
 };
+
+export default request;

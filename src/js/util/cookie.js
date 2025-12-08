@@ -45,7 +45,7 @@ function flushCookie(key) {
 }
 
 export {
-  setCookie,
-  getCookie,
   flushCookie,
+  getCookie,
+  setCookie,
 };

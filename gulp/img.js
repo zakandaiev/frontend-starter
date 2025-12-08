@@ -1,9 +1,12 @@
 import gulp from 'gulp';
-import newer from 'gulp-newer';
 import gulpif from 'gulp-if';
 import imagemin, {
-  gifsicle, mozjpeg, optipng, svgo,
+  gifsicle,
+  mozjpeg,
+  optipng,
+  svgo,
 } from 'gulp-imagemin';
+import newer from 'gulp-newer';
 import { isProd } from './app.js';
 import { path } from './path.js';
 

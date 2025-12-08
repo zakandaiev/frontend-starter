@@ -1,9 +1,13 @@
 import Config from '@/config';
 import { request } from '@/js/util/request';
-import { urlFull } from '@/js/util/route';
+import route from '@/js/util/route';
 
-async function logError(error) {
-  if (Config.app.mode !== 'prod' || !error?.stack?.includes(window.location.hostname)) {
+async function logError(error, customBody = {}) {
+  if (Config.app.mode !== 'prod') {
+    return false;
+  }
+
+  if (error && !error?.stack?.includes(window.location.hostname)) {
     return false;
   }
 
@@ -14,7 +18,8 @@ async function logError(error) {
       app: Config.app,
       client: getClientInfo(),
       error,
-      url: urlFull,
+      url: route.urlFull,
+      ...customBody,
     },
   };
   const data = await request(url, options);
