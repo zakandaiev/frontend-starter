@@ -11,19 +11,16 @@ function getApiDelay(delay) {
 
 async function fetchWithTimeout(resource, options = {}, timeout = null) {
   const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), getApiTimeout(timeout));
+  const timeoutId = setTimeout(() => controller.abort(), getApiTimeout(timeout));
 
-  try {
-    const response = await fetch(resource, {
-      ...options,
-      signal: controller.signal,
-    });
-    return response;
-  } catch (error) {
-    return { error };
-  } finally {
-    clearTimeout(id);
-  }
+  const response = await fetch(resource, {
+    ...options,
+    signal: controller.signal,
+  });
+
+  clearTimeout(timeoutId);
+
+  return response;
 }
 
 async function request(resource, opt = {}, timeout = null, delay = null) {
@@ -35,11 +32,11 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     method: opt.method || 'GET',
   };
 
-  if (Config.api.key && Config.api.key.length && options.headers.Authorization === undefined) {
+  if (options.headers.Authorization === undefined && Config.api.key && Config.api.key.length) {
     options.headers.Authorization = Config.api.key;
   }
 
-  if (options.method.toUpperCase() === 'GET' && typeof options.body === 'object') {
+  if (options.method.toUpperCase() === 'GET' && typeof options.body === 'object' && options.body !== null) {
     const url = new URL(resource, window.location.origin);
     Object.entries(options.body).forEach(([key, value]) => {
       if (value === null || value === undefined) {
@@ -67,30 +64,30 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     error: null,
   };
 
-  const response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
+  let response = {};
 
-  if (response?.error) {
-    const err = response.error;
-    result.code = 0;
-    result.status = 'error';
-    result.message = err.name === 'AbortError'
-      ? `Request to ${resource} timed out`
-      : err.message || 'Network error';
-    result.error = err;
-  } else {
+  try {
+    response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
     result.code = response.status;
-    try {
-      const responseData = await response.json();
-      if (responseData && typeof responseData === 'object') {
-        result.status = responseData.status || null;
-        result.message = responseData.message || null;
-        result.data = responseData.data || responseData.payload || responseData || null;
-      }
-    } catch (parseError) {
-      result.status = 'error';
-      result.message = 'Failed to parse JSON';
-      result.error = parseError;
+  } catch {
+    result.status = 'error';
+    result.message = 'Request failed: resource is not reachable or response time was exceeded';
+    return result;
+  }
+
+  try {
+    const responseData = await response.json() || {};
+    if (responseData.constructor.name === 'Object') {
+      Object.assign(result, responseData);
     }
+
+    result.status = responseData.status || null;
+    result.message = responseData.message || null;
+    result.data = responseData.data || responseData.payload || responseData || null;
+  } catch {
+    result.status = 'error';
+    result.message = 'Request failed: the response is not valid JSON';
+    return result;
   }
 
   const endTime = performance.now();

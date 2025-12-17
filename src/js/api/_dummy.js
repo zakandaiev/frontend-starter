@@ -1,21 +1,23 @@
 import Config from '@/config';
 import { request } from '@/js/util/request';
 
-async function dummy(opt = {}) {
+async function dummy(body = {}, opt = {}) {
   const url = `${Config.api.backend}/dummy`;
   const options = {
     method: 'POST',
     body: {
-      ...opt,
+      ...body,
     },
   };
 
-  const data = await request(url, options);
-  if (data.status !== 'success') {
+  const result = await request(url, options);
+  if (result.status !== 'success') {
     return false;
   }
 
-  return data;
+  return opt.returnResponse === true
+    ? result
+    : result.data;
 }
 
 export default dummy;

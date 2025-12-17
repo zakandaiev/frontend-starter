@@ -1,26 +1,23 @@
 import Config from '@/config';
 import { request } from '@/js/util/request';
 
-async function getSearchResultByText(searchText, searchTextMinLength = 2, opt = {}) {
-  if (typeof searchText !== 'string' || searchText.length < searchTextMinLength) {
-    return false;
-  }
-
+async function getSearchResultByText(body = {}, opt = {}) {
   const url = `${Config.api.backend}/getSearchResultByText`;
   const options = {
     method: 'POST',
     body: {
-      keyword: searchText.trim(),
+      ...body,
     },
-    ...opt,
   };
 
-  const data = await request(url, options);
-  if (data.status !== 'success') {
+  const result = await request(url, options);
+  if (result.status !== 'success') {
     return false;
   }
 
-  return data;
+  return opt.returnResponse === true
+    ? result
+    : result.data;
 }
 
 export default getSearchResultByText;

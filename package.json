@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "private": false,
   "author": "Oleksandr Zakandaiev",
   "authorUrl": "https://github.com/zakandaiev",
@@ -57,18 +57,18 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.2",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "browser-sync": "^3.0.4",
     "cssnano": "^7.1.2",
     "del": "^8.0.1",
     "dotenv": "^17.2.3",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.32.0",
@@ -87,19 +87,19 @@
     "minimist": "^1.2.8",
     "nodemon": "^3.1.11",
     "postcss-combine-media-query": "^2.1.0",
-    "rollup": "^4.53.3",
+    "rollup": "^4.53.5",
     "rollup-plugin-multi-input": "^1.6.0",
-    "sass": "^1.94.3",
+    "sass": "^1.97.0",
     "stylelint": "^16.26.1",
     "stylelint-config-clean-order": "^8.0.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-scss": "^6.13.0"
   },
   "dependencies": {
-    "@tabler/icons": "^3.35.0",
+    "@tabler/icons": "^3.36.0",
     "reseter.css": "^2.0.0"
   },
   "overrides": {
-    "eslint": "^9.39.1"
+    "eslint": "^9.39.2"
   }
 }
