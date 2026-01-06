@@ -6,4 +6,5 @@
 !src/
 !.env
 !gulpfile.*
+!nginx.conf
 !package.json

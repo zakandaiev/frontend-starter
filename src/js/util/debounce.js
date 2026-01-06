@@ -1,17 +1,13 @@
-let timeout;
+function debounce(callback, delay = 100) {
+  let timeoutId = null;
 
-async function debounce(callback, delay = 500, ...args) {
-  return new Promise((resolve) => {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
+  return (...args) => {
+    window.clearTimeout(timeoutId);
 
-    timeout = setTimeout(async () => {
-      const result = await callback(...args);
-
-      resolve(result);
+    timeoutId = window.setTimeout(() => {
+      callback(...args);
     }, delay);
-  });
+  };
 }
 
 export default debounce;

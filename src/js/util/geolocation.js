@@ -1,7 +1,7 @@
 async function getUserPosition(opt = {}) {
   const position = {
-    error: true,
-    errorMessage: null,
+    error: null,
+    isError: true,
     lat: null,
     lng: null,
   };
@@ -18,20 +18,20 @@ async function getUserPosition(opt = {}) {
         {
           enableHighAccuracy: true,
           maximumAge: 0,
-          timeout: 5000,
+          timeout: 10000,
           ...opt,
         },
       );
     });
 
     if (coords.latitude && coords.longitude) {
-      position.error = false;
+      position.isError = false;
       position.lat = coords.latitude;
       position.lng = coords.longitude;
     }
   } catch (error) {
-    position.error = true;
-    position.errorMessage = error;
+    position.error = error;
+    position.isError = true;
   }
 
   return position;
@@ -86,8 +86,8 @@ function watchUserPosition(callback, opt = {}) {
       const { coords } = pos;
       if (coords.latitude && coords.longitude) {
         callback({
-          error: false,
-          errorMessage: null,
+          error: null,
+          isError: false,
           lat: coords.latitude,
           lng: coords.longitude,
         });
@@ -95,8 +95,8 @@ function watchUserPosition(callback, opt = {}) {
     },
     (err) => {
       callback({
-        error: true,
-        errorMessage: err,
+        error: err,
+        isError: true,
         lat: null,
         lng: null,
       });
@@ -104,7 +104,7 @@ function watchUserPosition(callback, opt = {}) {
     {
       enableHighAccuracy: true,
       maximumAge: 0,
-      timeout: 5000,
+      timeout: 10000,
       ...opt,
     },
   );
