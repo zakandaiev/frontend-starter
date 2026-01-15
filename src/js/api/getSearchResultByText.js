@@ -11,13 +11,16 @@ async function getSearchResultByText(body = {}, opt = {}) {
   };
 
   const result = await request(url, options);
+
+  if (opt.returnResponse === true) {
+    return result;
+  }
+
   if (result.status !== 'success') {
     return false;
   }
 
-  return opt.returnResponse === true
-    ? result
-    : result.data;
+  return result.data;
 }
 
 export default getSearchResultByText;

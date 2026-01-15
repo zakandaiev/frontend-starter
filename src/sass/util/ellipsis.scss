@@ -1,3 +1,5 @@
+/* stylelint-disable no-invalid-position-declaration */
+
 @mixin ellipsis($lines: 1) {
   overflow: hidden;
   text-overflow: ellipsis;
