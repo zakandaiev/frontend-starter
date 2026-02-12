@@ -1,5 +1,5 @@
 import browserSync from 'browser-sync';
-import { isProd, processArg } from './app.js';
+import { processArg } from './app.js';
 import { pathDist } from './path.js';
 
 const server = browserSync.create();
@@ -13,7 +13,7 @@ const serverConfig = {
       extensions: ['html'],
     },
   },
-  port: processArg.port || isProd ? 3000 : 5173,
+  port: processArg.port || processArg.build ? 3000 : 5173,
   tunnel: processArg.host ? true : false,
   open: false,
   notify: false,

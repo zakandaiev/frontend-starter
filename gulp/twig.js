@@ -3,7 +3,7 @@ import gulpif from 'gulp-if';
 import twigInstance from 'gulp-twig';
 import fs from 'node:fs';
 import nodePath from 'node:path';
-import { appData, envData, isProd } from './app.js';
+import { appData, processArg } from './app.js';
 import htmlTransformBase from './html-transform-base.js';
 import htmlmin from './htmlmin.js';
 import { absPath, path, pathSrc } from './path.js';
@@ -29,19 +29,19 @@ function twig() {
     .pipe(twigInstance(twigConfig))
     .pipe(
       gulpif(
-        isProd,
+        processArg.build,
         versionNumber(),
       ),
     )
     .pipe(
       gulpif(
-        isProd,
+        processArg.build,
         htmlmin(),
       ),
     )
     .pipe(
       gulpif(
-        isProd,
+        processArg.build,
         htmlTransformBase(),
       ),
     )
@@ -51,7 +51,6 @@ function twig() {
 function getTwigGlobals() {
   const data = {
     ...appData,
-    ...envData,
   };
 
   const dataFolder = absPath.data;

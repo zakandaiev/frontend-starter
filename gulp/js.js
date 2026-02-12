@@ -5,8 +5,10 @@ import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
 import { rollup } from 'rollup';
 import multiInput from 'rollup-plugin-multi-input';
-import { isDev, isProd, replaceData } from './app.js';
+import { appData, processArg } from './app.js';
 import { absPath, path } from './path.js';
+
+const replaceData = Object.fromEntries(Object.entries(appData).map(([k, v]) => [k, JSON.stringify(v)]));
 
 const terserConfig = {
   mangle: true,
@@ -26,12 +28,12 @@ async function js(done) {
     }),
     commonjs({
       requireReturnsDefault: true,
-      sourceMap: isDev,
+      sourceMap: !processArg.build,
     }),
     multiInput(),
   ];
 
-  if (isProd) {
+  if (processArg.build) {
     plugins.push(
       terser(terserConfig),
     );
@@ -44,7 +46,7 @@ async function js(done) {
 
   const result = await bundle.write({
     dir: absPath.dist,
-    sourcemap: isDev,
+    sourcemap: !processArg.build,
   });
 
   done();

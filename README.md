@@ -25,6 +25,8 @@ FrontEnd Starter is a boilerplate kit for easy building modern static web-sites 
 
 ## How to use
 
+Prerequisites: [Node.js](https://nodejs.org/) (`>=22`)
+
 ### Install
 
 ``` bash
@@ -52,7 +54,7 @@ rm -rf .git
 # Start development mode with live-server
 npm run dev
 # or with options
-npm run dev --port 3000
+npm run dev -- --port 3000
 ```
 
 ### Build
@@ -60,15 +62,13 @@ npm run dev --port 3000
 ``` bash
 # Build static files for production
 npm run build
-# or
-npm run prod
 # or with options
-npm run build --base=/subdomain --dist=./dest
+npm run build -- --base=/subdomain --dist=./dest
 
 # Start server for build preview
 npm run preview
 # or with options
-npm run preview --port 3001
+npm run preview -- --port 3001
 ```
 
 ### Lint

@@ -6,7 +6,7 @@ import postCss from 'gulp-postcss';
 import gulpSass from 'gulp-sass';
 import combineMediaQuery from 'postcss-combine-media-query';
 import dartSass from 'sass';
-import { isDev, isProd } from './app.js';
+import { processArg } from './app.js';
 import { path } from './path.js';
 import server from './server.js';
 
@@ -19,7 +19,7 @@ const sassConfig = {
 };
 
 const autoprefixerConfig = {
-  cascade: !isProd,
+  cascade: !processArg.build,
   grid: false,
 };
 
@@ -35,11 +35,11 @@ const cssnanoConfig = {
 };
 
 function sass() {
-  return gulp.src(path.sass.src, { encoding: false, sourcemaps: isDev })
+  return gulp.src(path.sass.src, { encoding: false, sourcemaps: !processArg.build })
     .pipe(sassPlugin.sync(sassConfig).on('error', sassPlugin.logError))
     .pipe(
       gulpif(
-        isProd,
+        processArg.build,
         postCss([
           combineMediaQuery(),
           autoprefixer(autoprefixerConfig),
@@ -47,7 +47,7 @@ function sass() {
         ]),
       ),
     )
-    .pipe(gulp.dest(path.sass.dist, { sourcemaps: isDev }))
+    .pipe(gulp.dest(path.sass.dist, { sourcemaps: !processArg.build }))
     .pipe(server.stream());
 }
 

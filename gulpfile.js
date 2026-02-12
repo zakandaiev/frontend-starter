@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import { isProd } from './gulp/app.js';
+import { processArg } from './gulp/app.js';
 import del from './gulp/del.js';
 import font from './gulp/font.js';
 import img from './gulp/img.js';
@@ -38,7 +38,6 @@ function startDevServer() {
 }
 
 const dev = startDevServer();
-const prod = compileFiles();
 const build = compileFiles();
 const preview = startServer();
 
@@ -50,11 +49,10 @@ export {
   img,
   js,
   preview,
-  prod,
   publicFiles,
   sass,
   serve,
-  twig,
+  twig
 };
 
-export default isProd ? prod : dev;
+export default processArg.build ? build : dev;

@@ -3,22 +3,15 @@ import minimist from 'minimist';
 import fs from 'node:fs';
 import { argv, env } from 'node:process';
 
-dotenv.config({ path: ['.env', '.env.local'], override: true });
-
-const processArg = minimist(argv.slice(2));
-
-const isProd = processArg.prod;
-const isDev = !isProd;
-
 const packageData = JSON.parse(fs.readFileSync('./package.json'));
-
+const processArg = minimist(argv.slice(2));
 const appData = {
-  APP_IS_DEV: isDev,
-  APP_IS_PROD: isProd,
-  APP_MODE: isProd ? 'prod' : 'dev',
+  APP_MODE: 'dev',
 
   APP_NAME: packageData.name,
-  APP_NAME_FORMATTED: packageData.name.replace(/[^a-z]+/gi, ' ').replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
+  APP_NAME_FORMATTED: packageData.name
+    .replace(/[^a-z]+/gi, ' ')
+    .replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
 
   APP_VERSION: packageData.version,
   APP_AUTHOR: packageData.author,
@@ -29,21 +22,20 @@ const appData = {
   APP_KEYWORDS: packageData.keywords,
 };
 
-const envData = {};
+dotenv.config({
+  path: ['.env', '.env.local'],
+  override: true,
+  quiet: true,
+});
+
 Object.keys(env).forEach((key) => {
   if (key.startsWith('APP_')) {
-    envData[key] = env[key];
+    appData[key] = env[key];
   }
 });
 
-const replaceData = {
-  ...Object.fromEntries(Object.entries(appData).map(([k, v]) => [k, JSON.stringify(v)])),
-  ...Object.fromEntries(Object.entries(envData).map(([k, v]) => [k, JSON.stringify(v)])),
-};
-
 export {
   appData,
-  envData, isDev,
-  isProd,
-  packageData, processArg, replaceData,
+  packageData,
+  processArg,
 };

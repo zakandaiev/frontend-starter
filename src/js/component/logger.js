@@ -11,7 +11,7 @@ async function logError(error, customBody = {}) {
     return false;
   }
 
-  const url = `${Config.api.backend}/logError`;
+  const url = `${Config.api.backend}/log/error`;
   const options = {
     method: 'POST',
     body: {
@@ -57,10 +57,20 @@ function getClientInfo() {
   };
 }
 
-window.onerror = async (message, source, line, col, error) => logError({
-  message,
-  source,
-  line,
-  col,
-  stack: error?.stack || null,
+window.addEventListener('error', (err) => {
+  const {
+    message,
+    filename,
+    lineno,
+    colno,
+    error,
+  } = err;
+
+  logError({
+    message,
+    filename,
+    lineno,
+    colno,
+    stack: error?.stack || null,
+  });
 });

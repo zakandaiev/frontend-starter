@@ -7,7 +7,7 @@ import imagemin, {
   svgo,
 } from 'gulp-imagemin';
 import newer from 'gulp-newer';
-import { isProd } from './app.js';
+import { processArg } from './app.js';
 import { path } from './path.js';
 
 const imageminConfig = {
@@ -48,7 +48,7 @@ function img() {
     .pipe(newer(path.img.dist))
     .pipe(
       gulpif(
-        isProd,
+        processArg.build,
         imagemin([
           gifsicle(imageminConfig.gifsicle),
           mozjpeg(imageminConfig.mozjpeg),

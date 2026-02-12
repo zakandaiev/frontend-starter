@@ -2,11 +2,27 @@ import Config from '@/config';
 import sleep from '@/js/util/sleep';
 
 function getApiTimeout(timeout) {
-  return timeout || Config.api.timeoutMs || 15000;
+  if (typeof timeout === 'number') {
+    return timeout;
+  }
+
+  if (Config.api.timeoutMs === 'number') {
+    return Config.api.timeoutMs;
+  }
+
+  return 15000;
 }
 
 function getApiDelay(delay) {
-  return delay || Config.api.delayMs || 1000;
+  if (typeof delay === 'number') {
+    return delay;
+  }
+
+  if (Config.api.delayMs === 'number') {
+    return Config.api.delayMs;
+  }
+
+  return 1000;
 }
 
 async function fetchWithTimeout(resource, options = {}, timeout = null) {
