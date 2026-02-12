@@ -52,7 +52,7 @@ export {
   publicFiles,
   sass,
   serve,
-  twig
+  twig,
 };
 
 export default processArg.build ? build : dev;
