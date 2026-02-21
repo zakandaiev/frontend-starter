@@ -1,5 +1,5 @@
+import { packageData } from '#core/app.js';
 import versionNumberInstance from 'gulp-version-number';
-import { packageData } from './app.js';
 
 const versionNumberConfig = {
   value: packageData.version || '%MDS%',

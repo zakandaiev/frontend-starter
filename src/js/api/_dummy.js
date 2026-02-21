@@ -2,7 +2,7 @@ import Config from '@/config';
 import { request } from '@/js/util/request';
 
 async function dummy(body = {}, opt = {}) {
-  const url = `${Config.api.backend}/dummy`;
+  const url = `${Config.api.url}/dummy`;
   const options = {
     method: 'POST',
     body: {

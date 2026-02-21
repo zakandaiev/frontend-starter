@@ -1,28 +1,19 @@
 import Config from '@/config';
+import { isArray, isNumber, isObject } from '@/js/util/misc';
 import sleep from '@/js/util/sleep';
 
 function getApiTimeout(timeout) {
-  if (typeof timeout === 'number') {
+  if (isNumber(timeout)) {
     return timeout;
   }
-
-  if (Config.api.timeoutMs === 'number') {
-    return Config.api.timeoutMs;
-  }
-
-  return 15000;
+  return Config.api.timeoutMs ?? 15000;
 }
 
 function getApiDelay(delay) {
-  if (typeof delay === 'number') {
+  if (isNumber(delay)) {
     return delay;
   }
-
-  if (Config.api.delayMs === 'number') {
-    return Config.api.delayMs;
-  }
-
-  return 1000;
+  return Config.api.delayMs ?? 500;
 }
 
 async function fetchWithTimeout(resource, options = {}, timeout = null) {
@@ -48,17 +39,17 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     method: opt.method || 'GET',
   };
 
-  if (options.headers.Authorization === undefined && Config.api.key && Config.api.key.length) {
+  if (options.headers.Authorization === undefined && Config.api.key) {
     options.headers.Authorization = Config.api.key;
   }
 
-  if (options.method.toUpperCase() === 'GET' && typeof options.body === 'object' && options.body !== null) {
+  if (options.method.toUpperCase() === 'GET' && isObject(options.body)) {
     const url = new URL(resource, window.location.origin);
     Object.entries(options.body).forEach(([key, value]) => {
       if (value === null || value === undefined) {
         return false;
       }
-      if (typeof value === 'object') {
+      if (isArray(value) || isObject(value)) {
         url.searchParams.append(key, JSON.stringify(value));
       } else {
         url.searchParams.append(key, value);
@@ -68,7 +59,7 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     delete options.body;
   }
 
-  if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
+  if (isObject(options.body) && !(options.body instanceof FormData)) {
     options.body = JSON.stringify(options.body);
   }
 

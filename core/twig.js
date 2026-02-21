@@ -1,13 +1,13 @@
+import { appData, processArg } from '#core/app.js';
+import htmlTransformBase from '#core/html-transform-base.js';
+import htmlmin from '#core/htmlmin.js';
+import { absPath, path, pathSrc } from '#core/path.js';
+import versionNumber from '#core/version-number.js';
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import twigInstance from 'gulp-twig';
 import fs from 'node:fs';
 import nodePath from 'node:path';
-import { appData, processArg } from './app.js';
-import htmlTransformBase from './html-transform-base.js';
-import htmlmin from './htmlmin.js';
-import { absPath, path, pathSrc } from './path.js';
-import versionNumber from './version-number.js';
 
 const tablerIconsAbsPath = nodePath.join(absPath.nodeModules, '@tabler', 'icons', 'icons');
 

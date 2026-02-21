@@ -2,7 +2,7 @@ import Config from '@/config';
 import { request } from '@/js/util/request';
 
 async function getSearchResultByText(body = {}, opt = {}) {
-  const url = `${Config.api.backend}/getSearchResultByText`;
+  const url = `${Config.api.url}/getSearchResultByText`;
   const options = {
     method: 'POST',
     body: {

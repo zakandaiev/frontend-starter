@@ -1,9 +1,9 @@
+import packageDataJson from '#root/package.json' with { type: 'json' };
 import dotenv from 'dotenv';
 import minimist from 'minimist';
-import fs from 'node:fs';
 import { argv, env } from 'node:process';
 
-const packageData = JSON.parse(fs.readFileSync('./package.json'));
+const packageData = { ...packageDataJson };
 const processArg = minimist(argv.slice(2));
 const appData = {
   APP_MODE: 'dev',

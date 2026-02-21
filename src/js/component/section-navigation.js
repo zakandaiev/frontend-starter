@@ -1,5 +1,5 @@
-import { getSlug } from '@/js/util/cyr-to-lat';
 import { randomString } from '@/js/util/random';
+import { slugify } from '@/js/util/text';
 
 document.addEventListener('DOMContentLoaded', () => {
   const navigation = document.querySelector('.section__navigation');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   navigationTitles.forEach((title) => {
     const link = document.createElement('a');
-    const linkId = `${getSlug(title.textContent)}-${randomString()}`;
+    const linkId = `${slugify(title.textContent)}-${randomString()}`;
 
     title.id = linkId;
 

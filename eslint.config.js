@@ -1,7 +1,7 @@
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import globals from 'globals';
-import { absPath } from './gulp/path.js';
+import { absPath } from './core/path.js';
 
 const compat = new FlatCompat({
   baseDirectory: absPath.root,
@@ -27,6 +27,7 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
+
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
@@ -34,7 +35,12 @@ export default [
     settings: {
       'import/resolver': {
         alias: {
-          map: [['@', './src']],
+          map: [
+            ['@', './src'],
+            ['#root', './'],
+            ['#core', './core'],
+            ['#src', './src'],
+          ],
         },
       },
     },
@@ -44,7 +50,10 @@ export default [
     rules: {
       'consistent-return': 0,
       'import/extensions': 0,
+      'import/no-cycle': 0,
       'import/no-extraneous-dependencies': 0,
+      'import/no-named-as-default': 0,
+      'import/no-named-as-default-member': 0,
       'max-len': 0,
       'no-param-reassign': 0,
       'no-prototype-builtins': 0,
@@ -55,7 +64,7 @@ export default [
 
   // SUPRESS: No "exports" main defined in node_modules/@rollup/plugin-alias/package.json
   {
-    files: ['./gulpfile.js', './gulp/js.js'],
+    files: ['./gulpfile.js', './core/js.js'],
     rules: {
       'import/no-cycle': 0,
       'import/no-named-as-default': 0,

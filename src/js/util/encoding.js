@@ -1,18 +1,17 @@
-import { isArray, isObject, isStringValidJSON } from '@/js/util/is-object';
+import { isArray, isObject, isValidJsonString } from '@/js/util/misc';
 
-function encode(data) {
+function encodeToBase64(data) {
   if (isArray(data) || isObject(data)) {
     data = JSON.stringify(data);
   }
-
   return window.btoa(encodeURIComponent(data));
 }
 
-function decode(data) {
+function decodeFromBase64(data) {
   data = decodeURIComponent(window.atob(data));
 
   if (data.charAt(0) === '[' || data.charAt(0) === '{') {
-    if (isStringValidJSON(data)) {
+    if (isValidJsonString(data)) {
       data = JSON.parse(data);
     } else if (data.charAt(0) === '[') {
       data = [];
@@ -25,6 +24,6 @@ function decode(data) {
 }
 
 export {
-  decode,
-  encode,
+  decodeFromBase64,
+  encodeToBase64,
 };

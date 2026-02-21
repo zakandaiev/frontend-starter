@@ -1,3 +1,5 @@
+import { isFunction } from '@/js/util/misc';
+
 async function getUserPosition(opt = {}) {
   const position = {
     error: null,
@@ -67,7 +69,7 @@ function getDistanceBetweenCoords(lat1, lon1, lat2, lon2, unit = 'mi') {
 }
 
 function watchUserPosition(callback, opt = {}) {
-  if (!navigator.geolocation || typeof callback !== 'function') {
+  if (!navigator.geolocation || !isFunction(callback)) {
     return false;
   }
 

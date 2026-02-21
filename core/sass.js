@@ -1,3 +1,6 @@
+import { processArg } from '#core/app.js';
+import { path } from '#core/path.js';
+import server from '#core/server.js';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import gulp from 'gulp';
@@ -5,10 +8,7 @@ import gulpif from 'gulp-if';
 import postCss from 'gulp-postcss';
 import gulpSass from 'gulp-sass';
 import combineMediaQuery from 'postcss-combine-media-query';
-import dartSass from 'sass';
-import { processArg } from './app.js';
-import { path } from './path.js';
-import server from './server.js';
+import * as dartSass from 'sass';
 
 const sassPlugin = gulpSass(dartSass);
 

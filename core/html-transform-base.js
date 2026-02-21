@@ -1,5 +1,5 @@
+import { processArg } from '#core/app.js';
 import { Transform } from 'stream';
-import { processArg } from './app.js';
 
 function htmlTransformBase() {
   return new Transform({

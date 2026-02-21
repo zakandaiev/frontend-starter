@@ -1,6 +1,6 @@
+import { processArg } from '#core/app.js';
+import { pathDist } from '#core/path.js';
 import browserSync from 'browser-sync';
-import { processArg } from './app.js';
-import { pathDist } from './path.js';
 
 const server = browserSync.create();
 

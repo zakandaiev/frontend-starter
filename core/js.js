@@ -1,12 +1,13 @@
+import { appData, processArg } from '#core/app.js'; // eslint-disable-line
+import { absPath, path } from '#core/path.js';
 import alias from '@rollup/plugin-alias'; // eslint-disable-line
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
+import url from '@rollup/plugin-url';
 import { rollup } from 'rollup';
 import multiInput from 'rollup-plugin-multi-input';
-import { appData, processArg } from './app.js';
-import { absPath, path } from './path.js';
 
 const replaceData = Object.fromEntries(Object.entries(appData).map(([k, v]) => [k, JSON.stringify(v)]));
 
@@ -19,12 +20,20 @@ const terserConfig = {
 
 async function js(done) {
   const plugins = [
-    replace(replaceData),
-    nodeResolve(),
+    replace({
+      ...replaceData,
+      preventAssignment: true,
+    }),
     alias({
       entries: [
         { find: '@', replacement: absPath.src },
       ],
+    }),
+    nodeResolve(),
+    url({
+      limit: 0,
+      fileName: '[dirname][name][extname]',
+      sourceDir: absPath.src,
     }),
     commonjs({
       requireReturnsDefault: true,
@@ -34,9 +43,7 @@ async function js(done) {
   ];
 
   if (processArg.build) {
-    plugins.push(
-      terser(terserConfig),
-    );
+    plugins.push(terser(terserConfig));
   }
 
   const bundle = await rollup({

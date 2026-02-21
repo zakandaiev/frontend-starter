@@ -1,14 +1,14 @@
+import { processArg } from '#core/app.js';
+import del from '#core/del.js';
+import font from '#core/font.js';
+import img from '#core/img.js';
+import js from '#core/js.js';
+import { path } from '#core/path.js';
+import publicFiles from '#core/public-files.js';
+import sass from '#core/sass.js';
+import { reload, serve } from '#core/server.js';
+import twig from '#core/twig.js';
 import gulp from 'gulp';
-import { processArg } from './gulp/app.js';
-import del from './gulp/del.js';
-import font from './gulp/font.js';
-import img from './gulp/img.js';
-import js from './gulp/js.js';
-import { path } from './gulp/path.js';
-import publicFiles from './gulp/public-files.js';
-import sass from './gulp/sass.js';
-import { reload, serve } from './gulp/server.js';
-import twig from './gulp/twig.js';
 
 function watch() {
   gulp.watch(path.font.watch, gulp.series(font, reload));

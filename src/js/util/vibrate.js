@@ -1,18 +1,19 @@
+import { isString } from '@/js/util/misc';
+
 function getVibrate(type) {
-  switch (type) {
-    case 'success': {
-      return [40];
-    }
-    case 'warning': {
-      return [40, 20, 40];
-    }
-    case 'error': {
-      return [20, 20, 20, 20, 20];
-    }
-    default: {
-      return [20];
-    }
+  if (type === 'success') {
+    return [40];
   }
+
+  if (type === 'warning') {
+    return [40, 20, 40];
+  }
+
+  if (type === 'error') {
+    return [20, 20, 20, 20, 20];
+  }
+
+  return [20];
 }
 
 function vibrate(type = null) {
@@ -22,7 +23,7 @@ function vibrate(type = null) {
     return false;
   }
 
-  const signal = typeof type === 'string' ? getVibrate(type) : type;
+  const signal = isString(type) ? getVibrate(type) : type;
 
   window.navigator.vibrate(signal);
 

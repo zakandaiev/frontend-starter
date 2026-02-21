@@ -1,3 +1,5 @@
+import { processArg } from '#core/app.js';
+import { path } from '#core/path.js';
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import imagemin, {
@@ -7,8 +9,6 @@ import imagemin, {
   svgo,
 } from 'gulp-imagemin';
 import newer from 'gulp-newer';
-import { processArg } from './app.js';
-import { path } from './path.js';
 
 const imageminConfig = {
   gifsicle: {

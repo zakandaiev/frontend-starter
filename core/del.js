@@ -1,5 +1,5 @@
+import { path } from '#core/path.js';
 import { deleteAsync } from 'del';
-import { path } from './path.js';
 
 const delConfig = {
   force: true,

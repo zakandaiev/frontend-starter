@@ -1,14 +1,14 @@
-function randomInt(mi, ma) {
-  const min = parseInt(mi, 10);
-  const max = parseInt(ma, 10);
+import { toNumber } from '@/js/util/misc';
 
+function randomInt(mi, ma) {
+  const min = toNumber(mi);
+  const max = toNumber(ma);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function randomFloat(mi, ma) {
-  const min = parseFloat(mi);
-  const max = parseFloat(ma);
-
+  const min = toNumber(mi);
+  const max = toNumber(ma);
   return Math.random() * (max - min) + min;
 }
 

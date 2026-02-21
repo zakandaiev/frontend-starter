@@ -11,7 +11,7 @@ async function logError(error, customBody = {}) {
     return false;
   }
 
-  const url = `${Config.api.backend}/log/error`;
+  const url = `${Config.api.url}/log/error`;
   const options = {
     method: 'POST',
     body: {

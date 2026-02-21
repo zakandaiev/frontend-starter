@@ -1,5 +1,7 @@
+import { isString } from '@/js/util/misc';
+
 function toast(text, type = 'default', duration = null) {
-  if (typeof text !== 'string' || !text?.length) {
+  if (!isString(text) || !text.length) {
     return false;
   }
 
