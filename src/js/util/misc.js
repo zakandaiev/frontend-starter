@@ -44,6 +44,10 @@ function toNumber(value) {
     return value;
   }
 
+  if (!isString(value)) {
+    return null;
+  }
+
   const number = parseFloat(value.trim());
   return Number.isNaN(number) ? null : number;
 }
