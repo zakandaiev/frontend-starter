@@ -1,4 +1,4 @@
-import { isArray, isObject, isValidJsonString } from '@/js/util/misc';
+import { isArray, isObject, isStringValidJson } from '@/js/util/misc';
 
 function encodeToBase64(data) {
   if (isArray(data) || isObject(data)) {
@@ -11,7 +11,7 @@ function decodeFromBase64(data) {
   data = decodeURIComponent(window.atob(data));
 
   if (data.charAt(0) === '[' || data.charAt(0) === '{') {
-    if (isValidJsonString(data)) {
+    if (isStringValidJson(data)) {
       data = JSON.parse(data);
     } else if (data.charAt(0) === '[') {
       data = [];

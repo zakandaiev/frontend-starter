@@ -1,3 +1,6 @@
+@use "config" as *;
+@use "util" as *;
+
 .btn {
   @include reset-btn;
   cursor: pointer;

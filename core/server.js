@@ -4,28 +4,26 @@ import browserSync from 'browser-sync';
 
 const server = browserSync.create();
 
-const serverConfig = {
-  // proxy: 'starter.loc',
-  // or
-  server: {
-    baseDir: pathDist,
-    serveStaticOptions: {
-      extensions: ['html'],
+function serve(done) {
+  server.init({
+    // proxy: 'starter.loc',
+    // or
+    server: {
+      baseDir: pathDist,
+      serveStaticOptions: {
+        extensions: ['html'],
+      },
     },
-  },
-  port: processArg.port || processArg.build ? 3000 : 5173,
-  tunnel: processArg.host ? true : false,
-  open: false,
-  notify: false,
-};
-
-function reload(done) {
-  server.reload();
+    port: processArg.port || processArg.isBuild ? 3000 : 5173,
+    tunnel: processArg.host ? true : false,
+    open: false,
+    notify: false,
+  });
   done();
 }
 
-function serve(done) {
-  server.init(serverConfig);
+function reload(done) {
+  server.reload();
   done();
 }
 

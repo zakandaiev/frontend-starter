@@ -6,6 +6,10 @@ function isObject(value) {
   return (!!value) && (value.constructor === Object);
 }
 
+function isBoolean(value) {
+  return value === true || value === false ? true : false;
+}
+
 function isFunction(value) {
   return typeof value === 'function';
 }
@@ -26,14 +30,21 @@ function isString(value) {
   return typeof value === 'string';
 }
 
-function isValidJsonString(value) {
+function isStringBoolean(value) {
+  if (!isString(value)) {
+    return false;
+  }
+  return value === 'true' || value === 'false' ? true : false;
+}
+
+function isStringValidJson(value) {
   if (!isString(value)) {
     return false;
   }
 
   try {
     const parsed = JSON.parse(value);
-    return isObject(parsed);
+    return isArray(parsed) || isObject(parsed);
   } catch {
     return false;
   }
@@ -66,13 +77,15 @@ function toString(value) {
 
 export {
   isArray,
+  isBoolean,
   isFunction,
   isNumber,
   isNumberInRange,
   isNumeric,
   isObject,
   isString,
-  isValidJsonString,
+  isStringBoolean,
+  isStringValidJson,
   toNumber,
   toString,
 };

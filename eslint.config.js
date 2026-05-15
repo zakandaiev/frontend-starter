@@ -61,14 +61,4 @@ export default [
       'no-use-before-define': 0,
     },
   },
-
-  // SUPRESS: No "exports" main defined in node_modules/@rollup/plugin-alias/package.json
-  {
-    files: ['./gulpfile.js', './core/js.js'],
-    rules: {
-      'import/no-cycle': 0,
-      'import/no-named-as-default': 0,
-      'import/no-named-as-default-member': 0,
-    },
-  },
 ];

@@ -1,3 +1,5 @@
+@use "util/font" as *;
+
 $font-weight-list: (
   // thin: 100,
   // extralight: 200,
@@ -10,7 +12,9 @@ $font-weight-list: (
   // "black": 900,
 );
 
-@each $key, $val in $font-weight-list {
-  @include font("Inter", normal, $val, "../font/inter-#{$val}.woff2");
-  @include font("Inter", italic, $val, "../font/inter-#{$val}-italic.woff2");
+@mixin font-face() {
+  @each $key, $val in $font-weight-list {
+    @include font("Inter", normal, $val, "../font/inter-#{$val}.woff2");
+    @include font("Inter", italic, $val, "../font/inter-#{$val}-italic.woff2");
+  }
 }

@@ -10,50 +10,39 @@ import imagemin, {
 } from 'gulp-imagemin';
 import newer from 'gulp-newer';
 
-const imageminConfig = {
-  gifsicle: {
-    optimizationLevel: 1,
-    interlaced: false,
-  },
-  optipng: {
-    optimizationLevel: 5,
-  },
-  mozjpeg: {
-    quality: 75, progressive: true,
-  },
-  pngquant: {
-    quality: [0.7, 0.9],
-    speed: 7,
-  },
-  svgo: {
-    plugins: [
-      {
-        name: 'removeViewBox',
-        active: false,
-      },
-      {
-        name: 'convertShapeToPath',
-        active: false,
-      },
-      {
-        name: 'convertEllipseToCircle',
-        active: false,
-      },
-    ],
-  },
-};
-
 function img() {
   return gulp.src(path.img.src, { encoding: false })
     .pipe(newer(path.img.dist))
     .pipe(
       gulpif(
-        processArg.build,
+        processArg.isBuild,
         imagemin([
-          gifsicle(imageminConfig.gifsicle),
-          mozjpeg(imageminConfig.mozjpeg),
-          optipng(imageminConfig.optipng),
-          svgo(imageminConfig.svgo),
+          gifsicle({
+            optimizationLevel: 1,
+            interlaced: false,
+          }),
+          mozjpeg({
+            quality: 75, progressive: true,
+          }),
+          optipng({
+            optimizationLevel: 5,
+          }),
+          svgo({
+            plugins: [
+              {
+                name: 'removeViewBox',
+                active: false,
+              },
+              {
+                name: 'convertShapeToPath',
+                active: false,
+              },
+              {
+                name: 'convertEllipseToCircle',
+                active: false,
+              },
+            ],
+          }),
         ]),
       ),
     )

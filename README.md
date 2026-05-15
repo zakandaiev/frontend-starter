@@ -25,7 +25,7 @@ FrontEnd Starter is a boilerplate kit for easy building modern static web-sites 
 
 ## How to use
 
-Prerequisites: [Node.js](https://nodejs.org/) (`>=22`)
+Prerequisites: [Node.js](https://nodejs.org/) (`>=24`)
 
 ### Install
 
@@ -90,4 +90,17 @@ npm run lint:css:fix
 ``` bash
 # Fastify listen backend.js
 npm run backend
+```
+
+### Sourcemap debug
+
+``` bash
+# Run inside Docker container
+cp /sourcemaps/file.js.map /usr/share/nginx/html/
+
+# Run debug
+npm run debug:sourcemap -- --file=https://example.com/file.js.map --linecol=1:123
+
+# Run inside Docker container
+rm /usr/share/nginx/html/file.js.map
 ```

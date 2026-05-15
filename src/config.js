@@ -24,9 +24,11 @@ const Config = {
     key: APP_API_KEY,
     delayMs: toNumber(APP_API_DELAY_MS) ?? 500,
     timeoutMs: toNumber(APP_API_TIMEOUT_MS) ?? 15000,
+    isHardcodeForLocalDebug: false,
   },
   search: {
     debounceMs: 1000,
+    minQueryLength: 3,
   },
 };
 

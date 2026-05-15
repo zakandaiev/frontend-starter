@@ -1,7 +1,10 @@
+@use "sass:map";
+@use "config/breakpoint" as *;
+
 @mixin query($bp, $computer_first: false) {
   @if $computer_first == true {
-    @if map-has-key($breakpoint-reverse, $bp) {
-      $bp-value: map-get($breakpoint-reverse, $bp);
+    @if map.has-key($breakpoint-reverse, $bp) {
+      $bp-value: map.get($breakpoint-reverse, $bp);
 
       @media (max-width: $bp-value) {
         @content;
@@ -10,8 +13,8 @@
       @warn 'Invalid breakpoint: #{$bp}';
     }
   } @else {
-    @if map-has-key($breakpoint, $bp) {
-      $bp-value: map-get($breakpoint, $bp);
+    @if map.has-key($breakpoint, $bp) {
+      $bp-value: map.get($breakpoint, $bp);
 
       @media (min-width: $bp-value) {
         @content;

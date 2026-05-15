@@ -1,4 +1,4 @@
-import { isArray, isObject, isValidJsonString } from '@/js/util/misc';
+import { isArray, isObject, isStringValidJson } from '@/js/util/misc';
 
 function setStorage(key, data, type = 'session') {
   if (isArray(data) || isObject(data)) {
@@ -18,7 +18,7 @@ function getStorage(key, type = 'session') {
   let data = (type === 'session') ? sessionStorage.getItem(key) : localStorage.getItem(key);
 
   if (data && (data.charAt(0) === '[' || data.charAt(0) === '{')) {
-    if (isValidJsonString(data)) {
+    if (isStringValidJson(data)) {
       data = JSON.parse(data);
     } else if (data.charAt(0) === '[') {
       data = [];

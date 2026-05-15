@@ -11,37 +11,35 @@ import nodePath from 'node:path';
 
 const tablerIconsAbsPath = nodePath.join(absPath.nodeModules, '@tabler', 'icons', 'icons');
 
-const twigConfig = {
-  base: pathSrc,
-  data: getTwigGlobals(),
-  namespaces: {
-    node: absPath.nodeModules,
-    component: absPath.component,
-    layout: absPath.layout,
-    view: absPath.view,
-    ti: nodePath.join(tablerIconsAbsPath, 'outline'),
-    'ti-filled': nodePath.join(tablerIconsAbsPath, 'filled'),
-  },
-};
-
 function twig() {
   return gulp.src(path.twig.src, { encoding: false })
-    .pipe(twigInstance(twigConfig))
+    .pipe(twigInstance({
+      base: pathSrc,
+      data: getTwigGlobals(),
+      namespaces: {
+        node: absPath.nodeModules,
+        component: absPath.component,
+        layout: absPath.layout,
+        view: absPath.view,
+        ti: nodePath.join(tablerIconsAbsPath, 'outline'),
+        'ti-filled': nodePath.join(tablerIconsAbsPath, 'filled'),
+      },
+    }))
     .pipe(
       gulpif(
-        processArg.build,
+        processArg.isBuild,
         versionNumber(),
       ),
     )
     .pipe(
       gulpif(
-        processArg.build,
+        processArg.isBuild,
         htmlmin(),
       ),
     )
     .pipe(
       gulpif(
-        processArg.build,
+        processArg.isBuild,
         htmlTransformBase(),
       ),
     )

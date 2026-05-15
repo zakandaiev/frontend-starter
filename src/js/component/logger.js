@@ -2,12 +2,8 @@ import Config from '@/config';
 import { request } from '@/js/util/request';
 import route from '@/js/util/route';
 
-async function logError(error, customBody = {}) {
+async function logError(error, bodyOverwrite = {}) {
   if (Config.app.mode !== 'prod') {
-    return false;
-  }
-
-  if (error && !error?.stack?.includes(window.location.hostname)) {
     return false;
   }
 
@@ -15,15 +11,16 @@ async function logError(error, customBody = {}) {
   const options = {
     method: 'POST',
     body: {
-      app: Config.app,
-      client: getClientInfo(),
       error,
       url: route.urlFull,
-      ...customBody,
+      app: Config.app,
+      client: getClientInfo(),
+      storage: getStorageInfo(),
+      ...bodyOverwrite,
     },
   };
-  const data = await request(url, options);
 
+  const data = await request(url, options);
   return data;
 }
 
@@ -57,6 +54,21 @@ function getClientInfo() {
   };
 }
 
+function getStorageInfo() {
+  const local = Object.fromEntries(
+    Object.keys(window.localStorage).map((key) => [key, window.localStorage.getItem(key)]),
+  );
+
+  const session = Object.fromEntries(
+    Object.keys(window.sessionStorage).map((key) => [key, window.sessionStorage.getItem(key)]),
+  );
+
+  return {
+    localStorage: local,
+    sessionStorage: session,
+  };
+}
+
 window.addEventListener('error', (err) => {
   const {
     message,
@@ -71,6 +83,6 @@ window.addEventListener('error', (err) => {
     filename,
     lineno,
     colno,
-    stack: error?.stack || null,
+    stack: error?.stack,
   });
 });

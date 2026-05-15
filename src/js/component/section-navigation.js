@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setSticky(navigation) {
   const parentNode = navigation.closest('.position-sticky');
-
   if (!parentNode) {
     return false;
   }

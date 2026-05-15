@@ -3,6 +3,7 @@
 
 # EXCEPT
 !core/
+!public/
 !src/
 !.env
 !gulpfile.*

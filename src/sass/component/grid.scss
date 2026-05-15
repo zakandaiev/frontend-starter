@@ -1,3 +1,6 @@
+@use "config" as *;
+@use "util" as *;
+
 .row {
   display: flex;
   flex-wrap: wrap;

@@ -11,7 +11,6 @@ function htmlTransformBase() {
       }
 
       const { base } = processArg;
-
       if (!base || base === '/' || base.startsWith('.')) {
         return callback(null, file);
       }
@@ -19,7 +18,6 @@ function htmlTransformBase() {
       const baseFormatted = `/${base.trim().replace(/^\/|\/$/g, '')}`;
 
       const html = file.contents.toString(enc);
-
       const modifiedHtml = html.replace(/(href|src)=["']([^"']+)["']/gi, (match, attr, url) => {
         if (!url || !url.length || url.startsWith('./') || url.startsWith(baseFormatted) || url.startsWith('http') || url.startsWith('www')) {
           return match;
@@ -31,7 +29,6 @@ function htmlTransformBase() {
       });
 
       file.contents = Buffer.from(modifiedHtml);
-
       callback(null, file);
     },
   });

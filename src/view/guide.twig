@@ -100,6 +100,20 @@
 </pre>
           </div>
 
+          <h4 class="font-regular">Sourcemap debug</h4>
+          <div class="box">
+            <pre>
+<span class="color-muted"># Run inside Docker container</span>
+<span data-copy data-toast="Copied to clipboard" class="cursor-pointer"><span class="color-primary">cp</span> /sourcemaps/file.js.map /usr/share/nginx/html/</span>
+
+<span class="color-muted"># Run debug</span>
+<span data-copy data-toast="Copied to clipboard" class="cursor-pointer"><span class="color-primary">npm</span> run debug:sourcemap <span class="color-info">-- --file=https://example.com/file.js.map --linecol=1:123</span></span>
+
+<span class="color-muted"># Run inside Docker container</span>
+<span data-copy data-toast="Copied to clipboard" class="cursor-pointer"><span class="color-primary">rm</span> /usr/share/nginx/html/file.js.map</span>
+</pre>
+          </div>
+
         </div>
       </section>
 

@@ -59,7 +59,7 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     delete options.body;
   }
 
-  if (isObject(options.body) && !(options.body instanceof FormData)) {
+  if ((isArray(options.body) || isObject(options.body)) && options.body instanceof FormData !== true) {
     options.body = JSON.stringify(options.body);
   }
 
@@ -71,7 +71,9 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
     error: null,
   };
 
-  let response = {};
+  let response;
+  let responseJson;
+  let responseText;
 
   try {
     response = await fetchWithTimeout(resource, options, getApiTimeout(timeout));
@@ -83,17 +85,20 @@ async function request(resource, opt = {}, timeout = null, delay = null) {
   }
 
   try {
-    const responseData = await response.json() || {};
-    if (responseData.constructor.name === 'Object') {
-      Object.assign(result, responseData);
-    }
+    responseText = await response.text();
+  } catch (e) {
+    result.status = 'error';
+    result.message = `Request failed: ${e.message}`;
+    return result;
+  }
 
-    result.status = responseData.status || null;
-    result.message = responseData.message || null;
-    result.data = responseData.data || responseData.payload || responseData || null;
+  try {
+    responseJson = JSON.parse(responseText);
+    Object.assign(result, responseJson);
   } catch {
     result.status = 'error';
     result.message = 'Request failed: the response is not valid JSON';
+    result.data = responseText;
     return result;
   }
 

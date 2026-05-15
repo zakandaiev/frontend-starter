@@ -55,4 +55,4 @@ export {
   twig,
 };
 
-export default processArg.build ? build : dev;
+export default processArg.isBuild ? build : dev;

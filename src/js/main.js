@@ -2,6 +2,7 @@ import '@/js/component/logger';
 import '@/js/component/watermark';
 
 import '@/js/component/data-copy';
+import '@/js/component/data-theme';
 import '@/js/component/data-toast';
 import '@/js/component/external-link-norefer';
 import '@/js/component/format-tel-link';

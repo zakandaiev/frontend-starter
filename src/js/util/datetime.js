@@ -1,10 +1,6 @@
 import { isNumber, isString, toNumber } from '@/js/util/misc';
 
 function toDate(input) {
-  if (input === null) {
-    return new Date();
-  }
-
   if (input instanceof Date) {
     return new Date(input.valueOf());
   }
@@ -26,7 +22,10 @@ function toDate(input) {
 
 function toTimestamp(input) {
   const date = toDate(input);
-  return date ? date.getTime() : null;
+  if (!date) {
+    return null;
+  }
+  return date.getTime();
 }
 
 function formatDate(input, format = 'DD.MM.YYYY') {
@@ -81,21 +80,17 @@ function isToday(input) {
 
 function isPast(input) {
   const date = toDate(input);
-
   if (!date) {
     return null;
   }
-
   return date.getTime() < Date.now();
 }
 
 function isFuture(input) {
   const date = toDate(input);
-
   if (!date) {
     return null;
   }
-
   return date.getTime() > Date.now();
 }
 
@@ -108,12 +103,6 @@ function getRelativeDateLabel(input, format = 'DD.MM.YYYY') {
   const now = new Date();
 
   const today = isDatesEqual(date, now);
-
-  const yesterdayDate = new Date(now);
-  yesterdayDate.setDate(now.getDate() - 1);
-
-  const yesterday = isDatesEqual(date, yesterdayDate);
-
   if (today) {
     return {
       label: 'today',
@@ -121,9 +110,22 @@ function getRelativeDateLabel(input, format = 'DD.MM.YYYY') {
     };
   }
 
+  const yesterdayDate = new Date(now);
+  yesterdayDate.setDate(now.getDate() - 1);
+  const yesterday = isDatesEqual(date, yesterdayDate);
   if (yesterday) {
     return {
       label: 'yesterday',
+      value: formatDate(date, 'HH:mm'),
+    };
+  }
+
+  const tomorrowDate = new Date(now);
+  tomorrowDate.setDate(now.getDate() + 1);
+  const tomorrow = isDatesEqual(date, tomorrowDate);
+  if (tomorrow) {
+    return {
+      label: 'tomorrow',
       value: formatDate(date, 'HH:mm'),
     };
   }
@@ -207,7 +209,7 @@ function convertStringToSeconds(string) {
     return null;
   }
 
-  const match = string.trim().match(/^(\d+(?:\.\d+)?)(s|sec|m|min|h|d|w|mo|y)$/i);
+  const match = string.trim().match(/^(\d+(?:\.\d+)?)(s|sec|m|min|h|d|w|mo|mon|y)$/i);
   if (!match) {
     return null;
   }
@@ -228,17 +230,20 @@ function convertStringToSeconds(string) {
     future.setDate(future.getDate() + value);
   } else if (unit === 'w') {
     future.setDate(future.getDate() + (value * 7));
-  } else if (unit === 'mo') {
+  } else if (unit === 'mo' || unit === 'mon') {
     future.setMonth(future.getMonth() + value);
   } else if (unit === 'y') {
     future.setFullYear(future.getFullYear() + value);
   }
 
-  return future.getTime() - now.getTime();
+  return (future.getTime() - now.getTime()) / 1000;
 }
 
 function addToDate(input, {
-  days = 0, hours = 0, minutes = 0, seconds = 0,
+  days = 0,
+  hours = 0,
+  minutes = 0,
+  seconds = 0,
 } = {}) {
   const date = toDate(input);
   if (!date) {

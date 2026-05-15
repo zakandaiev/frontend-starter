@@ -1,12 +1,11 @@
 import { path } from '#core/path.js';
-import { deleteAsync } from 'del';
-
-const delConfig = {
-  force: true,
-};
+import { rm } from 'node:fs/promises';
 
 function del() {
-  return deleteAsync(path.del, delConfig);
+  return rm(path.del, {
+    force: true,
+    recursive: true,
+  });
 }
 
 export default del;

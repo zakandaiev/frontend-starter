@@ -4,7 +4,10 @@ import minimist from 'minimist';
 import { argv, env } from 'node:process';
 
 const packageData = { ...packageDataJson };
+
 const processArg = minimist(argv.slice(2));
+processArg.isBuild = !!processArg.build;
+
 const appData = {
   APP_MODE: 'dev',
 

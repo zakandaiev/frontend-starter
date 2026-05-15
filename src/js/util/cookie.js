@@ -1,4 +1,4 @@
-import { isArray, isObject, isValidJsonString } from '@/js/util/misc';
+import { isArray, isObject, isStringValidJson } from '@/js/util/misc';
 
 function setCookie(key, data, days = 3, path = '/') {
   if (isArray(data) || isObject(data)) {
@@ -26,7 +26,7 @@ function getCookie(key) {
 
 function formatCookie(key, data) {
   if (data && (data.charAt(0) === '[' || data.charAt(0) === '{')) {
-    if (isValidJsonString(data)) {
+    if (isStringValidJson(data)) {
       data = JSON.parse(data);
     } else if (data.charAt(0) === '[') {
       data = [];

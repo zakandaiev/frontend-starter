@@ -15,6 +15,7 @@ const absPath = {
   public: nodePath.resolve(cwd(), pathPublic),
   dist: nodePath.resolve(cwd(), pathDist),
   src: nodePath.resolve(cwd(), pathSrc),
+  api: nodePath.resolve(cwd(), pathSrc, 'api'),
   component: nodePath.resolve(cwd(), pathSrc, 'component'),
   data: nodePath.resolve(cwd(), pathSrc, 'data'),
   font: nodePath.resolve(cwd(), pathSrc, 'font'),
@@ -29,8 +30,8 @@ const path = {
   del: pathDist,
 
   public: {
-    src: `${pathSrc}/public/**/*.*`,
-    watch: `${pathSrc}/public/**/*.*`,
+    src: `${pathPublic}/**/*.*`,
+    watch: `${pathPublic}/**/*.*`,
     dist: pathDist,
   },
 
@@ -51,7 +52,10 @@ const path = {
 
   js: {
     src: `${pathSrc}/js/*.js`,
-    watch: `${pathSrc}/js/**/*.js`,
+    watch: [
+      `${pathSrc}/api/**/*.js`,
+      `${pathSrc}/js/**/*.js`,
+    ],
     dist: `${pathDist}/js`,
   },
 

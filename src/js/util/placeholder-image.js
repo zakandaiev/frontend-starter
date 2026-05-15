@@ -6,7 +6,6 @@ function placeholderImage(event, customUrl) {
   }
 
   const image = event.target;
-
   if (!image || image.isPlaceholdered) {
     return false;
   }
